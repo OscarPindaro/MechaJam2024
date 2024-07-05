@@ -25,6 +25,7 @@ var can_shoot: bool = true
 var targets: Array[Node2D] = []
 
 # object nodes
+@onready var animations: AnimatedSprite2D = $Animations
 @onready var walk_player: AudioStreamPlayer2D = $Sound/WalkPlayer
 
 func _ready():
@@ -49,6 +50,8 @@ func move_to(target_position: Vector2):
 	mov_tween = create_tween()
 	if walk_player.playing == false:
 		walk_player.play()
+	animations.play("down")
+
 	mov_tween.tween_property(self, "position", target_position, speed).set_trans(mov_transition).set_ease(Tween.EASE_OUT)
 	mov_tween.tween_callback(on_mov_tween_end)
 
@@ -59,3 +62,5 @@ func _physics_process(delta):
 func on_mov_tween_end():
 	walk_player.stop()
 	finished_step.emit()
+	animations.stop()
+	animations.play("default")
