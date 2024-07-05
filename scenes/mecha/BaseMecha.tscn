@@ -105,17 +105,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb5b2"]
-radius = 23.0
-height = 72.0
+radius = 32.0
+height = 64.0
 
 [node name="BaseMecha" type="CharacterBody2D"]
 script = ExtResource("1_0gymd")
-test = true
 starting_stats = SubResource("Resource_1hgdl")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 5)
+position = Vector2(0.500001, -20.5)
+scale = Vector2(5.4375, 6.5625)
 sprite_frames = SubResource("SpriteFrames_vrelx")
 animation = &"down"
 autoplay = "default"
@@ -123,10 +123,10 @@ frame = 1
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
 shape = SubResource("CapsuleShape2D_nb5b2")
 
 [node name="Sound" type="Node" parent="."]
 
 [node name="WalkPlayer" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource("4_xi874")
-bus = &"SFX Mecha"

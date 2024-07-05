@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq1dcakjrtmw1"]
+
+[ext_resource type="Script" path="res://scenes/controllers/MechaController.gd" id="1_xd7ey"]
+[ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="2_7o62y"]
+
+[node name="MechaController" type="Node2D"]
+script = ExtResource("1_xd7ey")
+
+[node name="BaseMecha" parent="." instance=ExtResource("2_7o62y")]
+test = true
