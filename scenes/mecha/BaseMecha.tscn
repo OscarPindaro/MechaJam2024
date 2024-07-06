@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=18 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
 [ext_resource type="Texture2D" uid="uid://ddbew5afyhmsd" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
 [ext_resource type="AudioStream" uid="uid://04oe1fwg4ext" path="res://asset/placeholders/sfx/bw_1bit/Attack02.wav" id="4_xi874"]
+[ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 
 [sub_resource type="Resource" id="Resource_1hgdl"]
 script = ExtResource("2_j8l85")
@@ -130,3 +131,6 @@ shape = SubResource("CapsuleShape2D_nb5b2")
 
 [node name="WalkPlayer" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource("4_xi874")
+
+[node name="ControllerMovement" type="Node" parent="."]
+script = ExtResource("5_akstm")
