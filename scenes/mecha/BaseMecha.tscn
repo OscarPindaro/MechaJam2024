@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=21 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
 [ext_resource type="Texture2D" uid="uid://ddbew5afyhmsd" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
 [ext_resource type="Texture2D" uid="uid://dxfa6bvxwl2ob" path="res://asset/mecha/background_mecha.png" id="3_ihcym"]
-[ext_resource type="Script" path="res://scenes/mecha/MouseDetectionArea.gd" id="4_6ey7l"]
 [ext_resource type="AudioStream" uid="uid://04oe1fwg4ext" path="res://asset/placeholders/sfx/bw_1bit/Attack02.wav" id="4_xi874"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 
@@ -140,7 +139,6 @@ animation = &"move_down"
 autoplay = "default"
 
 [node name="MouseSelectionArea" type="Area2D" parent="."]
-script = ExtResource("4_6ey7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelectionArea"]
 position = Vector2(0, -21)

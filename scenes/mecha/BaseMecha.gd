@@ -45,7 +45,6 @@ func _ready():
 	speed = starting_stats.start_speed
 	attack_speed = starting_stats.start_attack_speed
 	damage = starting_stats.start_damage
-	print("Speed: ", speed)
 	# select()
 	mouse_sel_area = $MouseSelectionArea
 	# connect myself to event on mouse entered and exited
@@ -62,7 +61,6 @@ func on_selection_mouse_entered():
 	mecha_hoover_entered.emit()
 
 func on_selection_mouse_exited():
-	print("uscito")
 	set_hoover_on_mecha(false)
 	mecha_hoover_exited.emit()
 
