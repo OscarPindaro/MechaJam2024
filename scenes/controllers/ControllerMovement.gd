@@ -22,6 +22,8 @@ func setup_astar():
 	a_star = AStarGrid2D.new()
 	a_star.region = region
 	a_star.diagonal_mode = 1
+	a_star.default_compute_heuristic = 1
+	a_star.default_estimate_heuristic = 1
 	a_star.update()
 
 func compute_id_path(start: Vector2i, end: Vector2i)-> Array[Vector2i]:
