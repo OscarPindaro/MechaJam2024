@@ -67,7 +67,8 @@ death_sound = ExtResource("6_0bfxc")
 attack_sound = ExtResource("5_rkrtq")
 start_hp = 100.0
 start_speed = 100.0
-start_dmg = 0.0
+start_dmg = 10.0
+money_value = 10.0
 pathfinding_radius = 0.0
 spawn_value = 1.0
 spawn_frequency = 2.0
@@ -129,7 +130,8 @@ hit_sound = ExtResource("6_0bfxc")
 attack_sound = ExtResource("10_6u2rl")
 start_hp = 100.0
 start_speed = 50.0
-start_dmg = 0.0
+start_dmg = 20.0
+money_value = 20.0
 pathfinding_radius = 0.0
 spawn_value = 1.0
 spawn_frequency = 1.0
@@ -145,6 +147,7 @@ script = ExtResource("1_xuv5p")
 script = ExtResource("2_so7dd")
 base_enemy = ExtResource("3_h5tcq")
 enemy_types = Array[ExtResource("5_f4q2t")]([SubResource("Resource_61n1r"), SubResource("Resource_nfhl4")])
+spawn_radius = 10.0
 
 [node name="SpawnTimer" type="Timer" parent="Spawner"]
 

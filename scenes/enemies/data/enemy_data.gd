@@ -25,6 +25,7 @@ enum SpawnCondition {
 @export var start_hp : float
 @export var start_speed : float
 @export var start_dmg : float
+@export var money_value : float
 
 # Pathfinding
 @export var pathfinding_radius : float

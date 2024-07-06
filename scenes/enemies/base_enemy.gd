@@ -9,6 +9,7 @@ var hp : float
 var speed : float
 var dmg : float
 var charme : float
+var money_value : float
 
 # Navigation
 var can_move : bool = true
@@ -20,7 +21,7 @@ var first_path_finish : bool = true
 
 # Signals
 signal hit(dmg)
-signal dead()
+signal dead(money_value)
 signal charmed()
 signal attack(dmg)
 
@@ -77,7 +78,7 @@ func _physics_process(delta):
 func damage(value):
 	hit.emit(value)
 	if hp <= 0:
-		dead.emit()
+		dead.emit(stats.money_value)
 
 func apply_charme(value):
 	charme += value
@@ -124,7 +125,7 @@ func on_hit(value):
 		$AudioStreamPlayer.stream = stats.hit_sound
 		$AudioStreamPlayer.play()
 
-func on_dead():
+func on_dead(_money_value):
 	can_move = false
 	$UI/HealthBar.visible = false
 	$AnimatedSprite.animation = ANIMATION_NAMES[1]
