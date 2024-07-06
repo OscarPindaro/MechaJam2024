@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Area2D
 
 @export var data : EnemyData
 
@@ -29,12 +29,14 @@ func _ready():
 			add_to_group(group)
 
 	# Init sprite and collision shape
-	$Area2D/CollisionShape2D.shape = data.collision_shape
-	$UI.size.y = data.collision_shape.size.y
-	$UI.position.y = -data.collision_shape.size.y / 2
-	sprite_frames = data.animated_sprite
-	frame = randi_range(0, sprite_frames.get_frame_count(animation) - 1)
-	play()
+	$AreaShape.shape = data.collision_shape
+	$AnimatedSprite.sprite_frames = data.animated_sprite
+	$AnimatedSprite.frame = randi_range(0, $AnimatedSprite.sprite_frames.get_frame_count($AnimatedSprite.animation) - 1)
+	$AnimatedSprite.play()
+
+	# Init health bar shape
+	$UI.size = data.collision_shape.size
+	$UI.position = -data.collision_shape.size / 2
 
 	# Init stats
 	hp = data.start_hp
@@ -73,8 +75,12 @@ func apply_charme(value):
 	if charme >= hp:
 		emit_signal("charmed")
 
+func change_target(target):
+	$NavigationAgent2D.target_position = target
+
 func on_hit(value):
 	hp -= value
+	print(hp)
 
 	$UI/HealthBar.visible = true
 	$UI/HealthBar.value = (hp/data.start_hp) * 100
