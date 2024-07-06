@@ -14,6 +14,9 @@ map_path = NodePath("../Map")
 [node name="ControllerMovement" parent="MechaController" index="0"]
 region = Rect2i(0, 0, 18, 11)
 
+[node name="Mecha1" parent="MechaController/Mechas" index="0"]
+position = Vector2(802, 105)
+
 [editable path="Map"]
 [editable path="MechaController"]
 [editable path="MechaController/Mechas/Mecha2"]
