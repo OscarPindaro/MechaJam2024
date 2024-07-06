@@ -70,18 +70,18 @@ func _physics_process(delta):
 		# Move with speed
 		position += (current_target - position).normalized() * speed * delta
 	elif first_path_finish && $NavigationAgent2D.target_position == goal_position:
-		emit_signal("attack", dmg)
+		attack.emit(dmg)
 		first_path_finish = false
 
 func damage(value):
-	emit_signal("hit", value)
+	hit.emit(value)
 	if hp <= 0:
-		emit_signal("dead")
+		dead.emit()
 
 func apply_charme(value):
 	charme += value
 	if charme >= hp:
-		emit_signal("charmed")
+		charmed.emit()
 
 func set_goal(target):
 	goal_position = target
