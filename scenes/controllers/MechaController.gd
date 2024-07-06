@@ -4,7 +4,7 @@ extends Node2D
 @onready var map_node: Map = get_node(map_path)
 
 @onready var curr_mecha: BaseMecha = $BaseMecha 
-
+@onready var movement_controller: ControllerMovement = $ControllerMovement
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
@@ -12,14 +12,20 @@ func _input(event):
 		var target_cell: Vector2i = get_coord_in_map(mouse_position)
 
 		var mecha_cell: Vector2i = get_coord_in_map(curr_mecha.position)
-		
-		# print("Target Cell", target_cell)
-		# print("Mecha Cell", mecha_cell)
-		# print("Differen Cells", target_cell != mecha_cell)
+
 
 
 		if target_cell != mecha_cell:
-			curr_mecha.move_to(get_center_tile_pos_from_cord(target_cell))
+			# compute best path
+			var cell_path: Array[Vector2i] = movement_controller.compute_id_path(mecha_cell, target_cell)
+
+			# convert to local transform? maybe inside the player
+			var position_path: Array[Vector2]= []
+			for cell in cell_path:
+				position_path.append(get_center_tile_pos_from_cord(cell))
+			curr_mecha.move_along_path(position_path)
+			# curr_mecha.move_to(get_center_tile_pos_from_cord(target_cell))	
+
 
 		
 
@@ -38,8 +44,7 @@ func get_center_tile_pos_from_cord(coord: Vector2i) -> Vector2:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(map_node)
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
