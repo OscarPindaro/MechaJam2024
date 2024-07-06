@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dng4a0cw6fvud"]
+[gd_scene load_steps=30 format=3 uid="uid://dng4a0cw6fvud"]
 
 [ext_resource type="Texture2D" uid="uid://fbj20cidojfe" path="res://asset/Floor Tilemap_1.png" id="1_6t1qg"]
 [ext_resource type="Script" path="res://scenes/map/Map.gd" id="1_amy5q"]
 [ext_resource type="Texture2D" uid="uid://beia3n2ucsmm" path="res://asset/map/Floor Tilemap_2_Cardboard.png" id="3_1k83n"]
+[ext_resource type="Texture2D" uid="uid://cgsgnjm4cnldp" path="res://asset/map/White.png" id="4_urxfd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwyvk"]
 resource_name = "Floor"
@@ -255,6 +256,20 @@ texture_region_size = Vector2i(64, 64)
 5:3/0/terrains_peering_bit/right_side = 0
 5:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_owqsn")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qm11w"]
+resource_name = "CorrSelection"
+texture = ExtResource("4_urxfd")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/modulate = Color(0.180392, 1, 0.301961, 0.709804)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_px6i0"]
+resource_name = "WrongSelection"
+texture = ExtResource("4_urxfd")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/modulate = Color(1, 0.180392, 0.180392, 0.792157)
+
 [sub_resource type="TileSet" id="TileSet_ynhx1"]
 tile_size = Vector2i(64, 64)
 terrain_set_0/mode = 0
@@ -263,6 +278,8 @@ terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_pwyvk")
 sources/1 = SubResource("TileSetAtlasSource_52hk3")
+sources/2 = SubResource("TileSetAtlasSource_qm11w")
+sources/3 = SubResource("TileSetAtlasSource_px6i0")
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_amy5q")
@@ -280,3 +297,10 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(327680, 65537, 3, 327681, 131073, 3, 327682, 131073, 3, 327683, 131073, 3, 327684, 131073, 3, 327685, 131073, 3, 327686, 196609, 0, 327687, 196609, 3, 327688, 131073, 3, 327689, 131073, 0, 393225, 65537, 1, 393226, 262145, 0, 393227, 131073, 3, 393228, 196609, 3, 393229, 131073, 3, 393230, 196609, 3, 393231, 131073, 1, 327695, 65537, 0, 327696, 262145, 3, 655370, 1, 2, 589834, 131073, 2, 524298, 196609, 2, 458762, 131073, 2, 6, 65537, 2, 65542, 196609, 2, 131078, 131073, 2, 196614, 131073, 2, 262150, 131073, 2)
+layer_2/name = "Selection"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
