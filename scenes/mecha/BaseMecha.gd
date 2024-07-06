@@ -6,10 +6,10 @@ signal finished_step()
 # called at the end of a series of steps
 signal finished_movement()
 # singlas for hoovering and selection
-signal mecha_selected()
-signal mecha_hoover_entered()
-signal mecha_hoover_exited()
-
+signal mecha_selected(mecha: BaseMecha)
+signal mecha_hoover_entered(mecha: BaseMecha)
+signal mecha_hoover_exited(mecha: BaseMecha)
+signal input_capture_ended()
 
 @export var test: bool = false
 @export var mov_transition: Tween.TransitionType = Tween.TRANS_QUAD
@@ -58,13 +58,13 @@ func _ready():
 
 func on_selection_mouse_entered():
 	set_hoover_on_mecha(true)
-	mecha_hoover_entered.emit()
+	mecha_hoover_entered.emit(self)
 
 func on_selection_mouse_exited():
 	set_hoover_on_mecha(false)
-	mecha_hoover_exited.emit()
+	mecha_hoover_exited.emit(self)
 
-func on_mouse_click(viewport: Node, event: InputEvent, shape_idx: int):
+func on_mouse_click(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			# this code selects and deselects with a click
@@ -74,7 +74,7 @@ func on_mouse_click(viewport: Node, event: InputEvent, shape_idx: int):
 				set_select_mecha(!selected)
 				# if it was not selected
 				if was_selected == false:
-					mecha_selected.emit()
+					mecha_selected.emit(self)
 				# if now is not selected, activate hoovering
 				if selected == false:
 					set_hoover_on_mecha(true)
@@ -82,7 +82,10 @@ func on_mouse_click(viewport: Node, event: InputEvent, shape_idx: int):
 			else:
 				if selected == false:
 					set_select_mecha(true)
-					mecha_selected.emit()
+					mecha_selected.emit(self)
+			print("fine input becha")	
+
+		
 
 
 func set_hoover_on_mecha(visibility: bool):
