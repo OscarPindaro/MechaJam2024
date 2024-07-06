@@ -1,0 +1,233 @@
+[gd_scene load_steps=11 format=3 uid="uid://y75tqsouhvsj"]
+
+[ext_resource type="Script" path="res://scenes/UI/UserInterface.gd" id="1_a1vov"]
+[ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
+[ext_resource type="Texture2D" uid="uid://b5rkjwrjqynub" path="res://asset/UI/meun_gear.png" id="2_b0tb2"]
+[ext_resource type="Texture2D" uid="uid://ddtav8vrfemdh" path="res://asset/UI/Cosmonaut2.png" id="2_ekjax"]
+[ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="2_hhg2b"]
+[ext_resource type="Script" path="res://scenes/UI/Play_pause.gd" id="3_1pods"]
+[ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="4_wwayp"]
+[ext_resource type="Script" path="res://scenes/UI/PopupShop.gd" id="8_nk145"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_rcvux"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_e4kgy"]
+events = [SubResource("InputEventKey_rcvux")]
+
+[node name="GameplayUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a1vov")
+
+[node name="PauseSymbol" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PauseSymbol"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_7f32f")
+expand_mode = 4
+
+[node name="Menu_buttons" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 2.0
+offset_bottom = 35.0
+grow_horizontal = 0
+columns = 3
+
+[node name="Play_pause" type="Button" parent="Menu_buttons"]
+process_mode = 3
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_hhg2b")
+icon = ExtResource("2_7f32f")
+script = ExtResource("3_1pods")
+
+[node name="Menu" type="Button" parent="Menu_buttons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_hhg2b")
+shortcut = SubResource("Shortcut_e4kgy")
+icon = ExtResource("2_b0tb2")
+script = ExtResource("4_wwayp")
+
+[node name="ShopPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme = ExtResource("2_hhg2b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HPDistribute" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HPLabel" type="Label" parent="ShopPanel/VBoxContainer/HPDistribute"]
+layout_mode = 2
+text = "HP
+"
+
+[node name="HPBar" type="MarginContainer" parent="ShopPanel/VBoxContainer/HPDistribute"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="ShopPanel/VBoxContainer/HPDistribute/HPBar"]
+custom_minimum_size = Vector2(250, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_hhg2b")
+step = 1.0
+value = 60.0
+show_percentage = false
+
+[node name="MechaShop" type="GridContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="ShopItem1" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+unique_name_in_owner = true
+process_mode = 1
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+theme = ExtResource("2_hhg2b")
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem1"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem1/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Mecha-TimeTravel" type="MarginContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 44
+
+[node name="Button" type="Button" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Buy now
+PAY LATER"
+icon = ExtResource("2_ekjax")
+alignment = 2
+
+[node name="PopupShop" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_nk145")
+
+[node name="PopupShopCanvas" type="PopupPanel" parent="PopupShop"]
+unique_name_in_owner = true
+size = Vector2i(200, 200)
+theme = ExtResource("2_hhg2b")
+
+[node name="CenterContainer" type="CenterContainer" parent="PopupShop/PopupShopCanvas"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupShop/PopupShopCanvas/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopupShop/PopupShopCanvas/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nome"
+
+[node name="Label2" type="Label" parent="PopupShop/PopupShopCanvas/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Descrizione"
+
+[node name="Label3" type="Label" parent="PopupShop/PopupShopCanvas/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prezzo
+"
+
+[connection signal="pressed" from="Menu_buttons/Play_pause" to="Menu_buttons/Play_pause" method="_on_pressed"]
+[connection signal="pressed" from="Menu_buttons/Menu" to="Menu_buttons/Menu" method="_on_pressed"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/MechaShop/ShopItem1" to="ShopPanel/VBoxContainer/MechaShop/ShopItem1" method="_on_pressed"]
