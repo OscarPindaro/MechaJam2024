@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=19 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
-[ext_resource type="Texture2D" uid="uid://ddbew5afyhmsd" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
+[ext_resource type="Texture2D" uid="uid://cjmcdi68ehqv5" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
 [ext_resource type="AudioStream" uid="uid://04oe1fwg4ext" path="res://asset/placeholders/sfx/bw_1bit/Attack02.wav" id="4_xi874"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 
@@ -13,6 +13,7 @@ start_hp_regen = 1.0
 start_speed = 1.0
 start_attack_speed = 1.0
 start_damage = 10.0
+start_range = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpk5m"]
 atlas = ExtResource("2_suo2y")
@@ -109,6 +110,8 @@ animations = [{
 radius = 32.0
 height = 64.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkbjs"]
+
 [node name="BaseMecha" type="CharacterBody2D"]
 script = ExtResource("1_0gymd")
 starting_stats = SubResource("Resource_1hgdl")
@@ -133,3 +136,12 @@ stream = ExtResource("4_xi874")
 
 [node name="ControllerMovement" type="Node" parent="."]
 script = ExtResource("5_akstm")
+
+[node name="VisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
+shape = SubResource("CircleShape2D_wkbjs")
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
