@@ -4,6 +4,7 @@ class_name BaseEnemy
 const ANIMATION_NAMES : Array[String] = ["move", "death", "attack"]
 
 var stats : EnemyData
+var spawner : Node
 
 # Stats
 var hp : float
@@ -53,6 +54,16 @@ func _ready():
 	hp = stats.start_hp
 	speed = stats.start_speed
 	dmg = stats.start_dmg
+
+	# Set minion spawn if necessary
+	if stats.minion_spawn == 1:	# ON_DEATH
+		dead.connect(func(_value): call_deferred("spawn_minions"))
+	elif stats.minion_spawn == 2: # AT_INTERVALS
+		var minion_timer = Timer.new()
+		add_child(minion_timer)
+		minion_timer.wait_time = stats.minion_deltatime
+		minion_timer.timeout.connect(spawn_minions)
+		minion_timer.start()
 
 	# Add binding to signals
 	hit.connect(on_hit)
@@ -116,6 +127,11 @@ func timer_reset_after_push():
 	reset_speed()
 	$Timer.timeout.disconnect(timer_reset_after_push)
 
+func spawn_minions():
+	for n in range(stats.minion_number):
+		var i = randi_range(0, stats.minion_types.size() - 1)
+		spawner.spawn_enemy(stats.minion_types[i], position, stats.minion_radius)
+
 func on_hit(value):
 	hp -= value
 
@@ -134,9 +150,8 @@ func on_dead(_money_value):
 	if is_instance_valid(stats.death_sound):
 		$AudioStreamPlayer.stream = stats.death_sound
 		$AudioStreamPlayer.play()
-		$AudioStreamPlayer.finished.connect(queue_free)
-	else:
-		queue_free()
+
+	$AnimatedSprite.animation_finished.connect(queue_free)
 
 func on_charmed():
 	pass
@@ -148,6 +163,5 @@ func on_attack(_value):
 	if is_instance_valid(stats.attack_sound):
 		$AudioStreamPlayer.stream = stats.attack_sound
 		$AudioStreamPlayer.play()
-		$AudioStreamPlayer.finished.connect(queue_free)
-	else:
-		queue_free()
+
+	$AnimatedSprite.animation_finished.connect(queue_free)
