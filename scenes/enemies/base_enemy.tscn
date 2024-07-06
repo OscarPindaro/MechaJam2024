@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://de8grhcgp4ayg"]
+
+[ext_resource type="Script" path="res://scenes/enemies/base_enemy.gd" id="2_4g7ky"]
+[ext_resource type="Texture2D" uid="uid://ddcww8jmhvwh7" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_NegaBlob Walk.png" id="2_sydek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kcje"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evepe"]
+atlas = ExtResource("2_sydek")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr4en"]
+atlas = ExtResource("2_sydek")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lganv"]
+atlas = ExtResource("2_sydek")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo04l"]
+atlas = ExtResource("2_sydek")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txd8m"]
+atlas = ExtResource("2_sydek")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gu4a8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evepe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr4en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lganv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo04l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txd8m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w786j"]
+expand_margin_top = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfwdy"]
+bg_color = Color(0, 0.72549, 0.247059, 1)
+expand_margin_left = 1.0
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+scale = Vector2(2, 2)
+monitoring = false
+script = ExtResource("2_4g7ky")
+
+[node name="AreaShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3kcje")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gu4a8")
+
+[node name="UI" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_w786j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dfwdy")
+show_percentage = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX Nemici"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
