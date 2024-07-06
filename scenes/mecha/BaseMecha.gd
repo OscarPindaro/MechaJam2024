@@ -18,10 +18,31 @@ var mov_tween: Tween
 var hp: float
 var hp_regen: float
 var speed: float # measure in seconds
-var attack_speed: float
+var attack_speed: float:
+	get:
+		return attack_speed
+	set(value):
+		attack_speed = value
+		$ActionTimer.wait_time = 1/attack_speed
 var damage: float
-var can_shoot: bool = true
+var can_shoot: bool:
+	get:
+		return can_shoot
+	set(value):
+		can_shoot = value
+		if can_shoot:
+			$ActionTimer.start()
+		else:
+			$ActionTimer.stop()
+var range: float:
+	get:
+		return range
+	set(value):
+		range = value
+		$VisionArea/CollisionShape2D.scale = Vector2(range, range)
 
+# mecha targets
+var target_group: String = "enemies"
 var targets: Array[Node2D] = []
 
 # object nodes
@@ -29,12 +50,19 @@ var targets: Array[Node2D] = []
 @onready var walk_player: AudioStreamPlayer2D = $Sound/WalkPlayer
 
 func _ready():
+	$VisionArea.area_entered.connect(on_vision_area_entered)
+	$VisionArea.area_exited.connect(on_vision_area_exited)
 	hp = starting_stats.start_hp
 	hp_regen = starting_stats.start_hp_regen
 	speed = starting_stats.start_speed
 	attack_speed = starting_stats.start_attack_speed
 	damage = starting_stats.start_damage
+	range = starting_stats.start_range
 	print("Speed: ", speed)
+	ready_spec()
+
+func ready_spec():
+	pass
 
 
 func _input(event):
@@ -46,6 +74,7 @@ func _input(event):
 			move_to(mouse_pos)
 
 func move_to(target_position: Vector2):
+	can_shoot = false
 	if mov_tween:
 		mov_tween.kill()
 	mov_tween = create_tween()
@@ -104,3 +133,23 @@ func on_mov_tween_end():
 	finisched_movement.emit()
 	animations.stop()
 	animations.play("default")
+	can_shoot = true
+	
+	
+func on_vision_area_entered(area: Area2D):
+	if area.is_in_group(target_group):
+		targets.append(area)
+#Controllare il funzionamento di erase e assicurarsi che tolga l'oggetto corretto
+func on_vision_area_exited(area: Area2D):
+	if area.is_in_group(target_group):
+		targets.erase(area)
+
+
+func _on_action_timer_timeout():
+	$ActionTimer.start()
+	if can_shoot:
+		do_action()
+
+
+func do_action():
+	pass
