@@ -20,6 +20,19 @@ func _ready():
 	# Init randomizer
 	randomize()
 
+func can_spawn(enemy):
+	match enemy.spawn_condition:
+		0: # ALWAYS
+			return true
+		1: # BEFORE_WAVE_X
+			return wave_num < enemy.wave_condition_value
+		2: # STARTING_FROM_WAVE
+			return wave_num >= enemy.wave_condition_value
+		3: # EVERY_X_WAVES
+			return wave_num % enemy.wave_condition_value == 0
+		4: # ONLY_ON_WAVE_X
+			return wave_num == enemy.wave_condition_value
+
 func spawn_wave(new_wave_num, new_tot_enemy_value, time_between_spawns):
 	# Reset variables
 	wave_num = new_wave_num
@@ -29,7 +42,8 @@ func spawn_wave(new_wave_num, new_tot_enemy_value, time_between_spawns):
 	# Set total frequency for possible enemies
 	possible_enemies_frequency = 0
 	for enemy in enemy_types:
-		if enemy.spawn_callable.call(wave_num):
+		print(enemy.resource_name, " ", can_spawn(enemy))
+		if can_spawn(enemy):
 			possible_enemies_frequency += enemy.spawn_frequency
 	
 	# Start spawn cycle
@@ -54,20 +68,21 @@ func spawn_random_enemy():
 	var random = randf_range(0, possible_enemies_frequency)
 	var current = 0
 	for enemy in enemy_types:
-		if enemy.spawn_callable.call(wave_num):
+		if can_spawn(enemy):
 			current += enemy.spawn_frequency
 			if current >= random:
-				spawn_enemy(enemy)
+				spawn_enemy(enemy, spawn_point.position, spawn_radius)
 				return
 
-func spawn_enemy(enemy_data):
+func spawn_enemy(enemy_data, pos, radius):
 	# Add the enemy value to the total spawn value
 	spawned_enemy_value += enemy_data.spawn_value
 
 	# Create the new enemy and place it
 	var new_enemy = base_enemy.instantiate()
 	new_enemy.stats = enemy_data
-	new_enemy.position = spawn_point.position + Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * spawn_radius
+	new_enemy.spawner = self
+	new_enemy.position = pos + Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * radius
 	new_enemy.set_goal(goal_point.position)
 	$Enemies.add_child(new_enemy)
 

@@ -9,6 +9,12 @@ enum SpawnCondition {
 	ONLY_ON_WAVE_X
 }
 
+enum MinionSpawn {
+	NO,
+	ON_DEATH,
+	AT_INTERVALS
+}
+
 # Additional groups
 @export var additional_groups : Array[String]
 
@@ -35,22 +41,16 @@ enum SpawnCondition {
 @export var spawn_frequency : float = 1
 @export var spawn_condition : SpawnCondition
 @export var wave_condition_value : int
-var spawn_callable : Callable
+
+# Custom data
+@export var minion_spawn : MinionSpawn
+@export var minion_types : Array[EnemyData]
+@export var minion_number : int = 5
+@export var minion_deltatime : float = 5
+@export var minion_radius : float = 10
 
 func _init(m_hp = 100, m_speed = 10, m_dmg = 10, m_pathfinding_radius = 10):
 	start_hp = m_hp
 	start_speed = m_speed
 	start_dmg = m_dmg
 	pathfinding_radius = m_pathfinding_radius
-	
-	match spawn_condition:
-		SpawnCondition.ALWAYS:
-			spawn_callable = func(_wave): return true
-		SpawnCondition.BEFORE_WAVE_X:
-			spawn_callable = func(wave): return wave < wave_condition_value
-		SpawnCondition.STARTING_FROM_WAVE_X:
-			spawn_callable = func(wave): return wave >= wave_condition_value
-		SpawnCondition.EVERY_X_WAVES:
-			spawn_callable = func(wave): return wave / wave_condition_value == 0
-		SpawnCondition.ONLY_ON_WAVE_X:
-			spawn_callable = func(wave): return wave == wave_condition_value
