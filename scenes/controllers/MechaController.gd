@@ -12,10 +12,13 @@ func _input(event):
 		var target_cell: Vector2i = get_coord_in_map(mouse_position)
 
 		var mecha_cell: Vector2i = get_coord_in_map(curr_mecha.position)
+		
+		
+		# can move if there is no cardboard
+		var can_move: bool  = ! map_node.is_cell_cardboard(target_cell)
 
 
-
-		if target_cell != mecha_cell:
+		if can_move and target_cell != mecha_cell:
 			# compute best path
 			var cell_path: Array[Vector2i] = movement_controller.compute_id_path(mecha_cell, target_cell)
 
@@ -25,6 +28,7 @@ func _input(event):
 				position_path.append(get_center_tile_pos_from_cord(cell))
 			curr_mecha.move_along_path(position_path)
 			# curr_mecha.move_to(get_center_tile_pos_from_cord(target_cell))	
+
 
 
 		
@@ -48,4 +52,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# paint the current position of the MAP
+	var mouse_position: Vector2 = get_global_mouse_position()
+	var mouse_cell: Vector2i = get_coord_in_map(mouse_position)
+
+
+	# if on cardboard or some other object, draw red
+	var is_carboard: bool = map_node.is_cell_cardboard(mouse_cell)
+	if is_carboard:
+		map_node.draw_selection(mouse_cell, false)
+	else:
+		map_node.draw_selection(mouse_cell, true)
+	# else draw green
