@@ -29,6 +29,16 @@ region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uxd57"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qgryl")
@@ -46,7 +56,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_38ekb")
 }],
 "loop": true,
-"name": &"movement",
+"name": &"move",
 "speed": 5.0
 }]
 
@@ -115,3 +125,6 @@ show_percentage = false
 path_postprocessing = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
