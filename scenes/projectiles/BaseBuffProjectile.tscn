@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpj52fbvbvsto"]
+
+[ext_resource type="PackedScene" uid="uid://bpjm8fsmclnf8" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_u6jjv"]
+[ext_resource type="Script" path="res://scenes/projectiles/BaseBuffProjectile.gd" id="2_be55u"]
+
+[node name="BaseBuffProjectile" instance=ExtResource("1_u6jjv")]
+script = ExtResource("2_be55u")
+buff_time = 0.0

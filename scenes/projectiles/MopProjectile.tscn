@@ -1,13 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpl1bba1xeqa4"]
+[gd_scene load_steps=3 format=3 uid="uid://ce48s1dpb567x"]
 
-[ext_resource type="Script" path="res://scenes/projectiles/MopProjectile.gd" id="1_c0x0k"]
+[ext_resource type="PackedScene" uid="uid://bpjm8fsmclnf8" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_125po"]
+[ext_resource type="Script" path="res://scenes/projectiles/MopProjectile.gd" id="2_8pih7"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehcx8"]
-
-[node name="MopProjectile"]
-script = ExtResource("1_c0x0k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-shape = SubResource("CapsuleShape2D_ehcx8")
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="MopProjectile" instance=ExtResource("1_125po")]
+script = ExtResource("2_8pih7")

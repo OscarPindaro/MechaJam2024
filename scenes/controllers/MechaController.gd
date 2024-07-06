@@ -3,7 +3,7 @@ extends Node2D
 @export var map_path: NodePath
 @onready var map_node: Map = get_node(map_path)
 
-@onready var curr_mecha: BaseMecha = $BaseMecha 
+@onready var curr_mecha: BaseMecha = $Cosmonaut
 @onready var movement_controller: ControllerMovement = $ControllerMovement
 
 func _input(event):

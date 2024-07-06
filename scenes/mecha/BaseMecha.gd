@@ -23,7 +23,8 @@ var attack_speed: float:
 		return attack_speed
 	set(value):
 		attack_speed = value
-		$ActionTimer.wait_time = 1/attack_speed
+		_update_timer()
+var projectile_speed: float
 var damage: float
 var can_shoot: bool:
 	get:
@@ -40,14 +41,30 @@ var range: float:
 	set(value):
 		range = value
 		$VisionArea/CollisionShape2D.scale = Vector2(range, range)
+		
+
+# func state
+var temp_speed: float # measure in seconds
+var temp_attack_speed: float:
+	get:
+		return temp_attack_speed
+	set(value):
+		temp_attack_speed = value
+		_update_timer()
+var temp_damage: float
+var temp_range: float
+
 
 # mecha targets
-var target_group: String = "enemies"
+@export var target_group: String = "enemy"
 var targets: Array[Node2D] = []
 
 # object nodes
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var walk_player: AudioStreamPlayer2D = $Sound/WalkPlayer
+
+# utilities
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	$VisionArea.area_entered.connect(on_vision_area_entered)
@@ -56,9 +73,15 @@ func _ready():
 	hp_regen = starting_stats.start_hp_regen
 	speed = starting_stats.start_speed
 	attack_speed = starting_stats.start_attack_speed
+	projectile_speed = starting_stats.start_projectile_speed
 	damage = starting_stats.start_damage
 	range = starting_stats.start_range
 	print("Speed: ", speed)
+	temp_speed = 0
+	temp_attack_speed = 0
+	temp_damage = 0
+	temp_range = 0
+	$TargetableArea/CollisionShape2D.transform = $CollisionShape2D.transform
 	ready_spec()
 
 func ready_spec():
@@ -153,3 +176,41 @@ func _on_action_timer_timeout():
 
 func do_action():
 	pass
+	
+
+func shoot_projectile(projectile : BaseProjectile, target :Area2D):
+	var target_position = target.global_position
+	var source_position = global_position
+	var direction = target_position - source_position
+	var speed = projectile_speed
+	
+
+func _update_timer():
+	$ActionTimer.wait_time = 1/attack_speed
+	
+
+
+func buff_stat(stat:String, value: float, time: float):
+	pass
+
+func buff_attSp(value: float, time: float):
+	var timer: Timer
+	timer.timeout.connect(end_buff_attSp)
+	temp_attack_speed = value
+	timer.start(time)
+
+func end_buff_attSp():	
+	temp_attack_speed = 0
+	
+func buff_damage(value: float, time: float):
+	var timer: Timer
+	timer.timeout.connect(end_buff_attSp)
+	temp_damage = value
+	timer.start(time)
+
+func end_buff_damage():	
+	temp_damage = 0
+	
+	
+func dummy(value):
+	return true

@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpjm8fsmclnf8"]
+[gd_scene load_steps=3 format=3 uid="uid://bpjm8fsmclnf8"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/BaseProjectile.gd" id="1_ymbte"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdg7t"]
 
 [node name="BaseProjectile" type="Area2D"]
 script = ExtResource("1_ymbte")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_gdg7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="EndStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="EndStreamPlayer" to="." method="_on_end_stream_player_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

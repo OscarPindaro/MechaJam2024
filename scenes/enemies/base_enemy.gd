@@ -1,4 +1,5 @@
 extends Area2D
+class_name BaseEnemy
 
 const ANIMATION_NAMES : Array[String] = ["move", "death", "attack"]
 

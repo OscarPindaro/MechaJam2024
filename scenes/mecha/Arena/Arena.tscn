@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://10ag61466fsy"]
+
+[ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_3757r"]
+[ext_resource type="Script" path="res://scenes/mecha/Arena/Arena.gd" id="2_ydf0i"]
+
+[node name="Arena" instance=ExtResource("1_3757r")]
+script = ExtResource("2_ydf0i")
+starting_stats = null

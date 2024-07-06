@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjdiqypdkcf5x"]
+
+[ext_resource type="PackedScene" uid="uid://bpjm8fsmclnf8" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_t1tpc"]
+[ext_resource type="Script" path="res://scenes/projectiles/BentoProjectile.gd" id="2_8g58b"]
+
+[node name="BentoProjectile" instance=ExtResource("1_t1tpc")]
+script = ExtResource("2_8g58b")
