@@ -43,8 +43,8 @@ func _ready():
 	$AnimatedSprite.play()
 
 	# Init health bar shape
-	$UI.size = data.collision_shape.size
-	$UI.position = -data.collision_shape.size / 2
+	$UI.set_deferred("size", data.collision_shape.size)
+	$UI.set_deferred("position", -data.collision_shape.size / 2)
 
 	# Init stats
 	hp = data.start_hp
@@ -102,9 +102,13 @@ func push_to_start(speed_multiplier, time):
 	multiply_speed(speed_multiplier)
 
 	$Timer.wait_time = time
+	$Timer.timeout.connect(timer_reset_after_push)
 	$Timer.start()
-	$Timer.timeout.connect(change_target.bind(goal_position))
-	$Timer.timeout.connect(change_speed.bind(data.start_speed))
+
+func timer_reset_after_push():
+	change_target(goal_position)
+	change_speed(data.start_speed)
+	$Timer.timeout.disconnect(timer_reset_after_push)
 
 func on_hit(value):
 	hp -= value
