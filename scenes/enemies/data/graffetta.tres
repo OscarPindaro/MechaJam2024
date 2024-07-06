@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=16 format=3 uid="uid://bjc1btqbqx7bj"]
+
+[ext_resource type="Texture2D" uid="uid://dd2xalj3md8fl" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_NegaBlob Hurt.png" id="1_ebof8"]
+[ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_uo861"]
+[ext_resource type="Texture2D" uid="uid://ddqk302wchuv" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_NegaBlob Death.png" id="2_7ltte"]
+[ext_resource type="Texture2D" uid="uid://dg8ujpyyoxsqd" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_NegaBlob Walk.png" id="3_kelkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeo3j"]
+atlas = ExtResource("1_ebof8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5dh"]
+atlas = ExtResource("2_7ltte")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae3gv"]
+atlas = ExtResource("2_7ltte")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6euqw"]
+atlas = ExtResource("2_7ltte")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7phv7"]
+atlas = ExtResource("3_kelkw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efhxf"]
+atlas = ExtResource("3_kelkw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntkfc"]
+atlas = ExtResource("3_kelkw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3tcj"]
+atlas = ExtResource("3_kelkw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s0ne"]
+atlas = ExtResource("3_kelkw")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vknk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeo3j")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ae3gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6euqw")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7phv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efhxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntkfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3tcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s0ne")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odf78"]
+size = Vector2(32, 32)
+
+[resource]
+resource_name = "graffetta"
+script = ExtResource("1_uo861")
+additional_groups = Array[String]([])
+animated_sprite = SubResource("SpriteFrames_1vknk")
+collision_shape = SubResource("RectangleShape2D_odf78")
+start_hp = 1.0
+start_speed = 50.0
+start_dmg = 0.5
+money_value = 25.0
+pathfinding_radius = 10.0
+spawn_value = 1.0
+spawn_frequency = 3.0
+spawn_condition = 1
+wave_condition_value = 10
+minion_spawn = 0
+minion_types = Array[ExtResource("1_uo861")]([])
+minion_number = 0
+minion_deltatime = 0.0
+minion_radius = 10.0

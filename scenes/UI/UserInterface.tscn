@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/UI/Play_pause.gd" id="3_1pods"]
 [ext_resource type="Script" path="res://scenes/UI/Button.gd" id="4_vqi8o"]
 [ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="4_wwayp"]
-[ext_resource type="Texture2D" uid="uid://0gk50fawea75" path="res://asset/placeholders/sprites/fantasy_items/MV Icons PACK 2 - ALL.png" id="7_57ifu"]
+[ext_resource type="Texture2D" uid="uid://bvff4ai6tni36" path="res://asset/placeholders/sprites/fantasy_items/MV Icons PACK 2 - ALL.png" id="7_57ifu"]
 [ext_resource type="Script" path="res://scenes/UI/ProgressBar.gd" id="7_aem6l"]
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="8_6bcaq"]
 
