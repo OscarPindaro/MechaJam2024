@@ -57,7 +57,7 @@ func _ready():
 	charmed.connect(on_charmed)
 	attack.connect(on_attack)
 
-func _process(delta):
+func _physics_process(delta):
 	# Move towards target
 	if !$NavigationAgent2D.is_navigation_finished():
 		var next_path_pos = $NavigationAgent2D.get_next_path_position()
