@@ -23,8 +23,12 @@ map_path = NodePath("../Map")
 position = Vector2(415, 285)
 starting_stats = SubResource("Resource_rs0bd")
 
+[node name="Animations" parent="MechaController/BaseMecha" index="0"]
+frame_progress = 0.857832
+
 [node name="ControllerMovement" parent="MechaController" index="1"]
 region = Rect2i(0, 0, 18, 11)
 
 [editable path="Map"]
 [editable path="MechaController"]
+[editable path="MechaController/BaseMecha"]

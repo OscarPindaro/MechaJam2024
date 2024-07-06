@@ -58,7 +58,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -68,8 +68,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_f7vrn")
 }],
 "loop": true,
-"name": &"down",
-"speed": 5.0
+"name": &"move_down",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,8 +79,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_ibity")
 }],
 "loop": true,
-"name": &"left",
-"speed": 5.0
+"name": &"move_left",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,8 +90,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_53qom")
 }],
 "loop": true,
-"name": &"right",
-"speed": 5.0
+"name": &"move_right",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -101,8 +101,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_limet")
 }],
 "loop": true,
-"name": &"up",
-"speed": 5.0
+"name": &"move_up",
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb5b2"]
@@ -118,10 +118,9 @@ texture_filter = 1
 position = Vector2(0.500001, -20.5)
 scale = Vector2(5.4375, 6.5625)
 sprite_frames = SubResource("SpriteFrames_vrelx")
-animation = &"down"
+animation = &"move_down"
 autoplay = "default"
-frame = 1
-frame_progress = 1.0
+frame_progress = 0.353352
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)

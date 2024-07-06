@@ -67,6 +67,7 @@ func move_along_path(target_positions: Array[Vector2]):
 	# start animating? 
 
 	var curr_position: Vector2 = position
+	mov_tween.tween_callback(walk_player.play)
 	for position in target_positions:
 		# compute direction and decide which animation to play
 		var anim_name: String = get_mov_anim_name(curr_position, position)
@@ -77,6 +78,20 @@ func move_along_path(target_positions: Array[Vector2]):
 		curr_position = position
 	# when movement stops, emit stop signal
 	mov_tween.tween_callback(on_mov_tween_end)
+
+
+func get_mov_anim_name(start: Vector2, end: Vector2) -> String:
+	# moving right
+	if end.x > start.x:
+		return "move_right"
+	# move left
+	elif end.x < start.x:
+		return "move_left"
+	# move down
+	elif end.y > start.y:
+		return "move_down"
+	else:
+		return "move_up"
 
 func _physics_process(delta):
 	pass
