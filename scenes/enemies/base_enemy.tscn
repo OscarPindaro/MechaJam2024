@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://de8grhcgp4ayg"]
 
 [ext_resource type="Script" path="res://scenes/enemies/base_enemy.gd" id="2_4g7ky"]
-[ext_resource type="Texture2D" uid="uid://dg8ujpyyoxsqd" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_NegaBlob Walk.png" id="2_sydek"]
+[ext_resource type="Texture2D" uid="uid://ddcww8jmhvwh7" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_NegaBlob Walk.png" id="2_sydek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kcje"]
 size = Vector2(16, 16)
@@ -89,6 +89,7 @@ show_percentage = false
 path_postprocessing = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX Nemici"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
