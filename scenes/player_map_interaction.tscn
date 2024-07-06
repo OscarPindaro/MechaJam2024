@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwf6ti0fnedo4"]
+
+[ext_resource type="PackedScene" uid="uid://dng4a0cw6fvud" path="res://scenes/map/Map.tscn" id="1_3w3ma"]
+[ext_resource type="PackedScene" uid="uid://cq1dcakjrtmw1" path="res://scenes/controllers/MechaController.tscn" id="2_0veic"]
+
+[node name="PlayerMapInteraction" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_3w3ma")]
+
+[node name="MechaController" parent="." instance=ExtResource("2_0veic")]
+map_path = NodePath("../Map")
+
+[node name="BaseMecha" parent="MechaController" index="0"]
+position = Vector2(415, 285)
+
+[editable path="Map"]
+[editable path="MechaController"]

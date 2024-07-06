@@ -7,4 +7,3 @@
 script = ExtResource("1_xd7ey")
 
 [node name="BaseMecha" parent="." instance=ExtResource("2_7o62y")]
-test = true
