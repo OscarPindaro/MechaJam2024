@@ -96,6 +96,9 @@ func change_speed(value):
 func multiply_speed(multiplier):
 	speed *= multiplier
 
+func reset_speed():
+	speed = data.start_speed
+
 func push_to_start(speed_multiplier, time):
 	# Push back towards start and change position
 	change_target(starting_position)
@@ -107,7 +110,7 @@ func push_to_start(speed_multiplier, time):
 
 func timer_reset_after_push():
 	change_target(goal_position)
-	change_speed(data.start_speed)
+	reset_speed()
 	$Timer.timeout.disconnect(timer_reset_after_push)
 
 func on_hit(value):
