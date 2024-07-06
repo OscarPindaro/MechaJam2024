@@ -59,7 +59,6 @@ func _process(delta):
 
 	# if on cardboard or some other object, draw red
 	var is_carboard: bool = map_node.is_cell_cardboard(mouse_cell)
-	print(is_carboard)
 	if is_carboard:
 		map_node.draw_selection(mouse_cell, false)
 	else:
