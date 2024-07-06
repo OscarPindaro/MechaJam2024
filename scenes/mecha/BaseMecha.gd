@@ -34,6 +34,7 @@ func _ready():
 	speed = starting_stats.start_speed
 	attack_speed = starting_stats.start_attack_speed
 	damage = starting_stats.start_damage
+	print("Speed: ", speed)
 
 
 func _input(event):
@@ -76,6 +77,6 @@ func on_step():
 
 func on_mov_tween_end():
 	walk_player.stop()
-	finished_step.emit()
+	finisched_movement.emit()
 	animations.stop()
 	animations.play("default")
