@@ -30,6 +30,7 @@ func _input(event):
 			# curr_mecha.move_to(get_center_tile_pos_from_cord(target_cell))	
 
 
+
 		
 
 
@@ -51,4 +52,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# paint the current position of the MAP
+	var mouse_position: Vector2 = get_global_mouse_position()
+	var mouse_cell: Vector2i = get_coord_in_map(mouse_position)
+
+
+	# if on cardboard or some other object, draw red
+	var is_carboard: bool = map_node.is_cell_cardboard(mouse_cell)
+	print(is_carboard)
+	if is_carboard:
+		map_node.draw_selection(mouse_cell, false)
+	else:
+		map_node.draw_selection(mouse_cell, true)
+	# else draw green
