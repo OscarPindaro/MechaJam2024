@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=20 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
 [ext_resource type="Texture2D" uid="uid://ddbew5afyhmsd" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
+[ext_resource type="Shader" path="res://scenes/mecha/outline_mecha.gdshader" id="3_cabcm"]
 [ext_resource type="AudioStream" uid="uid://04oe1fwg4ext" path="res://asset/placeholders/sfx/bw_1bit/Attack02.wav" id="4_xi874"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 
@@ -13,6 +14,14 @@ start_hp_regen = 1.0
 start_speed = 1.0
 start_attack_speed = 1.0
 start_damage = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01jph"]
+shader = ExtResource("3_cabcm")
+shader_parameter/color = Color(0.607843, 1, 0.509804, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpk5m"]
 atlas = ExtResource("2_suo2y")
@@ -115,12 +124,12 @@ starting_stats = SubResource("Resource_1hgdl")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_01jph")
 position = Vector2(0.500001, -20.5)
 scale = Vector2(5.4375, 6.5625)
 sprite_frames = SubResource("SpriteFrames_vrelx")
 animation = &"move_down"
 autoplay = "default"
-frame_progress = 0.353352
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)

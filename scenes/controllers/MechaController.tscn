@@ -6,8 +6,23 @@
 
 [node name="MechaController" type="Node2D"]
 script = ExtResource("1_xd7ey")
-
-[node name="BaseMecha" parent="." instance=ExtResource("2_7o62y")]
+map_path = null
 
 [node name="ControllerMovement" type="Node" parent="."]
 script = ExtResource("3_d4t8m")
+
+[node name="Mechas" type="Node2D" parent="."]
+
+[node name="Mecha1" parent="Mechas" instance=ExtResource("2_7o62y")]
+position = Vector2(151, 137)
+
+[node name="Mecha2" parent="Mechas" instance=ExtResource("2_7o62y")]
+modulate = Color(1, 0.129412, 0.129412, 1)
+position = Vector2(376, 141)
+metadata/_edit_group_ = true
+
+[node name="Animations" parent="Mechas/Mecha2" index="0"]
+position = Vector2(1, -21)
+animation = &"default"
+
+[editable path="Mechas/Mecha2"]
