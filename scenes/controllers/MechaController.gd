@@ -12,10 +12,13 @@ func _input(event):
 		var target_cell: Vector2i = get_coord_in_map(mouse_position)
 
 		var mecha_cell: Vector2i = get_coord_in_map(curr_mecha.position)
+		
+		
+		# can move if there is no cardboard
+		var can_move: bool  = ! map_node.is_cell_cardboard(target_cell)
 
 
-
-		if target_cell != mecha_cell:
+		if can_move and target_cell != mecha_cell:
 			# compute best path
 			var cell_path: Array[Vector2i] = movement_controller.compute_id_path(mecha_cell, target_cell)
 
