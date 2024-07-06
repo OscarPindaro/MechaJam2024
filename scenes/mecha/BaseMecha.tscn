@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
-[ext_resource type="Texture2D" uid="uid://cjmcdi68ehqv5" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
+[ext_resource type="Texture2D" uid="uid://ddbew5afyhmsd" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
+[ext_resource type="Texture2D" uid="uid://dxfa6bvxwl2ob" path="res://asset/mecha/background_mecha.png" id="3_ihcym"]
 [ext_resource type="AudioStream" uid="uid://04oe1fwg4ext" path="res://asset/placeholders/sfx/bw_1bit/Attack02.wav" id="4_xi874"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 [ext_resource type="Script" path="res://scenes/mecha/TargetableArea.gd" id="6_a1apb"]
@@ -11,11 +12,13 @@
 script = ExtResource("2_j8l85")
 start_hp = 100.0
 start_hp_regen = 1.0
-start_speed = 1.0
+start_speed = 0.1
 start_attack_speed = 1.0
 start_projectile_speed = 10.0
 start_damage = 10.0
 start_range = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01jph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpk5m"]
 atlas = ExtResource("2_suo2y")
@@ -108,6 +111,10 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asdtb"]
+radius = 33.0
+height = 100.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb5b2"]
 radius = 32.0
 height = 64.0
@@ -118,21 +125,38 @@ height = 64.0
 
 [node name="BaseMecha" type="CharacterBody2D" groups=["mecha"]]
 script = ExtResource("1_0gymd")
+selected_color = Color(0.537255, 0.901961, 0.529412, 0.501961)
 starting_stats = SubResource("Resource_1hgdl")
+
+[node name="Selection" type="Node2D" parent="."]
+
+[node name="HoverBG" type="Sprite2D" parent="Selection"]
+visible = false
+position = Vector2(0.5, -20)
+scale = Vector2(1.04688, 1.625)
+texture = ExtResource("3_ihcym")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_01jph")
 position = Vector2(0.500001, -20.5)
 scale = Vector2(5.4375, 6.5625)
 sprite_frames = SubResource("SpriteFrames_vrelx")
 animation = &"move_down"
 autoplay = "default"
 
+[node name="MouseSelectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelectionArea"]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_asdtb")
+debug_color = Color(0.756863, 0.454902, 0.0627451, 0.419608)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 3)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_nb5b2")
 
-[node name="Sound" type="Node" parent="."]
+[node name="Sound" type="Node2D" parent="."]
 
 [node name="WalkPlayer" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource("4_xi874")

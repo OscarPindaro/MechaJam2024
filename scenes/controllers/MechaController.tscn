@@ -23,3 +23,5 @@ starting_stats = SubResource("Resource_e8p4n")
 
 [node name="ControllerMovement" type="Node" parent="."]
 script = ExtResource("3_d4t8m")
+
+[node name="Mechas" type="Node2D" parent="."]

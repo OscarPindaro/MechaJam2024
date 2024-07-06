@@ -4,15 +4,22 @@ class_name BaseMecha
 # called at the end of a movement single step
 signal finished_step()
 # called at the end of a series of steps
-signal finisched_movement()
+signal finished_movement()
+# singlas for hoovering and selection
+signal mecha_selected(mecha: BaseMecha)
+signal mecha_hoover_entered(mecha: BaseMecha)
+signal mecha_hoover_exited(mecha: BaseMecha)
+signal input_capture_ended()
 
 @export var test: bool = false
-
 @export var mov_transition: Tween.TransitionType = Tween.TRANS_QUAD
 var mov_tween: Tween
-
+@export var hoover_color: Color = Color(1,0.9,0.53, 0.5)
+@export var selected_color: Color = Color(0.53,0.9,0.53, 0.5)
 # status sono qua dentro
 @export var starting_stats: MechaStatResource
+@export var deselect_with_click: bool = false
+
 
 # mecha state
 var hp: float
@@ -57,11 +64,15 @@ var temp_range: float
 
 # mecha targets
 @export var target_group: String = "enemy"
+var selected: bool = false
+
 var targets: Array[Node2D] = []
 
 # object nodes
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var walk_player: AudioStreamPlayer2D = $Sound/WalkPlayer
+@onready var selection_sprite: Sprite2D = $Selection/HoverBG
+var mouse_sel_area: Area2D
 
 # utilities
 var rng = RandomNumberGenerator.new()
@@ -75,6 +86,7 @@ func _ready():
 	attack_speed = starting_stats.start_attack_speed
 	projectile_speed = starting_stats.start_projectile_speed
 	damage = starting_stats.start_damage
+
 	range = starting_stats.start_range
 	print("Speed: ", speed)
 	temp_speed = 0
@@ -84,8 +96,59 @@ func _ready():
 	$TargetableArea/CollisionShape2D.transform = $CollisionShape2D.transform
 	ready_spec()
 
+	# select()
+	mouse_sel_area = $MouseSelectionArea
+	# connect myself to event on mouse entered and exited
+	mouse_sel_area.mouse_entered.connect(on_selection_mouse_entered)
+	mouse_sel_area.mouse_exited.connect(on_selection_mouse_exited)
+
+	mouse_sel_area.input_event.connect(on_mouse_click)
+
 func ready_spec():
 	pass
+
+
+func on_selection_mouse_entered():
+	set_hoover_on_mecha(true)
+	mecha_hoover_entered.emit(self)
+
+func on_selection_mouse_exited():
+	set_hoover_on_mecha(false)
+	mecha_hoover_exited.emit(self)
+
+func on_mouse_click(_viewport: Node, event: InputEvent, _shape_idx: int):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			# this code selects and deselects with a click
+			if deselect_with_click:
+				# basically the selection is a toggle
+				var was_selected: bool = selected
+				set_select_mecha(!selected)
+				# if it was not selected
+				if was_selected == false:
+					mecha_selected.emit(self)
+				# if now is not selected, activate hoovering
+				if selected == false:
+					set_hoover_on_mecha(true)
+			# this only selects, deselection will be handled by other objects
+			else:
+				if selected == false:
+					set_select_mecha(true)
+					mecha_selected.emit(self)
+			print("fine input becha")	
+
+		
+
+
+func set_hoover_on_mecha(visibility: bool):
+	if not selected:
+		selection_sprite.visible = visibility
+		selection_sprite.modulate = hoover_color
+
+func set_select_mecha( visibility:bool):
+	selection_sprite.visible = visibility
+	selection_sprite.modulate = selected_color
+	selected = visibility
 
 
 func _input(event):
@@ -148,12 +211,16 @@ func get_mov_anim_name(start: Vector2, end: Vector2) -> String:
 func _physics_process(delta):
 	pass
 
+
+func select():
+	pass
+
 func on_step():
 	finished_step.emit()
 
 func on_mov_tween_end():
 	walk_player.stop()
-	finisched_movement.emit()
+	finished_movement.emit()
 	animations.stop()
 	animations.play("default")
 	can_shoot = true

@@ -1,0 +1,446 @@
+[gd_scene load_steps=6 format=3 uid="uid://y75tqsouhvsj"]
+
+[ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
+[ext_resource type="Texture2D" uid="uid://b5rkjwrjqynub" path="res://asset/UI/meun_gear.png" id="2_b0tb2"]
+[ext_resource type="Texture2D" uid="uid://ddtav8vrfemdh" path="res://asset/UI/Cosmonaut2.png" id="2_ekjax"]
+[ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="2_hhg2b"]
+[ext_resource type="Script" path="res://scenes/UI/Button.gd" id="4_vqi8o"]
+
+[node name="GamplayUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu_buttons" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 2.0
+offset_bottom = 35.0
+grow_horizontal = 0
+columns = 3
+
+[node name="Play_pause" type="Button" parent="Menu_buttons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_hhg2b")
+icon = ExtResource("2_7f32f")
+
+[node name="Menu" type="Button" parent="Menu_buttons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_hhg2b")
+icon = ExtResource("2_b0tb2")
+
+[node name="ShopPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme = ExtResource("2_hhg2b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HPDistribute" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HPLabel" type="Label" parent="ShopPanel/VBoxContainer/HPDistribute"]
+layout_mode = 2
+text = "HP
+"
+
+[node name="HPBar" type="MarginContainer" parent="ShopPanel/VBoxContainer/HPDistribute"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="ShopPanel/VBoxContainer/HPDistribute/HPBar"]
+custom_minimum_size = Vector2(250, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_hhg2b")
+step = 1.0
+value = 60.0
+show_percentage = false
+
+[node name="MechaShop" type="GridContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="Button" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+show_behind_parent = true
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_hhg2b")
+icon_alignment = 1
+script = ExtResource("4_vqi8o")
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button2"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button2"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button2/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button3"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button3"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button3/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button4" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button4"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button4"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button4/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button5" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button5"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button5"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button5/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button6" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button6"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button6"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button6/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button7" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button7"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button7"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button7/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button8" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/Button8"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/Button8"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/Button8/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="Mecha-TimeTravel" type="MarginContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 44
+
+[node name="Button" type="Button" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Buy now
+PAY LATER"
+icon = ExtResource("2_ekjax")
+alignment = 2
+
+[connection signal="mouse_entered" from="ShopPanel/VBoxContainer/MechaShop/Button" to="ShopPanel/VBoxContainer/MechaShop/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ShopPanel/VBoxContainer/MechaShop/Button" to="ShopPanel/VBoxContainer/MechaShop/Button" method="_on_mouse_exited"]
