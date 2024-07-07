@@ -1,12 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmrfyg6wjkij1"]
+[gd_scene load_steps=6 format=3 uid="uid://cmrfyg6wjkij1"]
 
 [ext_resource type="PackedScene" uid="uid://bpj52fbvbvsto" path="res://scenes/projectiles/BaseBuffProjectile.tscn" id="1_bd6up"]
 [ext_resource type="Script" path="res://scenes/projectiles/CoffeeProjectile.gd" id="2_v8otp"]
+[ext_resource type="AudioStream" uid="uid://cp87ighyjeedy" path="res://asset/sfx/mecha_sounds/resurrection_sipping_drink.wav" id="3_ow4f4"]
+[ext_resource type="Texture2D" uid="uid://cnov4520en4l3" path="res://asset/projectiles/cofffe.png" id="4_ve26n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v18p7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ve26n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="CoffeeProjectile" instance=ExtResource("1_bd6up")]
 script = ExtResource("2_v8otp")
-end_sound = null
+end_sound = ExtResource("3_ow4f4")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_v18p7")
+
+[node name="ShootStreamPlayer" parent="." index="2"]
+bus = &"Master"
 
 [node name="EndStreamPlayer" parent="." index="3"]
-stream = null
 bus = &"Master"

@@ -48,6 +48,7 @@ var range: float:
 	set(value):
 		range = value
 		$VisionArea/CollisionShape2D.scale = Vector2(range, range)
+		$VisionArea/VisionSprite.scale *= range
 		
 var parent
 
@@ -150,6 +151,8 @@ func set_hoover_on_mecha(visibility: bool):
 		selection_sprite.modulate = hoover_color
 
 func set_select_mecha( visibility:bool):
+	$VisionArea/VisionSprite.visible=visibility
+
 	selection_sprite.visible = visibility
 	selection_sprite.modulate = selected_color
 	selected = visibility
@@ -187,11 +190,12 @@ func move_along_path(target_positions: Array[Vector2]):
 	# start animating? 
 
 	var curr_position: Vector2 = position
-	mov_tween.tween_callback(walk_player.play)
+
 	for position in target_positions:
 		# compute direction and decide which animation to play
-		var anim_name: String = get_mov_anim_name(curr_position, position)
-		mov_tween.tween_callback(animations.play.bind(anim_name))
+		# var anim_name: String = get_mov_anim_name(curr_position, position)
+		mov_tween.tween_callback(animations.play.bind("move"))
+		mov_tween.tween_callback(walk_player.play_random)
 		mov_tween.tween_property(self, "global_position", position, speed).set_trans(mov_transition).set_ease(Tween.EASE_OUT)
 		mov_tween.tween_callback(on_step)
 		# reset current position
@@ -227,7 +231,7 @@ func on_mov_tween_end():
 	walk_player.stop()
 	finished_movement.emit()
 	animations.stop()
-	animations.play("idle_down")
+	animations.play("idle")
 	can_shoot = true
 	
 
@@ -244,7 +248,7 @@ func on_vision_area_exited(area: Area2D):
 
 
 func connect_to_enemy_death(enemy: BaseEnemy):
-	enemy.dead.connect(on_enemy_death.bind(enemy))
+	enemy.dead.connect(func(_value):on_enemy_death(enemy))
 
 func on_enemy_death(enemy: BaseEnemy):
 	if enemy in targets:
@@ -255,6 +259,7 @@ func on_enemy_death(enemy: BaseEnemy):
 func _on_action_timer_timeout():
 	$ActionTimer.start()
 	if can_shoot and targets.size() != 0:
+		$Sound/AttackPlayer.play_random()
 		do_action()
 
 
