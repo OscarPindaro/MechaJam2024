@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="2_hhg2b"]
 [ext_resource type="Script" path="res://scenes/UI/Play_pause.gd" id="4_mkq0e"]
 [ext_resource type="Script" path="res://scenes/UI/Button.gd" id="4_vqi8o"]
-[ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="4_wwayp"]
+[ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="6_ndotk"]
 [ext_resource type="Texture2D" uid="uid://bvff4ai6tni36" path="res://asset/placeholders/sprites/fantasy_items/MV Icons PACK 2 - ALL.png" id="7_57ifu"]
 [ext_resource type="Script" path="res://scenes/UI/ProgressBar.gd" id="7_aem6l"]
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="8_6bcaq"]
