@@ -48,31 +48,26 @@ func spawn_wave(new_wave_num, new_tot_enemy_value, time_between_spawns):
 	
 	# Start spawn cycle
 	$SpawnTimer.wait_time = time_between_spawns
-	$SpawnTimer.timeout.connect(spawn_cycle)
+	$SpawnTimer.timeout.connect(spawn_random_enemy)
 	$SpawnTimer.start()
 
 	start_spawning.emit()
 
-func spawn_cycle():
-	# Spawn until you've spawned enemies up to the total value
-	if spawned_enemy_value < tot_enemy_value:
-		spawn_random_enemy()
-	else:
-		$SpawnTimer.timeout.disconnect(spawn_cycle)
-		$SpawnTimer.stop()
-
-		stop_spawning.emit()
-
 func spawn_random_enemy():
-	# Extract at random an enemy to spawn based on frequency
+	# Extract at random an enemy to spawn based on frequency as long as you can
 	var random = randf_range(0, possible_enemies_frequency)
 	var current = 0
 	for enemy in enemy_types:
-		if can_spawn(enemy):
+		if can_spawn(enemy) && spawned_enemy_value + enemy.spawn_value <= tot_enemy_value:
 			current += enemy.spawn_frequency
 			if current >= random:
 				spawn_enemy(enemy, spawn_point.position, spawn_radius)
 				return
+	
+	# Exited because no more valid enemies or total value depleated
+	$SpawnTimer.timeout.disconnect(spawn_random_enemy)
+	$SpawnTimer.stop()
+	stop_spawning.emit()
 
 func spawn_enemy(enemy_data, pos, radius):
 	# Add the enemy value to the total spawn value
