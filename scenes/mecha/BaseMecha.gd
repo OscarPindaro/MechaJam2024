@@ -254,6 +254,7 @@ func on_enemy_death(enemy: BaseEnemy):
 func _on_action_timer_timeout():
 	$ActionTimer.start()
 	if can_shoot and targets.size() != 0:
+		$Sound/AttackPlayer.play()
 		do_action()
 
 
