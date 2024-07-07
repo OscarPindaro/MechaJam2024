@@ -1,25 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://clxbc1mi73jm2"]
+[gd_scene load_steps=11 format=3 uid="uid://clxbc1mi73jm2"]
 
-[ext_resource type="Texture2D" uid="uid://bdpm1r2k5kch" path="res://asset/UI/menu_icon.png" id="1_g8xr5"]
+[ext_resource type="Texture2D" uid="uid://0il5lppjyvyu" path="res://asset/projectiles/Stapler-Sheet.png" id="1_cw8b0"]
 [ext_resource type="Script" path="res://scenes/nonProjectile/Stapler.gd" id="1_ibvq5"]
-[ext_resource type="Texture2D" uid="uid://b5rkjwrjqynub" path="res://asset/UI/meun_gear.png" id="2_efx8o"]
-[ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="3_risii"]
+[ext_resource type="AudioStream" uid="uid://chv050oh28rbv" path="res://asset/sfx/mecha_sounds/weird_fiction_stapler2.wav" id="5_t2orl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_prq7c"]
-atlas = ExtResource("1_g8xr5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hpad"]
+atlas = ExtResource("1_cw8b0")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn1m1"]
+atlas = ExtResource("1_cw8b0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyu0c"]
+atlas = ExtResource("1_cw8b0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l58dy"]
+atlas = ExtResource("1_cw8b0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugvwu"]
+atlas = ExtResource("1_cw8b0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiti7"]
+atlas = ExtResource("1_cw8b0")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ffx7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_prq7c")
+"texture": SubResource("AtlasTexture_6hpad")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_efx8o")
+"texture": SubResource("AtlasTexture_qn1m1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_risii")
+"texture": SubResource("AtlasTexture_kyu0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l58dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugvwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fiti7")
 }],
 "loop": false,
 "name": &"default",
@@ -27,12 +55,17 @@ animations = [{
 }]
 
 [node name="Stapler" type="AnimatedSprite2D"]
+texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_7ffx7")
+frame = 5
+frame_progress = 1.0
 script = ExtResource("1_ibvq5")
 
 [node name="StartAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="EndAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_t2orl")
+bus = &"SFXMechaHu"
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="finished" from="EndAudioPlayer" to="." method="_on_end_audio_player_finished"]

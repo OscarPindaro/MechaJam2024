@@ -109,9 +109,10 @@ animations = [{
 script = ExtResource("2_mkq7g")
 starting_stats = null
 
-[node name="Animations" parent="." index="1"]
-sprite_frames = SubResource("SpriteFrames_capnm")
-animation = &"idle"
-
 [node name="AttackPlayer" parent="Sound" index="1"]
 stream = ExtResource("4_xa4c2")
+
+[node name="Animations" parent="." index="7"]
+sprite_frames = SubResource("SpriteFrames_capnm")
+animation = &"idle"
+frame_progress = 0.752788

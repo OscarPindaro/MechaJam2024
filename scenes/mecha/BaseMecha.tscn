@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=34 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
@@ -6,8 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://dxfa6bvxwl2ob" path="res://asset/mecha/background_mecha.png" id="3_ihcym"]
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="4_lyobt"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
+[ext_resource type="Script" path="res://scenes/mecha/AudioStreamRandomPlayer2D.gd" id="5_y1kgt"]
 [ext_resource type="Script" path="res://scenes/mecha/TargetableArea.gd" id="6_a1apb"]
+[ext_resource type="AudioStream" uid="uid://m61pwx2hncxr" path="res://asset/sfx/mecha_sounds/step5.wav" id="6_bnmdo"]
 [ext_resource type="AudioStream" uid="uid://ckjrqrphmre2d" path="res://asset/sfx/mecha_sounds/step1.wav" id="6_gfktq"]
+[ext_resource type="AudioStream" uid="uid://2r2rjc1cqaip" path="res://asset/sfx/mecha_sounds/step2.wav" id="6_wpvrs"]
+[ext_resource type="AudioStream" uid="uid://k6f666e7yxp" path="res://asset/sfx/mecha_sounds/step3.wav" id="7_8ptk3"]
+[ext_resource type="AudioStream" uid="uid://dhcreaa4eq55t" path="res://asset/sfx/mecha_sounds/step4.wav" id="8_y3uys"]
+[ext_resource type="Texture2D" uid="uid://ck5vnwbaa47fv" path="res://asset/mecha/cerchio.svg" id="9_xv6aq"]
 
 [sub_resource type="Resource" id="Resource_1hgdl"]
 script = ExtResource("2_j8l85")
@@ -18,6 +24,18 @@ start_attack_speed = 1.0
 start_projectile_speed = 10.0
 start_damage = 10.0
 start_range = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asdtb"]
+radius = 33.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb5b2"]
+radius = 27.0
+height = 56.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfmtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkbjs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01jph"]
 
@@ -128,18 +146,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asdtb"]
-radius = 33.0
-height = 100.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb5b2"]
-radius = 27.0
-height = 56.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tfmtx"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wkbjs"]
-
 [node name="BaseMecha" type="CharacterBody2D"]
 script = ExtResource("1_0gymd")
 selected_color = Color(0.537255, 0.901961, 0.529412, 0.501961)
@@ -152,14 +158,6 @@ visible = false
 position = Vector2(0.5, -20)
 scale = Vector2(1.04688, 1.625)
 texture = ExtResource("3_ihcym")
-
-[node name="Animations" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-material = SubResource("ShaderMaterial_01jph")
-position = Vector2(0.500001, -20.5)
-sprite_frames = SubResource("SpriteFrames_vrelx")
-animation = &"move"
-autoplay = "default"
 
 [node name="MouseSelectionArea" type="Area2D" parent="."]
 
@@ -177,9 +175,12 @@ shape = SubResource("CapsuleShape2D_nb5b2")
 [node name="WalkPlayer" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource("6_gfktq")
 bus = &"SFXMechaHu"
+script = ExtResource("5_y1kgt")
+a = Array[AudioStream]([ExtResource("6_gfktq"), ExtResource("6_wpvrs"), ExtResource("7_8ptk3"), ExtResource("8_y3uys"), ExtResource("6_bnmdo")])
 
 [node name="AttackPlayer" type="AudioStreamPlayer2D" parent="Sound"]
 bus = &"SFXMechaHu"
+script = ExtResource("5_y1kgt")
 
 [node name="ControllerMovement" type="Node" parent="."]
 script = ExtResource("5_akstm")
@@ -193,8 +194,24 @@ shape = SubResource("CircleShape2D_tfmtx")
 
 [node name="VisionArea" type="Area2D" parent="."]
 
+[node name="VisionSprite" type="Sprite2D" parent="VisionArea"]
+visible = false
+modulate = Color(0.419608, 0.188235, 1, 0.541176)
+texture_filter = 2
+scale = Vector2(0.322266, 0.322266)
+texture = ExtResource("9_xv6aq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
 shape = SubResource("CircleShape2D_wkbjs")
+debug_color = Color(0.94902, 0, 0.580392, 0.419608)
+
+[node name="Animations" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_01jph")
+position = Vector2(0.500001, -20.5)
+sprite_frames = SubResource("SpriteFrames_vrelx")
+animation = &"move"
+autoplay = "default"
 
 [node name="ActionTimer" type="Timer" parent="."]
 

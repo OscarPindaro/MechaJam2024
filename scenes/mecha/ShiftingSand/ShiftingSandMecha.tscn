@@ -94,7 +94,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3g2mu")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"move",
 "speed": 5.0
 }]
 
@@ -107,4 +107,3 @@ starting_stats = ExtResource("3_dmffr")
 
 [node name="Animations" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_gvrpf")
-animation = &"attack"

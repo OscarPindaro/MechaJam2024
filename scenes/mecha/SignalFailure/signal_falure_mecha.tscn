@@ -77,7 +77,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8kl1o")
 }],
 "loop": true,
-"name": &"attack_down",
+"name": &"attack",
 "speed": 5.0
 }, {
 "frames": [{
@@ -99,7 +99,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_slc2t")
 }],
 "loop": true,
-"name": &"idle_down",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -116,7 +116,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ocky2")
 }],
 "loop": true,
-"name": &"move_down",
+"name": &"move",
 "speed": 5.0
 }]
 
@@ -129,7 +129,6 @@ starting_stats = ExtResource("3_6dgkx")
 [node name="Animations" parent="." index="1"]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_frgm6")
-animation = &"default"
 
 [node name="CollisionShape2D" parent="MouseSelectionArea" index="0"]
 position = Vector2(-2, -12)

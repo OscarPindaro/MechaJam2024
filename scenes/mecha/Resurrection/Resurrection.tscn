@@ -126,7 +126,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_gr3pd")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"move",
 "speed": 5.0
 }]
 
@@ -138,8 +138,6 @@ target_group = "mecha"
 
 [node name="Animations" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_tesh8")
-animation = &"attack"
-frame_progress = 0.70729
 
 [node name="AttackPlayer" parent="Sound" index="1"]
 stream = ExtResource("5_oamye")

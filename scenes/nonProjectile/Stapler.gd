@@ -25,8 +25,10 @@ func attack():
 
 func _on_animation_finished():
 	$EndAudioPlayer.play()
-	target.reset_speed()
-	target.damage(damage)
+	if is_instance_valid(target):
+		target.reset_speed()
+	if is_instance_valid(target):
+		target.damage(damage)
 	
 
 
