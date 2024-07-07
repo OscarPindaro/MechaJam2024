@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgf4sextkrafr"]
+[gd_scene load_steps=20 format=3 uid="uid://dgf4sextkrafr"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_n7ph4"]
 [ext_resource type="Script" path="res://scenes/mecha/Resurrection/Resurrection.gd" id="2_r440v"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_lng05"]
+[ext_resource type="Texture2D" uid="uid://bk0lwfdlqrwse" path="res://asset/mecha/Resurrection-Sheet.png" id="4_0ch1y"]
 
 [sub_resource type="Resource" id="Resource_dbdlt"]
 script = ExtResource("3_lng05")
@@ -14,8 +15,127 @@ start_projectile_speed = 10.0
 start_damage = 10.0
 start_range = 50.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l42u"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(0, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d66u"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(70, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8cif"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(140, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6yq3"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(210, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g1sg"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(280, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy7ny"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(0, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57hnd"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(70, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpxdx"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(0, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kpo5"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(70, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cklq"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(0, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vik1l"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(70, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wdim"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(140, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr3pd"]
+atlas = ExtResource("4_0ch1y")
+region = Rect2(210, 96, 66, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tesh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l42u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d66u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8cif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6yq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g1sg")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy7ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57hnd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpxdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kpo5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cklq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vik1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wdim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr3pd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Resurrection" instance=ExtResource("1_n7ph4")]
 script = ExtResource("2_r440v")
 buff_time_scaler = 0.0
 starting_stats = SubResource("Resource_dbdlt")
 target_group = "mecha"
+
+[node name="Animations" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_tesh8")
+animation = &"attack"
+frame_progress = 0.70729

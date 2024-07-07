@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=28 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
-[ext_resource type="Texture2D" uid="uid://cjmcdi68ehqv5" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
+[ext_resource type="Texture2D" uid="uid://ddbew5afyhmsd" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
 [ext_resource type="Texture2D" uid="uid://dxfa6bvxwl2ob" path="res://asset/mecha/background_mecha.png" id="3_ihcym"]
+[ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="4_lyobt"]
 [ext_resource type="AudioStream" uid="uid://04oe1fwg4ext" path="res://asset/placeholders/sfx/bw_1bit/Attack02.wav" id="4_xi874"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 [ext_resource type="Script" path="res://scenes/mecha/TargetableArea.gd" id="6_a1apb"]
@@ -20,44 +21,76 @@ start_range = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01jph"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrjjl"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(0, 192, 70, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia7td"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(70, 192, 70, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5203x"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(140, 192, 70, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ha8v"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(210, 192, 70, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f3hg"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(280, 192, 70, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpk5m"]
 atlas = ExtResource("2_suo2y")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8w3hi"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qus2u"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(0, 0, 70, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f7vrn"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvpco"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(70, 0, 70, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ha6im"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kynbw"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(0, 96, 70, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibity"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_prbk8"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(70, 96, 70, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xgait"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(0, 32, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5tnp"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(140, 96, 70, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53qom"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7v6ds"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(0, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_limet"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(16, 48, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrp15"]
+atlas = ExtResource("4_lyobt")
+region = Rect2(210, 96, 70, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vrelx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrjjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia7td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5203x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ha8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f3hg")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tpk5m")
@@ -68,46 +101,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8w3hi")
+"texture": SubResource("AtlasTexture_qus2u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f7vrn")
+"texture": SubResource("AtlasTexture_hvpco")
 }],
 "loop": true,
-"name": &"move_down",
+"name": &"idle",
 "speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ha6im")
+"texture": SubResource("AtlasTexture_kynbw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ibity")
+"texture": SubResource("AtlasTexture_prbk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5tnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrp15")
 }],
 "loop": true,
-"name": &"move_left",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xgait")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_53qom")
-}],
-"loop": true,
-"name": &"move_right",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7v6ds")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_limet")
-}],
-"loop": true,
-"name": &"move_up",
+"name": &"move",
 "speed": 12.0
 }]
 
@@ -116,8 +133,8 @@ radius = 33.0
 height = 100.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb5b2"]
-radius = 32.0
-height = 64.0
+radius = 27.0
+height = 56.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfmtx"]
 
@@ -140,9 +157,8 @@ texture = ExtResource("3_ihcym")
 texture_filter = 1
 material = SubResource("ShaderMaterial_01jph")
 position = Vector2(0.500001, -20.5)
-scale = Vector2(5.4375, 6.5625)
 sprite_frames = SubResource("SpriteFrames_vrelx")
-animation = &"move_down"
+animation = &"move"
 autoplay = "default"
 
 [node name="MouseSelectionArea" type="Area2D" parent="."]

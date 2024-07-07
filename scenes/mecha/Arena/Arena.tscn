@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://10ag61466fsy"]
+[gd_scene load_steps=18 format=3 uid="uid://10ag61466fsy"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_3757r"]
 [ext_resource type="Script" path="res://scenes/mecha/Arena/Arena.gd" id="2_ydf0i"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_o67xe"]
+[ext_resource type="Texture2D" uid="uid://cjh8yfokj2u2e" path="res://asset/mecha/Arena Walk -Sheet.png" id="4_qu6ui"]
 
 [sub_resource type="Resource" id="Resource_63761"]
 script = ExtResource("3_o67xe")
@@ -14,6 +15,110 @@ start_projectile_speed = 10.0
 start_damage = 10.0
 start_range = 200.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w30fg"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(0, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0dg5"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(70, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqidb"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(140, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q3il"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(210, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gglv7"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(280, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frrw3"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(0, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o4tj"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(70, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfxbp"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(0, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku5rt"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(70, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys0i4"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(140, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d47lw"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(210, 96, 66, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_385tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w30fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0dg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqidb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q3il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gglv7")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frrw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o4tj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfxbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku5rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys0i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d47lw")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
 [node name="Arena" instance=ExtResource("1_3757r")]
 script = ExtResource("2_ydf0i")
 starting_stats = SubResource("Resource_63761")
+
+[node name="Animations" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_385tg")
+frame_progress = 0.823226

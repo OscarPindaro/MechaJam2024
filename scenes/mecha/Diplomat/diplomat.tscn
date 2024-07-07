@@ -1,8 +1,113 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxyt58tkkymsr"]
+[gd_scene load_steps=16 format=3 uid="uid://dxyt58tkkymsr"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_hxw77"]
 [ext_resource type="Script" path="res://scenes/mecha/Diplomat/Diplomat.gd" id="2_mkq7g"]
+[ext_resource type="Texture2D" uid="uid://cw8ok1rgn10jn" path="res://asset/mecha/Diplomat Walk DWN-Sheet.png" id="3_rxind"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diatx"]
+atlas = ExtResource("3_rxind")
+region = Rect2(0, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_652xn"]
+atlas = ExtResource("3_rxind")
+region = Rect2(70, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y72r8"]
+atlas = ExtResource("3_rxind")
+region = Rect2(140, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oifjo"]
+atlas = ExtResource("3_rxind")
+region = Rect2(210, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rvoy"]
+atlas = ExtResource("3_rxind")
+region = Rect2(280, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7xck"]
+atlas = ExtResource("3_rxind")
+region = Rect2(0, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wga3v"]
+atlas = ExtResource("3_rxind")
+region = Rect2(70, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvdqj"]
+atlas = ExtResource("3_rxind")
+region = Rect2(0, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4a5u"]
+atlas = ExtResource("3_rxind")
+region = Rect2(70, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en2k7"]
+atlas = ExtResource("3_rxind")
+region = Rect2(140, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1spu"]
+atlas = ExtResource("3_rxind")
+region = Rect2(210, 96, 66, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_capnm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diatx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_652xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y72r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oifjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rvoy")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7xck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wga3v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvdqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4a5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en2k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1spu")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [node name="Diplomat" instance=ExtResource("1_hxw77")]
 script = ExtResource("2_mkq7g")
 starting_stats = null
+
+[node name="Animations" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_capnm")
+animation = &"idle"

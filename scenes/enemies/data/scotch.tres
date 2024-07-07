@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=18 format=3 uid="uid://bauupr2lvndqs"]
 
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_ej4nn"]
-[ext_resource type="Texture2D" uid="uid://dnensorsmajpo" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Idle D.png" id="1_twwni"]
-[ext_resource type="Texture2D" uid="uid://bivht1300e1kx" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Death.png" id="2_c61wi"]
-[ext_resource type="Texture2D" uid="uid://b33ntdek7y4p8" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Walk R.png" id="3_8sitf"]
+[ext_resource type="Texture2D" uid="uid://bchba5xjhvhar" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Idle D.png" id="1_twwni"]
+[ext_resource type="Texture2D" uid="uid://bg7hg5468dm5w" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Death.png" id="2_c61wi"]
+[ext_resource type="Texture2D" uid="uid://lnd57mc5ytm8" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Walk R.png" id="3_8sitf"]
 [ext_resource type="AudioStream" uid="uid://cd56nirk1wmh3" path="res://asset/sfx/enemies/coffee_machine_hit.wav" id="4_fmuwn"]
 [ext_resource type="AudioStream" uid="uid://b4lwqaiel6mpm" path="res://asset/sfx/enemies/enemy_death.wav" id="5_yx4iy"]
 
