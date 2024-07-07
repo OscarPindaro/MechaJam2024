@@ -230,16 +230,25 @@ func on_mov_tween_end():
 	animations.play("idle_down")
 	can_shoot = true
 	
-	
+
 func on_vision_area_entered(area: Area2D):	
-	if area.is_in_group("mecha"):
-		print("Test:", area)
 	if area.is_in_group(target_group):
 		targets.append(area)
+		connect_to_enemy_death(area)
+		
 #Controllare il funzionamento di erase e assicurarsi che tolga l'oggetto corretto
 func on_vision_area_exited(area: Area2D):
 	if area.is_in_group(target_group):
 		targets.erase(area)
+
+
+func connect_to_enemy_death(enemy: BaseEnemy):
+	enemy.dead.connect(on_enemy_death.bind(enemy))
+
+func on_enemy_death(enemy: BaseEnemy):
+	if enemy in targets:
+		targets.erase(enemy)
+
 
 
 func _on_action_timer_timeout():

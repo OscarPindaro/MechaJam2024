@@ -17,6 +17,8 @@ func do_action():
 
 
 func on_do_action_timeout():
+	# check they dod not die
 	for corr_enemy in enemies_affected:
-		corr_enemy.reset_speed()
+		if is_instance_valid(corr_enemy):
+			corr_enemy.reset_speed()
 	enemies_affected = []

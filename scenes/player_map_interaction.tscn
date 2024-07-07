@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwf6ti0fnedo4"]
+[gd_scene load_steps=5 format=3 uid="uid://cwf6ti0fnedo4"]
 
 [ext_resource type="PackedScene" uid="uid://dng4a0cw6fvud" path="res://scenes/map/Map.tscn" id="1_3w3ma"]
 [ext_resource type="PackedScene" uid="uid://cq1dcakjrtmw1" path="res://scenes/controllers/MechaController.tscn" id="2_0veic"]
 [ext_resource type="PackedScene" uid="uid://baj2x00vcgrts" path="res://scenes/mecha/Cosmonaut/Cosmonaut.tscn" id="3_cjorv"]
-[ext_resource type="PackedScene" uid="uid://10ag61466fsy" path="res://scenes/mecha/Arena/Arena.tscn" id="4_hgjkk"]
-[ext_resource type="Resource" uid="uid://cj50u0733f2p2" path="res://scenes/mecha/Arena/arena.tres" id="5_hponw"]
 [ext_resource type="PackedScene" uid="uid://b6sdolsmsqcf3" path="res://scenes/mecha/SignalFailure/signal_falure_mecha.tscn" id="6_6bp7d"]
 
 [node name="PlayerMapInteraction" type="Node2D"]
@@ -12,7 +10,6 @@
 [node name="Map" parent="." instance=ExtResource("1_3w3ma")]
 
 [node name="MechaController" parent="." instance=ExtResource("2_0veic")]
-use_map = true
 map_path = NodePath("../Map")
 start_mecha_path = NodePath("Mechas/Cosmonaut")
 
@@ -22,11 +19,7 @@ region = Rect2i(0, 0, 18, 11)
 [node name="Cosmonaut" parent="MechaController/Mechas" index="0" instance=ExtResource("3_cjorv")]
 position = Vector2(99, 158)
 
-[node name="Arena" parent="MechaController/Mechas" index="1" instance=ExtResource("4_hgjkk")]
-position = Vector2(351, 158)
-starting_stats = ExtResource("5_hponw")
-
-[node name="SignalFalureMecha" parent="MechaController/Mechas" index="2" instance=ExtResource("6_6bp7d")]
+[node name="SignalFalureMecha" parent="MechaController/Mechas" index="1" instance=ExtResource("6_6bp7d")]
 position = Vector2(287, 280)
 
 [editable path="Map"]
