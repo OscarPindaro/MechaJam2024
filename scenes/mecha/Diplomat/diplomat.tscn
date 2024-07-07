@@ -1,8 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxyt58tkkymsr"]
+[gd_scene load_steps=4 format=3 uid="uid://dxyt58tkkymsr"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_hxw77"]
 [ext_resource type="Script" path="res://scenes/mecha/Diplomat/Diplomat.gd" id="2_mkq7g"]
+[ext_resource type="Resource" uid="uid://bdxq4eys5ws3r" path="res://scenes/mecha/Diplomat/diplomat.tres" id="3_f62g1"]
 
 [node name="Diplomat" instance=ExtResource("1_hxw77")]
 script = ExtResource("2_mkq7g")
-starting_stats = null
+starting_stats = ExtResource("3_f62g1")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dunwl2hmjglfm"]
+[gd_scene load_steps=4 format=3 uid="uid://dunwl2hmjglfm"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_52h6v"]
 [ext_resource type="Script" path="res://scenes/mecha/WeirdFiction/WeirdFiction.gd" id="2_8xbj5"]
+[ext_resource type="Resource" uid="uid://jpp882fmpyry" path="res://scenes/mecha/WeirdFiction/weird_fiction_stats.tres" id="3_ew0qt"]
 
 [node name="WeirdFiction" instance=ExtResource("1_52h6v")]
 script = ExtResource("2_8xbj5")
-starting_stats = null
+starting_stats = ExtResource("3_ew0qt")
