@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq1dcakjrtmw1"]
+[gd_scene load_steps=4 format=3 uid="uid://cq1dcakjrtmw1"]
 
 [ext_resource type="Script" path="res://scenes/controllers/MechaController.gd" id="1_xd7ey"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="3_d4t8m"]
+[ext_resource type="PackedScene" uid="uid://dunwl2hmjglfm" path="res://scenes/mecha/WeirdFiction/WeirdFiction.tscn" id="3_dk2k5"]
 
 [node name="MechaController" type="Node2D"]
 script = ExtResource("1_xd7ey")
-use_map = false
 
 [node name="ControllerMovement" type="Node" parent="."]
 script = ExtResource("3_d4t8m")
 
 [node name="Mechas" type="Node2D" parent="."]
+
+[node name="WeirdFiction" parent="Mechas" instance=ExtResource("3_dk2k5")]

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=16 format=3 uid="uid://b8ked53o0ew8n"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=16 format=3 uid="uid://didvebwsiklij"]
 
-[ext_resource type="Texture2D" uid="uid://cch1fymp6mdqm" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Blob Hurt.png" id="1_a0j4y"]
+[ext_resource type="Texture2D" uid="uid://o7yac5ajb6ha" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Blob Hurt.png" id="1_a0j4y"]
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_uo861"]
-[ext_resource type="Texture2D" uid="uid://hxrsq052alci" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Blob Death.png" id="2_2k37u"]
-[ext_resource type="Texture2D" uid="uid://co6ecpfa8ybi4" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Blob Walk.png" id="3_mbqj1"]
+[ext_resource type="Texture2D" uid="uid://dificn4h38e31" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Blob Death.png" id="2_2k37u"]
+[ext_resource type="Texture2D" uid="uid://dup7rav63vsja" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Blob Walk.png" id="3_mbqj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2aq7w"]
 atlas = ExtResource("1_a0j4y")
