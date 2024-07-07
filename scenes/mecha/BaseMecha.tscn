@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
-[ext_resource type="Texture2D" uid="uid://ddbew5afyhmsd" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
+[ext_resource type="Texture2D" uid="uid://cjmcdi68ehqv5" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
 [ext_resource type="Texture2D" uid="uid://dxfa6bvxwl2ob" path="res://asset/mecha/background_mecha.png" id="3_ihcym"]
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="4_lyobt"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 [ext_resource type="Script" path="res://scenes/mecha/AudioStreamRandomPlayer2D.gd" id="5_y1kgt"]
 [ext_resource type="Script" path="res://scenes/mecha/TargetableArea.gd" id="6_a1apb"]
-[ext_resource type="AudioStream" uid="uid://m61pwx2hncxr" path="res://asset/sfx/mecha_sounds/step5.wav" id="6_bnmdo"]
-[ext_resource type="AudioStream" uid="uid://ckjrqrphmre2d" path="res://asset/sfx/mecha_sounds/step1.wav" id="6_gfktq"]
-[ext_resource type="AudioStream" uid="uid://2r2rjc1cqaip" path="res://asset/sfx/mecha_sounds/step2.wav" id="6_wpvrs"]
-[ext_resource type="AudioStream" uid="uid://k6f666e7yxp" path="res://asset/sfx/mecha_sounds/step3.wav" id="7_8ptk3"]
-[ext_resource type="AudioStream" uid="uid://dhcreaa4eq55t" path="res://asset/sfx/mecha_sounds/step4.wav" id="8_y3uys"]
+[ext_resource type="AudioStream" uid="uid://cdh00udj5s5tm" path="res://asset/sfx/mecha_sounds/step5.wav" id="6_bnmdo"]
+[ext_resource type="AudioStream" uid="uid://jdh4sfmyptdu" path="res://asset/sfx/mecha_sounds/step1.wav" id="6_gfktq"]
+[ext_resource type="AudioStream" uid="uid://oq4pxnu700sg" path="res://asset/sfx/mecha_sounds/step2.wav" id="6_wpvrs"]
+[ext_resource type="AudioStream" uid="uid://b07c0ojs632au" path="res://asset/sfx/mecha_sounds/step3.wav" id="7_8ptk3"]
+[ext_resource type="AudioStream" uid="uid://10afg5cjjmvl" path="res://asset/sfx/mecha_sounds/step4.wav" id="8_y3uys"]
 [ext_resource type="Texture2D" uid="uid://ck5vnwbaa47fv" path="res://asset/mecha/cerchio.svg" id="9_xv6aq"]
 
 [sub_resource type="Resource" id="Resource_1hgdl"]
@@ -24,6 +24,7 @@ start_attack_speed = 1.0
 start_projectile_speed = 10.0
 start_damage = 10.0
 start_range = 10.0
+cost = 100
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asdtb"]
 radius = 33.0

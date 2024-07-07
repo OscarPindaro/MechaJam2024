@@ -20,6 +20,11 @@ var wave_in_progress : bool = false
 @export var money : int = 3000
 var is_game_over : bool = false
 
+# Mecha references
+@export var mechas : Array[BaseMecha]
+
+@export var time_travel : Node2D
+
 # Status signals
 signal game_start()
 signal game_over()

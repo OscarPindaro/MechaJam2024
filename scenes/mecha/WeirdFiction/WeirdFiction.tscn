@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_52h6v"]
 [ext_resource type="Script" path="res://scenes/mecha/WeirdFiction/WeirdFiction.gd" id="2_8xbj5"]
 [ext_resource type="Texture2D" uid="uid://bw1brn0obh8tf" path="res://asset/mecha/WEIR FIC -Sheet.png" id="3_66mcm"]
-[ext_resource type="Resource" path="res://scenes/mecha/WeirdFiction/weird_fiction_stats.tres" id="3_va0ht"]
-[ext_resource type="AudioStream" uid="uid://desgvx003k4s1" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_long1.wav" id="4_8bfo2"]
-[ext_resource type="AudioStream" uid="uid://5qn41wn84y28" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_short1.wav" id="4_87hpb"]
-[ext_resource type="AudioStream" uid="uid://cu10itx20gu1q" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_long2.wav" id="5_t5v7w"]
-[ext_resource type="AudioStream" uid="uid://seqvilfer602" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_long3.wav" id="6_er1j7"]
-[ext_resource type="AudioStream" uid="uid://b8uims8wqos24" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_short2.wav" id="7_svx3u"]
-[ext_resource type="AudioStream" uid="uid://c5pi2lijbtckf" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_short3.wav" id="8_51odx"]
+[ext_resource type="Resource" uid="uid://jpp882fmpyry" path="res://scenes/mecha/WeirdFiction/weird_fiction_stats.tres" id="3_va0ht"]
+[ext_resource type="AudioStream" uid="uid://c7wl5rsn14koo" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_long1.wav" id="4_8bfo2"]
+[ext_resource type="AudioStream" uid="uid://q1moje53skre" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_short1.wav" id="4_87hpb"]
+[ext_resource type="AudioStream" uid="uid://c4sv781i1l4b0" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_long2.wav" id="5_t5v7w"]
+[ext_resource type="AudioStream" uid="uid://bk313j8moyfr6" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_long3.wav" id="6_er1j7"]
+[ext_resource type="AudioStream" uid="uid://dbb1oo5hb1bn1" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_short2.wav" id="7_svx3u"]
+[ext_resource type="AudioStream" uid="uid://oprnqxt0hnvy" path="res://asset/sfx/mecha_sounds/weird_fiction_boo_short3.wav" id="8_51odx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu1nh"]
 atlas = ExtResource("3_66mcm")
@@ -86,4 +86,5 @@ a = Array[AudioStream]([ExtResource("4_8bfo2"), ExtResource("5_t5v7w"), ExtResou
 
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_86han")
-animation = &"attack"
+animation = &"idle"
+autoplay = "idle"
