@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://djpex4rk62am3"]
+[gd_scene load_steps=16 format=3 uid="uid://djpex4rk62am3"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_u3l2j"]
 [ext_resource type="Script" path="res://scenes/mecha/Relax/RelaxMecha.gd" id="2_lgs5a"]
 [ext_resource type="Resource" uid="uid://c2bvaf3gwoa8i" path="res://scenes/mecha/Relax/relax_mecha_stats.tres" id="3_yl6cu"]
 [ext_resource type="Texture2D" uid="uid://dcrdg5e50qekc" path="res://asset/mecha/rELAX -Sheet.png" id="4_v685i"]
+[ext_resource type="AudioStream" uid="uid://ced0fac7o00fv" path="res://asset/sfx/mecha_sounds/relax6.wav" id="5_hld63"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wvhk"]
 atlas = ExtResource("4_v685i")
@@ -99,3 +100,6 @@ starting_stats = ExtResource("3_yl6cu")
 [node name="Animations" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_qaw7h")
 animation = &"attack"
+
+[node name="AttackPlayer" parent="Sound" index="1"]
+stream = ExtResource("5_hld63")

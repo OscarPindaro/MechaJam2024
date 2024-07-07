@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://10ag61466fsy"]
+[gd_scene load_steps=19 format=3 uid="uid://10ag61466fsy"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_3757r"]
 [ext_resource type="Script" path="res://scenes/mecha/Arena/Arena.gd" id="2_ydf0i"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_o67xe"]
 [ext_resource type="Texture2D" uid="uid://cjh8yfokj2u2e" path="res://asset/mecha/Arena Walk -Sheet.png" id="4_qu6ui"]
+[ext_resource type="AudioStream" uid="uid://clvii327xhwd5" path="res://asset/sfx/mecha_sounds/arena_splash4.wav" id="5_y282e"]
 
 [sub_resource type="Resource" id="Resource_63761"]
 script = ExtResource("3_o67xe")
@@ -122,3 +123,6 @@ starting_stats = SubResource("Resource_63761")
 [node name="Animations" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_385tg")
 frame_progress = 0.823226
+
+[node name="AttackPlayer" parent="Sound" index="1"]
+stream = ExtResource("5_y282e")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6sdolsmsqcf3"]
+[gd_scene load_steps=20 format=3 uid="uid://b6sdolsmsqcf3"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_l7ip0"]
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="2_5aexl"]
 [ext_resource type="Script" path="res://scenes/mecha/SignalFailure/signal_falure_mecha.gd" id="2_ahlqk"]
 [ext_resource type="Resource" uid="uid://vc7la3gh30mf" path="res://scenes/mecha/SignalFailure/signal_falure_stats.tres" id="3_6dgkx"]
+[ext_resource type="AudioStream" uid="uid://bseko53nnayqw" path="res://asset/sfx/mecha_sounds/signal_failure1.wav" id="5_mmj3q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mytmw"]
 atlas = ExtResource("2_5aexl")
@@ -127,9 +128,11 @@ starting_stats = ExtResource("3_6dgkx")
 
 [node name="Animations" parent="." index="1"]
 position = Vector2(0, -12)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_frgm6")
 animation = &"default"
 
 [node name="CollisionShape2D" parent="MouseSelectionArea" index="0"]
 position = Vector2(-2, -12)
+
+[node name="AttackPlayer" parent="Sound" index="1"]
+stream = ExtResource("5_mmj3q")
