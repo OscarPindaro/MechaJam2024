@@ -83,7 +83,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_eir7s")
 }],
 "loop": true,
-"name": &"move",
+"name": &"move_hor",
 "speed": 5.0
 }]
 
@@ -100,7 +100,6 @@ start_hp = 10.0
 start_speed = 20.0
 start_dmg = 2.0
 money_value = 200.0
-pathfinding_radius = 10.0
 spawn_value = 5.0
 spawn_frequency = 1.0
 spawn_condition = 2

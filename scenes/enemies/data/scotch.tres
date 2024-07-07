@@ -82,7 +82,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_a84hs")
 }],
 "loop": true,
-"name": &"move",
+"name": &"move_hor",
 "speed": 5.0
 }]
 
@@ -99,7 +99,6 @@ start_hp = 2.0
 start_speed = 100.0
 start_dmg = 0.5
 money_value = 50.0
-pathfinding_radius = 10.0
 spawn_value = 2.0
 spawn_frequency = 1.5
 spawn_condition = 0

@@ -11,7 +11,7 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_xuv5p")
-start_spawn_value = 10.0
+start_spawn_value = 15.0
 start_spawn_timer = 3.0
 spawn_value_percentage_increase = 0.1
 spawn_timer_percentage_reduce = 0.1
@@ -22,7 +22,7 @@ spawn_timer_percentage_reduce = 0.1
 script = ExtResource("2_so7dd")
 base_enemy = ExtResource("3_h5tcq")
 enemy_types = Array[Resource("res://scenes/enemies/data/enemy_data.gd")]([ExtResource("5_l163y"), ExtResource("7_yujka"), ExtResource("4_abg25"), ExtResource("6_8m1p2"), ExtResource("4_cntvp")])
-spawn_radius = 10.0
+spawn_radius = 25.0
 
 [node name="SpawnTimer" type="Timer" parent="Spawner"]
 
