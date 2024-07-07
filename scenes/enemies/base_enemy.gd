@@ -20,9 +20,13 @@ var current_path_position : Vector2
 var current_target : Vector2
 var first_path_finish : bool = true
 
+# Status
+var is_charmed : bool = false
+
 # Signals
 signal hit(dmg)
 signal dead(money_value)
+signal hit_charme(value)
 signal charmed()
 signal attack(dmg)
 
@@ -67,8 +71,10 @@ func _ready():
 	# Add binding to signals
 	hit.connect(on_hit)
 	dead.connect(on_dead)
+	hit_charme.connect(on_hit_charme)
 	charmed.connect(on_charmed)
 	attack.connect(on_attack)
+	area_entered.connect(on_area_entered)
 
 func _physics_process(delta):
 	# Move towards target
@@ -102,17 +108,21 @@ func _physics_process(delta):
 			$AnimatedSprite.flip_v = true
 			$AnimatedSprite.flip_h = false
 
-	elif can_move && first_path_finish && $NavigationAgent2D.target_position == goal_position:	# When got to goal attack
-		attack.emit(dmg)
+	elif can_move && first_path_finish && !is_charmed && $NavigationAgent2D.target_position == goal_position:	# When got to goal attack
 		first_path_finish = false
+		attack.emit(dmg)
+	elif can_move && is_charmed && $NavigationAgent2D.target_position == starting_position: # When charmed and got to start
+		queue_free()
 
 func damage(value):
+	hp -= value
 	hit.emit(value)
 	if hp <= 0:
 		dead.emit(stats.money_value)
 
 func apply_charme(value):
 	charme += value
+	hit_charme.emit(value)
 	if charme >= hp:
 		charmed.emit()
 
@@ -156,10 +166,10 @@ func spawn_minions():
 		spawner.spawn_enemy(stats.minion_types[i], position, stats.minion_radius)
 
 func on_hit(value):
-	hp -= value
-
-	$UI/HealthBar.visible = true
+	$UI.visible = true
 	$UI/HealthBar.value = (hp/stats.start_hp) * 100
+	if is_charmed:
+		$UI/CharmeBar.value = (hp/stats.start_hp) * 100
 
 	if is_instance_valid(stats.hit_sound):
 		$AudioStreamPlayer.stream = stats.hit_sound
@@ -167,28 +177,37 @@ func on_hit(value):
 
 func on_dead(_money_value):
 	can_move = false
-	$UI/HealthBar.visible = false
+	$UI.visible = false
 	$AnimatedSprite.animation = ANIMATION_NAMES[2]
 
 	if is_instance_valid(stats.death_sound):
-		print("dead sound ", stats.death_sound)
 		$AudioStreamPlayer.stream = stats.death_sound
 		$AudioStreamPlayer.play()
 		$AudioStreamPlayer.finished.connect(queue_free)
 	else:
 		$AnimatedSprite.animation_finished.connect(queue_free)
 
+func on_hit_charme(value):
+	$UI.visible = true
+	$UI/CharmeBar.value = (charme/stats.start_hp) * 100
+
 func on_charmed():
-	pass
+	is_charmed = true
+	change_target(starting_position)
+
 
 func on_attack(_value):
 	can_move = false
 	$AnimatedSprite.animation = ANIMATION_NAMES[3]
 
 	if is_instance_valid(stats.attack_sound):
-		print("attack sound ", stats.death_sound)
 		$AudioStreamPlayer.stream = stats.attack_sound
 		$AudioStreamPlayer.play()
 		$AudioStreamPlayer.finished.connect(queue_free)
 	else:
 		$AnimatedSprite.animation_finished.connect(queue_free)
+
+func on_area_entered(area:Area2D):
+	if area.is_in_group("enemy"):
+		if area.is_charmed != is_charmed:	# If the charm status is different, hit it
+			area.damage(dmg)
