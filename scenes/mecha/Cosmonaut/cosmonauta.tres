@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MechaStatResource" load_steps=2 format=3 uid="uid://cddivfmnyhv1f"]
+
+[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="1_yekkk"]
+
+[resource]
+script = ExtResource("1_yekkk")
+start_hp = 100.0
+start_hp_regen = 1.0
+start_speed = 0.4
+start_attack_speed = 1.0
+start_damage = 10.0
