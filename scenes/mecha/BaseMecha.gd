@@ -187,11 +187,12 @@ func move_along_path(target_positions: Array[Vector2]):
 	# start animating? 
 
 	var curr_position: Vector2 = position
-	mov_tween.tween_callback(walk_player.play)
+
 	for position in target_positions:
 		# compute direction and decide which animation to play
 		# var anim_name: String = get_mov_anim_name(curr_position, position)
-		mov_tween.tween_callback(animations.play.bind(move))
+		mov_tween.tween_callback(animations.play.bind("move"))
+		mov_tween.tween_callback(walk_player.play)
 		mov_tween.tween_property(self, "global_position", position, speed).set_trans(mov_transition).set_ease(Tween.EASE_OUT)
 		mov_tween.tween_callback(on_step)
 		# reset current position

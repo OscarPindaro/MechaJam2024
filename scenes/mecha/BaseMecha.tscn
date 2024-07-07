@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="4_lyobt"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
 [ext_resource type="Script" path="res://scenes/mecha/TargetableArea.gd" id="6_a1apb"]
-[ext_resource type="AudioStream" uid="uid://m61pwx2hncxr" path="res://asset/sfx/mecha_sounds/step5.wav" id="6_bnmdo"]
+[ext_resource type="AudioStream" uid="uid://ckjrqrphmre2d" path="res://asset/sfx/mecha_sounds/step1.wav" id="6_gfktq"]
 
 [sub_resource type="Resource" id="Resource_1hgdl"]
 script = ExtResource("2_j8l85")
@@ -142,13 +142,8 @@ height = 56.0
 
 [node name="BaseMecha" type="CharacterBody2D"]
 script = ExtResource("1_0gymd")
-test = null
-mov_transition = null
-hoover_color = null
 selected_color = Color(0.537255, 0.901961, 0.529412, 0.501961)
 starting_stats = SubResource("Resource_1hgdl")
-deselect_with_click = null
-target_group = null
 
 [node name="Selection" type="Node2D" parent="."]
 
@@ -180,7 +175,7 @@ shape = SubResource("CapsuleShape2D_nb5b2")
 [node name="Sound" type="Node2D" parent="."]
 
 [node name="WalkPlayer" type="AudioStreamPlayer2D" parent="Sound"]
-stream = ExtResource("6_bnmdo")
+stream = ExtResource("6_gfktq")
 bus = &"SFXMechaHu"
 
 [node name="AttackPlayer" type="AudioStreamPlayer2D" parent="Sound"]

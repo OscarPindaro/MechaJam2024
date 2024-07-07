@@ -43,9 +43,7 @@ func _input(event):
 			# for mecha in mecha_list:
 			# 	mecha_cells.append(get_coord_in_map(mecha.position))
 			var can_move: bool  = can_mecha_move(target_cell)
-			can_move = true
 
-			print("Can move ", can_move)
 			if can_move:
 				# compute best path
 				print("Mecha Cell: ", mecha_cell, " , pos: ", mecha_pos)
