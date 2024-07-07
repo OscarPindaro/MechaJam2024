@@ -1,9 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce48s1dpb567x"]
+[gd_scene load_steps=6 format=3 uid="uid://ce48s1dpb567x"]
 
 [ext_resource type="PackedScene" uid="uid://bpjm8fsmclnf8" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_125po"]
 [ext_resource type="Script" path="res://scenes/projectiles/MopProjectile.gd" id="2_8pih7"]
-[ext_resource type="AudioStream" uid="uid://bh8aqgusvrixl" path="res://asset/sfx/mecha_sounds/arena_splash2.wav" id="3_4lum4"]
+[ext_resource type="AudioStream" uid="uid://dm33owmc4qpat" path="res://asset/sfx/mecha_sounds/arena_splash2.wav" id="3_4lum4"]
+[ext_resource type="Texture2D" uid="uid://cvkpcqr0utfi7" path="res://asset/projectiles/mop .png" id="4_cji4v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhbat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cji4v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MopProjectile" instance=ExtResource("1_125po")]
 script = ExtResource("2_8pih7")
 end_sound = ExtResource("3_4lum4")
+
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2(1.2, 1.64)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_bhbat")
