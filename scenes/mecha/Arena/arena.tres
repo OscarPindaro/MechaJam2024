@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MechaStatResource" load_steps=2 format=3 uid="uid://cj50u0733f2p2"]
+
+[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="1_kgkue"]
+
+[resource]
+script = ExtResource("1_kgkue")
+start_hp = 100.0
+start_hp_regen = 1.0
+start_speed = 0.5
+start_attack_speed = 1.0
+start_projectile_speed = 10.0
+start_damage = 10.0
+start_range = 10.0
