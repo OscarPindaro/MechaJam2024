@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=24 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxfa6bvxwl2ob" path="res://asset/mecha/background_mecha.png" id="3_ihcym"]
 [ext_resource type="AudioStream" uid="uid://04oe1fwg4ext" path="res://asset/placeholders/sfx/bw_1bit/Attack02.wav" id="4_xi874"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
+[ext_resource type="Script" path="res://scenes/mecha/TargetableArea.gd" id="6_a1apb"]
 
 [sub_resource type="Resource" id="Resource_1hgdl"]
 script = ExtResource("2_j8l85")
@@ -13,7 +14,9 @@ start_hp = 100.0
 start_hp_regen = 1.0
 start_speed = 0.1
 start_attack_speed = 1.0
+start_projectile_speed = 10.0
 start_damage = 10.0
+start_range = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01jph"]
 
@@ -116,6 +119,10 @@ height = 100.0
 radius = 32.0
 height = 64.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfmtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkbjs"]
+
 [node name="BaseMecha" type="CharacterBody2D"]
 script = ExtResource("1_0gymd")
 selected_color = Color(0.537255, 0.901961, 0.529412, 0.501961)
@@ -157,3 +164,21 @@ bus = &"SFXMechaHu"
 
 [node name="ControllerMovement" type="Node" parent="."]
 script = ExtResource("5_akstm")
+
+[node name="TargetableArea" type="Area2D" parent="." groups=["mecha"]]
+script = ExtResource("6_a1apb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetableArea"]
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("CircleShape2D_tfmtx")
+
+[node name="VisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
+shape = SubResource("CircleShape2D_wkbjs")
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[connection signal="buff_attSp_Signal" from="TargetableArea" to="." method="buff_attSp"]
+[connection signal="buff_damage_Signal" from="TargetableArea" to="." method="buff_damage"]
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

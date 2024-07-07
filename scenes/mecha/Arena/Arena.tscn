@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://10ag61466fsy"]
+
+[ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_3757r"]
+[ext_resource type="Script" path="res://scenes/mecha/Arena/Arena.gd" id="2_ydf0i"]
+[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_o67xe"]
+
+[sub_resource type="Resource" id="Resource_63761"]
+script = ExtResource("3_o67xe")
+start_hp = 100.0
+start_hp_regen = 1.0
+start_speed = 0.1
+start_attack_speed = 1.0
+start_projectile_speed = 10.0
+start_damage = 10.0
+start_range = 200.0
+
+[node name="Arena" instance=ExtResource("1_3757r")]
+script = ExtResource("2_ydf0i")
+starting_stats = SubResource("Resource_63761")

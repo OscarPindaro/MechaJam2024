@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce48s1dpb567x"]
+
+[ext_resource type="PackedScene" uid="uid://bpjm8fsmclnf8" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_125po"]
+[ext_resource type="Script" path="res://scenes/projectiles/MopProjectile.gd" id="2_8pih7"]
+
+[node name="MopProjectile" instance=ExtResource("1_125po")]
+script = ExtResource("2_8pih7")

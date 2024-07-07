@@ -5,7 +5,7 @@ extends Node2D
 var map_node: Map
 @export var start_mecha_path: NodePath
 
-var curr_mecha: BaseMecha
+@onready var curr_mecha: BaseMecha
 @onready var movement_controller: ControllerMovement = $ControllerMovement
 # get all mechas
 var mechas_list: Array[BaseMecha]

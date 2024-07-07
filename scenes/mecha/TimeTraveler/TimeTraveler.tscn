@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfgx2bem0t6hw"]
+
+[ext_resource type="Script" path="res://scenes/mecha/TimeTraveler/TimeTraveler.gd" id="1_d4ssn"]
+[ext_resource type="AudioStream" uid="uid://h6gp5x0y3k3p" path="res://asset/sfx/mecha_sounds/time_travel.wav" id="1_ry63o"]
+[ext_resource type="Texture2D" uid="uid://co16cgo3y331q" path="res://asset/mecha/TIME TRAVEL Sheet.png" id="2_sr03p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh427"]
+atlas = ExtResource("2_sr03p")
+region = Rect2(0, 192, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb3vx"]
+atlas = ExtResource("2_sr03p")
+region = Rect2(80, 192, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y2wo"]
+atlas = ExtResource("2_sr03p")
+region = Rect2(160, 192, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn8ya"]
+atlas = ExtResource("2_sr03p")
+region = Rect2(240, 192, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onod0"]
+atlas = ExtResource("2_sr03p")
+region = Rect2(320, 192, 80, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtc22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh427")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb3vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y2wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn8ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onod0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TimeTraveler" type="Node2D"]
+script = ExtResource("1_d4ssn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_rtc22")
+frame = 4
+frame_progress = 0.476239
+
+[node name="EffectPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_ry63o")
+
+[connection signal="finished" from="EffectPlayer" to="." method="_on_effect_player_finished"]

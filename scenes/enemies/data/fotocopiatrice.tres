@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=17 format=3 uid="uid://cuepf3x1hyc1x"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=16 format=3 uid="uid://cuepf3x1hyc1x"]
 
 [ext_resource type="AudioStream" uid="uid://cd56nirk1wmh3" path="res://asset/sfx/enemies/coffee_machine_hit.wav" id="2_orgxb"]
 [ext_resource type="AudioStream" uid="uid://cbguqcfqr80nm" path="res://asset/sfx/enemies/copier_explosion.wav" id="3_7kg18"]
 [ext_resource type="Texture2D" uid="uid://cmwkasw8mo6m1" path="res://asset/enemies/Stampante-Sheet.png" id="3_xanp2"]
 [ext_resource type="Resource" uid="uid://bjc1btqbqx7bj" path="res://scenes/enemies/data/graffetta.tres" id="4_iwqbv"]
-[ext_resource type="AudioStream" uid="uid://c0htircrge6a3" path="res://asset/sfx/enemies/copier_print.wav" id="4_rq4ax"]
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="5_nqfvo"]
 [ext_resource type="Resource" uid="uid://bauupr2lvndqs" path="res://scenes/enemies/data/scotch.tres" id="5_w51qu"]
 [ext_resource type="Resource" uid="uid://didvebwsiklij" path="res://scenes/enemies/data/aereoplanino.tres" id="6_lnotg"]
@@ -93,4 +92,3 @@ minion_types = Array[ExtResource("5_nqfvo")]([ExtResource("6_lnotg"), ExtResourc
 minion_number = 1
 minion_deltatime = 3.0
 minion_radius = 10.0
-minion_spawn_sound = ExtResource("4_rq4ax")
