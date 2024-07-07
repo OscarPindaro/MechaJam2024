@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq1dcakjrtmw1"]
+[gd_scene load_steps=8 format=3 uid="uid://cq1dcakjrtmw1"]
 
 [ext_resource type="Script" path="res://scenes/controllers/MechaController.gd" id="1_xd7ey"]
 [ext_resource type="PackedScene" uid="uid://baj2x00vcgrts" path="res://scenes/mecha/Cosmonaut/Cosmonaut.tscn" id="2_wtco3"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="3_d4t8m"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_vqpkc"]
 [ext_resource type="PackedScene" uid="uid://dgf4sextkrafr" path="res://scenes/mecha/Resurrection/Resurrection.tscn" id="5_i3b23"]
+[ext_resource type="PackedScene" uid="uid://10ag61466fsy" path="res://scenes/mecha/Arena/Arena.tscn" id="6_1xem8"]
 
 [sub_resource type="Resource" id="Resource_e8p4n"]
 script = ExtResource("3_vqpkc")
@@ -29,3 +30,5 @@ starting_stats = SubResource("Resource_e8p4n")
 
 [node name="Resurrection" parent="Mechas" groups=["mecha"] instance=ExtResource("5_i3b23")]
 position = Vector2(-64, 0)
+
+[node name="Arena" parent="Mechas" instance=ExtResource("6_1xem8")]
