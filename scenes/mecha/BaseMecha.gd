@@ -275,6 +275,7 @@ func shoot_projectile(projectile : BaseProjectile, target :Area2D):
 	
 	projectile.Direction = direction
 	projectile.Velocity = speed
+	projectile.global_position = global_position
 	
 	projectile.source = self
 	parent.add_child(projectile)
