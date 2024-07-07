@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://5tb1ulhvcuep"]
+[gd_scene load_steps=4 format=3 uid="uid://5tb1ulhvcuep"]
 
 [ext_resource type="PackedScene" uid="uid://bpj52fbvbvsto" path="res://scenes/projectiles/BaseBuffProjectile.tscn" id="1_aio2t"]
 [ext_resource type="Script" path="res://scenes/projectiles/DoughnutProjectile.gd" id="2_l02jh"]
+[ext_resource type="AudioStream" uid="uid://dtxegkn5q86d1" path="res://asset/sfx/mecha_sounds/resurrection_swallow2.wav" id="3_if1ss"]
 
 [node name="DoughnutProjectile" instance=ExtResource("1_aio2t")]
 script = ExtResource("2_l02jh")
+end_sound = ExtResource("3_if1ss")
 
-[node name="EndStreamPlayer" parent="." index="2"]
+[node name="ShootStreamPlayer" parent="." index="2"]
+bus = &"Master"
+
+[node name="EndStreamPlayer" parent="." index="3"]
 bus = &"Master"
