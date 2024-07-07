@@ -1,9 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxyt58tkkymsr"]
+[gd_scene load_steps=23 format=3 uid="uid://dxyt58tkkymsr"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_hxw77"]
 [ext_resource type="Script" path="res://scenes/mecha/Diplomat/Diplomat.gd" id="2_mkq7g"]
 [ext_resource type="Texture2D" uid="uid://cw8ok1rgn10jn" path="res://asset/mecha/Diplomat Walk DWN-Sheet.png" id="3_rxind"]
+[ext_resource type="AudioStream" uid="uid://buxmipg5hm4l0" path="res://asset/sfx/mecha_sounds/diplomat1.wav" id="4_pm30v"]
 [ext_resource type="AudioStream" uid="uid://rijogr3ax4c7" path="res://asset/sfx/mecha_sounds/diplomat6.wav" id="4_xa4c2"]
+[ext_resource type="AudioStream" uid="uid://lhxcm7k7fa4d" path="res://asset/sfx/mecha_sounds/diplomat2.wav" id="5_yxxx8"]
+[ext_resource type="AudioStream" uid="uid://bmrjqt6h1ql3p" path="res://asset/sfx/mecha_sounds/diplomat3.wav" id="6_3d3kx"]
+[ext_resource type="AudioStream" uid="uid://ddrurxfvuq6o6" path="res://asset/sfx/mecha_sounds/diplomat4.wav" id="7_18hbk"]
+[ext_resource type="AudioStream" uid="uid://c50e6eo8l2god" path="res://asset/sfx/mecha_sounds/diplomat5.wav" id="8_3vc4o"]
+[ext_resource type="AudioStream" uid="uid://d08kw4fska24t" path="res://asset/sfx/mecha_sounds/diplomat7.wav" id="9_di1y0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_diatx"]
 atlas = ExtResource("3_rxind")
@@ -111,6 +117,7 @@ starting_stats = null
 
 [node name="AttackPlayer" parent="Sound" index="1"]
 stream = ExtResource("4_xa4c2")
+a = Array[AudioStream]([ExtResource("4_pm30v"), ExtResource("5_yxxx8"), ExtResource("6_3d3kx"), ExtResource("7_18hbk"), ExtResource("8_3vc4o"), ExtResource("4_xa4c2"), ExtResource("9_di1y0")])
 
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_capnm")

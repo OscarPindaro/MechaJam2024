@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://baj2x00vcgrts"]
+[gd_scene load_steps=20 format=3 uid="uid://baj2x00vcgrts"]
 
 [ext_resource type="Script" path="res://scenes/mecha/Cosmonaut/Cosmonaut.gd" id="1_fnl2v"]
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_qcmpd"]
 [ext_resource type="Resource" uid="uid://cddivfmnyhv1f" path="res://scenes/mecha/Cosmonaut/cosmonauta.tres" id="3_r2x6i"]
 [ext_resource type="Texture2D" uid="uid://dmubgmylepfwq" path="res://asset/mecha/Cosmonaut -Sheet.png" id="4_t8d8f"]
+[ext_resource type="AudioStream" uid="uid://cuwtgmad51wll" path="res://asset/sfx/mecha_sounds/cosmonaut1.wav" id="5_at184"]
 [ext_resource type="AudioStream" uid="uid://cbiebn0wws4lw" path="res://asset/sfx/mecha_sounds/cosmonaut2.wav" id="5_dryc4"]
+[ext_resource type="AudioStream" uid="uid://dlnfewoiowpvr" path="res://asset/sfx/mecha_sounds/cosmonaut3.wav" id="6_wml32"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ksfe"]
 atlas = ExtResource("4_t8d8f")
@@ -110,9 +112,10 @@ animations = [{
 script = ExtResource("1_fnl2v")
 starting_stats = ExtResource("3_r2x6i")
 
-[node name="Animations" parent="." index="1"]
-sprite_frames = SubResource("SpriteFrames_u21bm")
-autoplay = ""
-
 [node name="AttackPlayer" parent="Sound" index="1"]
 stream = ExtResource("5_dryc4")
+a = Array[AudioStream]([ExtResource("5_at184"), ExtResource("5_dryc4"), ExtResource("6_wml32")])
+
+[node name="Animations" parent="." index="7"]
+sprite_frames = SubResource("SpriteFrames_u21bm")
+autoplay = ""

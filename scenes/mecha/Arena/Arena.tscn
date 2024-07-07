@@ -1,10 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://10ag61466fsy"]
+[gd_scene load_steps=24 format=3 uid="uid://10ag61466fsy"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_3757r"]
 [ext_resource type="Script" path="res://scenes/mecha/Arena/Arena.gd" id="2_ydf0i"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_o67xe"]
+[ext_resource type="AudioStream" uid="uid://bu1gfaklxh1t8" path="res://asset/sfx/mecha_sounds/arena_woosh1.wav" id="4_g1o3i"]
 [ext_resource type="Texture2D" uid="uid://cjh8yfokj2u2e" path="res://asset/mecha/Arena Walk -Sheet.png" id="4_qu6ui"]
-[ext_resource type="AudioStream" uid="uid://clvii327xhwd5" path="res://asset/sfx/mecha_sounds/arena_splash4.wav" id="5_y282e"]
+[ext_resource type="AudioStream" uid="uid://dotp4s70quwl1" path="res://asset/sfx/mecha_sounds/arena_woosh2.wav" id="5_su3ue"]
+[ext_resource type="AudioStream" uid="uid://ciyjpopr6jmo8" path="res://asset/sfx/mecha_sounds/arena_woosh3.wav" id="6_sidxk"]
+[ext_resource type="AudioStream" uid="uid://cwp13xursev82" path="res://asset/sfx/mecha_sounds/arena_woosh4.wav" id="7_1e8to"]
+[ext_resource type="AudioStream" uid="uid://61jc1iabmopx" path="res://asset/sfx/mecha_sounds/arena_woosh5.wav" id="8_a1pmx"]
+[ext_resource type="AudioStream" uid="uid://d2w8komebu2kv" path="res://asset/sfx/mecha_sounds/arena_woosh6.wav" id="9_kynik"]
 
 [sub_resource type="Resource" id="Resource_63761"]
 script = ExtResource("3_o67xe")
@@ -120,9 +125,9 @@ animations = [{
 script = ExtResource("2_ydf0i")
 starting_stats = SubResource("Resource_63761")
 
-[node name="Animations" parent="." index="1"]
+[node name="AttackPlayer" parent="Sound" index="1"]
+a = Array[AudioStream]([ExtResource("4_g1o3i"), ExtResource("5_su3ue"), ExtResource("6_sidxk"), ExtResource("7_1e8to"), ExtResource("8_a1pmx"), ExtResource("9_kynik")])
+
+[node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_385tg")
 frame_progress = 0.823226
-
-[node name="AttackPlayer" parent="Sound" index="1"]
-stream = ExtResource("5_y282e")

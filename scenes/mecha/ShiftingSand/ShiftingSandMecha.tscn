@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://bg5chagavjv0a"]
+[gd_scene load_steps=19 format=3 uid="uid://bg5chagavjv0a"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_jne46"]
 [ext_resource type="Script" path="res://scenes/mecha/ShiftingSand/shifting_sand_mecha.gd" id="2_1q7i8"]
 [ext_resource type="Resource" uid="uid://b061kfwnccbkq" path="res://scenes/mecha/ShiftingSand/shifting_sand_stats.tres" id="3_dmffr"]
+[ext_resource type="AudioStream" uid="uid://bcykeiq4flnkp" path="res://asset/sfx/mecha_sounds/shifting_sands2.wav" id="4_44ax4"]
 [ext_resource type="Texture2D" uid="uid://cemhjj2avpuk" path="res://asset/mecha/Shift sand Sheet.png" id="4_bvrx3"]
+[ext_resource type="AudioStream" uid="uid://duifsk0l5afsh" path="res://asset/sfx/mecha_sounds/shifting_sands3.wav" id="5_lqt35"]
+[ext_resource type="AudioStream" uid="uid://ghj628lxssg" path="res://asset/sfx/mecha_sounds/shifting_sands.wav" id="6_lmmcc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n8tr"]
 atlas = ExtResource("4_bvrx3")
@@ -105,5 +108,8 @@ charm_duration = 1.0
 selected_color = Color(0.53, 0.9, 0.53, 0.5)
 starting_stats = ExtResource("3_dmffr")
 
-[node name="Animations" parent="." index="1"]
+[node name="AttackPlayer" parent="Sound" index="1"]
+a = Array[AudioStream]([ExtResource("4_44ax4"), ExtResource("5_lqt35"), ExtResource("6_lmmcc")])
+
+[node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_gvrpf")
