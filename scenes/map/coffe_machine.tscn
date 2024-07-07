@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dneqtal8kmbsa"]
+
+[ext_resource type="Texture2D" uid="uid://bsye8che52sux" path="res://asset/Coffe machine.png" id="1_61r63"]
+
+[node name="CoffeMachine" type="Sprite2D"]
+z_index = 1
+texture = ExtResource("1_61r63")

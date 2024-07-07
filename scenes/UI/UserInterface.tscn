@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="2_hhg2b"]
 [ext_resource type="Script" path="res://scenes/UI/Play_pause.gd" id="4_mkq0e"]
 [ext_resource type="Script" path="res://scenes/UI/Button.gd" id="4_vqi8o"]
-[ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="4_wwayp"]
+[ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="6_ndotk"]
 [ext_resource type="Texture2D" uid="uid://bvff4ai6tni36" path="res://asset/placeholders/sprites/fantasy_items/MV Icons PACK 2 - ALL.png" id="7_57ifu"]
 [ext_resource type="Script" path="res://scenes/UI/ProgressBar.gd" id="7_aem6l"]
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="8_6bcaq"]
@@ -538,6 +538,59 @@ grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
 
+[node name="ShopItem9" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
+unique_name_in_owner = true
+process_mode = 1
+custom_minimum_size = Vector2(90, 128)
+layout_mode = 2
+theme = ExtResource("2_hhg2b")
+icon_alignment = 1
+script = ExtResource("4_vqi8o")
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ekjax")
+
+[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem9"]
+custom_minimum_size = Vector2(30, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211111
+anchor_top = 0.882813
+anchor_right = 0.788889
+anchor_bottom = 1.13281
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem9/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
 [node name="Mecha-TimeTravel" type="MarginContainer" parent="ShopPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 44
@@ -595,6 +648,14 @@ text = "Buy now
 Pay
 Later"
 horizontal_alignment = 1
+
+[node name="StartWaveButton" type="Button" parent="ShopPanel/VBoxContainer"]
+process_mode = 1
+custom_minimum_size = Vector2(180, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Wave"
+icon_alignment = 1
 
 [node name="Tooltip" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -670,6 +731,9 @@ text = "Prezzo
 [connection signal="mouse_entered" from="ShopPanel/VBoxContainer/MechaShop/ShopItem8" to="ShopPanel/VBoxContainer/MechaShop/ShopItem8" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ShopPanel/VBoxContainer/MechaShop/ShopItem8" to="ShopPanel/VBoxContainer/MechaShop/ShopItem8" method="_on_mouse_exited"]
 [connection signal="pressed" from="ShopPanel/VBoxContainer/MechaShop/ShopItem8" to="ShopPanel/VBoxContainer/MechaShop/ShopItem8" method="_on_pressed"]
+[connection signal="mouse_entered" from="ShopPanel/VBoxContainer/MechaShop/ShopItem9" to="ShopPanel/VBoxContainer/MechaShop/ShopItem9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ShopPanel/VBoxContainer/MechaShop/ShopItem9" to="ShopPanel/VBoxContainer/MechaShop/ShopItem9" method="_on_mouse_exited"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/MechaShop/ShopItem9" to="ShopPanel/VBoxContainer/MechaShop/ShopItem9" method="_on_pressed"]
 [connection signal="mouse_entered" from="ShopPanel/VBoxContainer/Mecha-TimeTravel/ShopItem1" to="ShopPanel/VBoxContainer/Mecha-TimeTravel/ShopItem1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ShopPanel/VBoxContainer/Mecha-TimeTravel/ShopItem1" to="ShopPanel/VBoxContainer/Mecha-TimeTravel/ShopItem1" method="_on_mouse_exited"]
 [connection signal="pressed" from="ShopPanel/VBoxContainer/Mecha-TimeTravel/ShopItem1" to="ShopPanel/VBoxContainer/Mecha-TimeTravel/ShopItem1" method="_on_pressed"]

@@ -2,21 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_n7ph4"]
 [ext_resource type="Script" path="res://scenes/mecha/Resurrection/Resurrection.gd" id="2_r440v"]
-[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_lng05"]
+[ext_resource type="Resource" uid="uid://y6x427b6wtat" path="res://scenes/mecha/Resurrection/resurrection_stats.tres" id="3_683i5"]
 [ext_resource type="Texture2D" uid="uid://bk0lwfdlqrwse" path="res://asset/mecha/Resurrection-Sheet.png" id="4_0ch1y"]
 [ext_resource type="AudioStream" uid="uid://b3i8lvdoynbmj" path="res://asset/sfx/mecha_sounds/resurrection2.wav" id="5_lak6e"]
 [ext_resource type="AudioStream" uid="uid://8uw1caqxm6pf" path="res://asset/sfx/mecha_sounds/resurrection1.wav" id="5_oamye"]
 [ext_resource type="AudioStream" uid="uid://c4fq7nq2qmqqd" path="res://asset/sfx/mecha_sounds/resurrection3.wav" id="6_81ikn"]
 
-[sub_resource type="Resource" id="Resource_dbdlt"]
-script = ExtResource("3_lng05")
-start_hp = 100.0
-start_hp_regen = 1.0
-start_speed = 1.0
-start_attack_speed = 1.0
-start_projectile_speed = 10.0
-start_damage = 10.0
-start_range = 50.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0l42u"]
 atlas = ExtResource("4_0ch1y")
@@ -135,7 +126,7 @@ animations = [{
 [node name="Resurrection" instance=ExtResource("1_n7ph4")]
 script = ExtResource("2_r440v")
 buff_time_scaler = 0.0
-starting_stats = SubResource("Resource_dbdlt")
+starting_stats = ExtResource("3_683i5")
 target_group = "mecha"
 
 [node name="AttackPlayer" parent="Sound" index="1"]
