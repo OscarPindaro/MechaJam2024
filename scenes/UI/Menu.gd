@@ -1,6 +1,6 @@
 extends Button
 
-var next_level_resource = load("res://scenes/UI/InGameSettings.tscn")
+var next_level_resource = preload("res://scenes/UI/InGameSettings.tscn")
 
 
 
