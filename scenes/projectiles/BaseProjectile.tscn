@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpjm8fsmclnf8"]
+[gd_scene load_steps=10 format=3 uid="uid://bpjm8fsmclnf8"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/BaseProjectile.gd" id="1_ymbte"]
 [ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_xo5pq"]
+
+[sub_resource type="AudioStream" id="AudioStream_vk7kf"]
+
+[sub_resource type="AudioStream" id="AudioStream_kl3pj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdg7t"]
 
@@ -20,8 +24,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStream" id="AudioStream_r60m1"]
+
+[sub_resource type="AudioStream" id="AudioStream_jcrm3"]
+
 [node name="BaseProjectile" type="Area2D"]
 script = ExtResource("1_ymbte")
+shoot_sound = SubResource("AudioStream_vk7kf")
+end_sound = SubResource("AudioStream_kl3pj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gdg7t")
@@ -29,7 +39,11 @@ shape = SubResource("CapsuleShape2D_gdg7t")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nn32o")
 
+[node name="ShootStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_r60m1")
+
 [node name="EndStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_jcrm3")
 bus = &"SFX"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

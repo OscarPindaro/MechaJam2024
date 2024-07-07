@@ -4,8 +4,6 @@ extends BaseMecha
 
 
 func do_action():
-	if targets.size() == 0:
-		return
 	var resource 
 	var prj_type = rng.randi_range ( 0, 1 )
 	print("Choose prj tipe: ", prj_type)

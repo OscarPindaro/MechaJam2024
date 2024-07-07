@@ -43,6 +43,9 @@ func _input(event):
 			# for mecha in mecha_list:
 			# 	mecha_cells.append(get_coord_in_map(mecha.position))
 			var can_move: bool  = can_mecha_move(target_cell)
+			can_move = true
+
+			print("Can move ", can_move)
 			if can_move:
 				# compute best path
 				print("Mecha Cell: ", mecha_cell, " , pos: ", mecha_pos)
@@ -70,7 +73,6 @@ func on_mecha_selection(mecha: BaseMecha):
 	if curr_mecha != null:
 		curr_mecha.set_select_mecha(false)
 	curr_mecha = mecha
-	curr_mecha.set_select_mecha(true)
 
 
 func get_coord_in_map(pos: Vector2) -> Vector2i:

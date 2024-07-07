@@ -5,6 +5,8 @@
 
 [node name="CoffeeProjectile" instance=ExtResource("1_bd6up")]
 script = ExtResource("2_v8otp")
+end_sound = null
 
-[node name="EndStreamPlayer" parent="." index="2"]
+[node name="EndStreamPlayer" parent="." index="3"]
+stream = null
 bus = &"Master"

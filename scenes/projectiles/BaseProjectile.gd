@@ -5,6 +5,7 @@ class_name BaseProjectile
 @export var Direction: Vector2
 @export var Velocity: float
 var ending: bool = false
+var source: BaseMecha
 
 # targets
 @export var target_group: String = "enemy"
@@ -13,12 +14,13 @@ var ending: bool = false
 @export var effect_value: float
 
 # sounds
+@export var shoot_sound: AudioStream
 @export var end_sound: AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$ShootStreamPlayer.stream = shoot_sound
 	$EndStreamPlayer.stream = end_sound
-	
 	ready_spec()
 
 func ready_spec():
@@ -33,7 +35,7 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	if area.is_in_group(target_group) and not is_ancestor_of(area):
+	if area.is_in_group(target_group) and not source.is_ancestor_of(area):
 		if not ending:
 			hit_target(area)
 

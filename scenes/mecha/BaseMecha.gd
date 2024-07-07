@@ -49,6 +49,7 @@ var range: float:
 		range = value
 		$VisionArea/CollisionShape2D.scale = Vector2(range, range)
 		
+var parent
 
 # func state
 var temp_speed: float # measure in seconds
@@ -78,6 +79,7 @@ var mouse_sel_area: Area2D
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	parent = get_parent()
 	$VisionArea.area_entered.connect(on_vision_area_entered)
 	$VisionArea.area_exited.connect(on_vision_area_exited)
 	hp = starting_stats.start_hp
@@ -242,7 +244,7 @@ func on_vision_area_exited(area: Area2D):
 
 func _on_action_timer_timeout():
 	$ActionTimer.start()
-	if can_shoot:
+	if can_shoot and targets.size() != 0:
 		do_action()
 
 
@@ -258,7 +260,9 @@ func shoot_projectile(projectile : BaseProjectile, target :Area2D):
 	
 	projectile.Direction = direction
 	projectile.Velocity = speed
-	add_child(projectile)
+	
+	projectile.source = self
+	parent.add_child(projectile)
 	
 #	print("PosizioneTarget: ", target_position)
 #	print("PosizioneFonte: ", source_position)
