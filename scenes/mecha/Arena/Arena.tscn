@@ -116,6 +116,7 @@ script = ExtResource("2_ydf0i")
 starting_stats = ExtResource("3_gip7k")
 
 [node name="AttackPlayer" parent="Sound" index="1"]
+volume_db = 3.0
 a = Array[AudioStream]([ExtResource("4_g1o3i"), ExtResource("5_su3ue"), ExtResource("6_sidxk"), ExtResource("7_1e8to"), ExtResource("8_a1pmx"), ExtResource("9_kynik")])
 
 [node name="Animations" parent="." index="7"]

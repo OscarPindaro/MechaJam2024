@@ -102,6 +102,9 @@ script = ExtResource("2_lgs5a")
 selected_color = Color(0.53, 0.9, 0.53, 0.5)
 starting_stats = ExtResource("3_yl6cu")
 
+[node name="WalkPlayer" parent="Sound" index="0"]
+stream = null
+
 [node name="AttackPlayer" parent="Sound" index="1"]
 a = Array[AudioStream]([ExtResource("4_luf2n"), ExtResource("5_epsbv"), ExtResource("6_a1lj5"), ExtResource("7_8ujbc"), ExtResource("8_ub7ui"), ExtResource("5_hld63")])
 

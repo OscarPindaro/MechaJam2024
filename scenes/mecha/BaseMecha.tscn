@@ -174,6 +174,7 @@ shape = SubResource("CapsuleShape2D_nb5b2")
 
 [node name="WalkPlayer" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource("6_gfktq")
+volume_db = -10.0
 bus = &"SFXMechaHu"
 script = ExtResource("5_y1kgt")
 a = Array[AudioStream]([ExtResource("6_gfktq"), ExtResource("6_wpvrs"), ExtResource("7_8ptk3"), ExtResource("8_y3uys"), ExtResource("6_bnmdo")])

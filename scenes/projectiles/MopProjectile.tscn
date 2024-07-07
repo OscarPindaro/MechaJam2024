@@ -7,3 +7,6 @@
 [node name="MopProjectile" instance=ExtResource("1_125po")]
 script = ExtResource("2_8pih7")
 end_sound = ExtResource("3_4lum4")
+
+[node name="EndStreamPlayer" parent="." index="3"]
+volume_db = -10.0

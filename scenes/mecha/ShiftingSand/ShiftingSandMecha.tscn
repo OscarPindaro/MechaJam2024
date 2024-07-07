@@ -109,6 +109,7 @@ selected_color = Color(0.53, 0.9, 0.53, 0.5)
 starting_stats = ExtResource("3_dmffr")
 
 [node name="AttackPlayer" parent="Sound" index="1"]
+volume_db = -12.0
 a = Array[AudioStream]([ExtResource("4_44ax4"), ExtResource("5_lqt35"), ExtResource("6_lmmcc")])
 
 [node name="Animations" parent="." index="7"]

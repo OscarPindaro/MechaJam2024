@@ -118,6 +118,7 @@ starting_stats = ExtResource("3_6dhuf")
 
 [node name="AttackPlayer" parent="Sound" index="1"]
 stream = ExtResource("4_xa4c2")
+volume_db = 2.0
 a = Array[AudioStream]([ExtResource("4_pm30v"), ExtResource("5_yxxx8"), ExtResource("6_3d3kx"), ExtResource("7_18hbk"), ExtResource("8_3vc4o"), ExtResource("4_xa4c2"), ExtResource("9_di1y0")])
 
 [node name="Animations" parent="." index="7"]
