@@ -1,18 +1,14 @@
 extends Control
 
-var countdown = 0
-# Called when the node enters the scene tree for the first time.
+@export var game_manager : GameManager
+
 func _ready():
-	pass
+	# Setup interaction with game
+	if is_instance_valid(game_manager):
+		# Setup wave button
+		%StartWaveButton.button_up.connect(make_wave_start)
+		game_manager.wave_end.connect(func(_wave) : %StartWaveButton.disabled = false )
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-#	self.countdown = self.countdown + 1
-#
-#	if self.countdown == 60:
-#		%HPProgressbar.change_health(10)
-#		self.countdown = 0
-#
-	pass
-
+func make_wave_start():
+	game_manager.start_wave()
+	%StartWaveButton.disabled = true
