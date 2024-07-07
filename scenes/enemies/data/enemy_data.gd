@@ -34,7 +34,7 @@ enum MinionSpawn {
 @export var money_value : float
 
 # Pathfinding
-@export var pathfinding_radius : float
+var pathfinding_radius : float = 10
 
 # Spawn data
 @export var spawn_value : float = 1

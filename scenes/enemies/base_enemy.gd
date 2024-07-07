@@ -1,6 +1,6 @@
 extends Area2D
 
-const ANIMATION_NAMES : Array[String] = ["move", "death", "attack"]
+const ANIMATION_NAMES : Array[String] = ["move_hor", "move_vert", "death", "attack"]
 
 var stats : EnemyData
 var spawner : Node
@@ -46,7 +46,7 @@ func _ready():
 	$AnimatedSprite.play()
 
 	# Init health bar shape
-	$UI.set_deferred("size", stats.collision_shape.size)
+	$UI.set_deferred("size", Vector2(stats.collision_shape.size.x/2, stats.collision_shape.size.y))
 	$UI.set_deferred("position", -stats.collision_shape.size / 2)
 
 	# Init stats
@@ -81,8 +81,28 @@ func _physics_process(delta):
 			current_target = next_path_pos + Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * stats.pathfinding_radius
 		
 		# Move with speed
-		position += (current_target - position).normalized() * speed * delta
-	elif first_path_finish && $NavigationAgent2D.target_position == goal_position:
+		var direction = (current_target - position).normalized()
+		position += direction * speed * delta
+		
+		# Update animation based on direction
+		if direction.x >= 0.5:
+			$AnimatedSprite.animation = ANIMATION_NAMES[0]
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.flip_v = false
+		elif direction.x < -0.5:
+			$AnimatedSprite.animation = ANIMATION_NAMES[0]
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.flip_v = false
+		elif direction.y <= -0.5 && $AnimatedSprite.sprite_frames.has_animation(ANIMATION_NAMES[1]):
+			$AnimatedSprite.animation = ANIMATION_NAMES[1]
+			$AnimatedSprite.flip_v = false
+			$AnimatedSprite.flip_h = false
+		elif $AnimatedSprite.sprite_frames.has_animation(ANIMATION_NAMES[1]):
+			$AnimatedSprite.animation = ANIMATION_NAMES[1]
+			$AnimatedSprite.flip_v = true
+			$AnimatedSprite.flip_h = false
+
+	elif first_path_finish && $NavigationAgent2D.target_position == goal_position:	# When got to goal attack
 		attack.emit(dmg)
 		first_path_finish = false
 
@@ -144,7 +164,7 @@ func on_hit(value):
 func on_dead(_money_value):
 	can_move = false
 	$UI/HealthBar.visible = false
-	$AnimatedSprite.animation = ANIMATION_NAMES[1]
+	$AnimatedSprite.animation = ANIMATION_NAMES[2]
 
 	if is_instance_valid(stats.death_sound):
 		$AudioStreamPlayer.stream = stats.death_sound
@@ -157,7 +177,7 @@ func on_charmed():
 
 func on_attack(_value):
 	can_move = false
-	$AnimatedSprite.animation = ANIMATION_NAMES[2]
+	$AnimatedSprite.animation = ANIMATION_NAMES[3]
 
 	if is_instance_valid(stats.attack_sound):
 		$AudioStreamPlayer.stream = stats.attack_sound
