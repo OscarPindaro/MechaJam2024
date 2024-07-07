@@ -1,10 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://djpex4rk62am3"]
+[gd_scene load_steps=21 format=3 uid="uid://djpex4rk62am3"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_u3l2j"]
 [ext_resource type="Script" path="res://scenes/mecha/Relax/RelaxMecha.gd" id="2_lgs5a"]
 [ext_resource type="Resource" uid="uid://c2bvaf3gwoa8i" path="res://scenes/mecha/Relax/relax_mecha_stats.tres" id="3_yl6cu"]
+[ext_resource type="AudioStream" uid="uid://cldel3ma7wjla" path="res://asset/sfx/mecha_sounds/relax1.wav" id="4_luf2n"]
+[ext_resource type="Texture2D" uid="uid://dcrdg5e50qekc" path="res://asset/mecha/rELAX -Sheet.png" id="4_v685i"]
+[ext_resource type="AudioStream" uid="uid://cmmnmuer5ckk2" path="res://asset/sfx/mecha_sounds/relax2.wav" id="5_epsbv"]
+[ext_resource type="AudioStream" uid="uid://ced0fac7o00fv" path="res://asset/sfx/mecha_sounds/relax6.wav" id="5_hld63"]
+[ext_resource type="AudioStream" uid="uid://dbrwpql16ph1d" path="res://asset/sfx/mecha_sounds/relax3.wav" id="6_a1lj5"]
+[ext_resource type="AudioStream" uid="uid://b3vtkju3kp40c" path="res://asset/sfx/mecha_sounds/relax4.wav" id="7_8ujbc"]
+[ext_resource type="AudioStream" uid="uid://bcyicp322aji7" path="res://asset/sfx/mecha_sounds/relax5.wav" id="8_ub7ui"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wvhk"]
+atlas = ExtResource("4_v685i")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72grc"]
+atlas = ExtResource("4_v685i")
+region = Rect2(64, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df8er"]
+atlas = ExtResource("4_v685i")
+region = Rect2(128, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e20hj"]
+atlas = ExtResource("4_v685i")
+region = Rect2(192, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xi5w"]
+atlas = ExtResource("4_v685i")
+region = Rect2(256, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff0ph"]
+atlas = ExtResource("4_v685i")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u27sk"]
+atlas = ExtResource("4_v685i")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpvo8"]
+atlas = ExtResource("4_v685i")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6al46"]
+atlas = ExtResource("4_v685i")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qaw7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wvhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72grc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df8er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e20hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xi5w")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff0ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u27sk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpvo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6al46")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [node name="RelaxMecha" instance=ExtResource("1_u3l2j")]
 script = ExtResource("2_lgs5a")
 selected_color = Color(0.53, 0.9, 0.53, 0.5)
 starting_stats = ExtResource("3_yl6cu")
+
+[node name="AttackPlayer" parent="Sound" index="1"]
+a = Array[AudioStream]([ExtResource("4_luf2n"), ExtResource("5_epsbv"), ExtResource("6_a1lj5"), ExtResource("7_8ujbc"), ExtResource("8_ub7ui"), ExtResource("5_hld63")])
+
+[node name="Animations" parent="." index="7"]
+sprite_frames = SubResource("SpriteFrames_qaw7h")
+animation = &"attack"

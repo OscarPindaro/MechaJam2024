@@ -41,10 +41,11 @@ sprite_frames = SubResource("SpriteFrames_nn32o")
 
 [node name="ShootStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStream_r60m1")
+bus = &"SFXMechaHu"
 
 [node name="EndStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStream_jcrm3")
-bus = &"SFX"
+bus = &"SFXMechaHu"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
