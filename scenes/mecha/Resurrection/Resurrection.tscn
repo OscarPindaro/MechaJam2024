@@ -12,7 +12,7 @@ start_speed = 1.0
 start_attack_speed = 1.0
 start_projectile_speed = 10.0
 start_damage = 10.0
-start_range = 10.0
+start_range = 50.0
 
 [node name="Resurrection" instance=ExtResource("1_n7ph4")]
 script = ExtResource("2_r440v")

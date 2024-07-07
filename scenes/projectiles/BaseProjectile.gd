@@ -4,6 +4,7 @@ class_name BaseProjectile
 # state
 @export var Direction: Vector2
 @export var Velocity: float
+var ending: bool = false
 
 # targets
 @export var target_group: String = "enemy"
@@ -17,23 +18,30 @@ class_name BaseProjectile
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$EndStreamPlayer.stream = end_sound
-	pass # Replace with function body.
+	
+	ready_spec()
+
+func ready_spec():
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = position + (Direction * Velocity * delta)
+	#print("Posizione: ", position)
 	pass
 
 
 func _on_area_entered(area):
 	if area.is_in_group(target_group):
-		hit_target(area)
+		if not ending:
+			hit_target(area)
 
 func hit_target(area: Area2D):
 	pass
 
 func end_projectile():
+	ending = true
 	$EndStreamPlayer.play()
 	
 

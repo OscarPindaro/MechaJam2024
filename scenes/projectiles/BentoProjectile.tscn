@@ -1,7 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjdiqypdkcf5x"]
+[gd_scene load_steps=12 format=3 uid="uid://bjdiqypdkcf5x"]
 
 [ext_resource type="PackedScene" uid="uid://bpjm8fsmclnf8" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_t1tpc"]
 [ext_resource type="Script" path="res://scenes/projectiles/BentoProjectile.gd" id="2_8g58b"]
+[ext_resource type="Texture2D" uid="uid://cbffvfjxc4uje" path="res://asset/projectiles/Food bag-Sheet.png" id="3_0irp7"]
+[ext_resource type="AudioStream" uid="uid://xidq16eq2thw" path="res://asset/sfx/mecha_sounds/cosmonaut_food_hit3.wav" id="3_2m83o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rkvs"]
+atlas = ExtResource("3_0irp7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ntc"]
+atlas = ExtResource("3_0irp7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppwo2"]
+atlas = ExtResource("3_0irp7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05lcs"]
+atlas = ExtResource("3_0irp7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odjx0"]
+atlas = ExtResource("3_0irp7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a45i0"]
+atlas = ExtResource("3_0irp7")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qlp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rkvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ntc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppwo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05lcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odjx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a45i0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
 
 [node name="BentoProjectile" instance=ExtResource("1_t1tpc")]
 script = ExtResource("2_8g58b")
+end_sound = ExtResource("3_2m83o")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_3qlp6")
+autoplay = "default"

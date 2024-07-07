@@ -6,3 +6,4 @@
 [node name="BaseBuffProjectile" instance=ExtResource("1_u6jjv")]
 script = ExtResource("2_be55u")
 buff_time = 0.0
+target_group = "mecha"

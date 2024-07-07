@@ -94,7 +94,6 @@ func _ready():
 	temp_damage = 0
 	temp_range = 0
 	$TargetableArea/CollisionShape2D.transform = $CollisionShape2D.transform
-	ready_spec()
 
 	# select()
 	mouse_sel_area = $MouseSelectionArea
@@ -103,6 +102,8 @@ func _ready():
 	mouse_sel_area.mouse_exited.connect(on_selection_mouse_exited)
 
 	mouse_sel_area.input_event.connect(on_mouse_click)
+	
+	ready_spec()
 
 func ready_spec():
 	pass
@@ -222,11 +223,13 @@ func on_mov_tween_end():
 	walk_player.stop()
 	finished_movement.emit()
 	animations.stop()
-	animations.play("default")
+	animations.play("idle_down")
 	can_shoot = true
 	
 	
-func on_vision_area_entered(area: Area2D):
+func on_vision_area_entered(area: Area2D):	
+	if area.is_in_group("mecha"):
+		print("Test:", area)
 	if area.is_in_group(target_group):
 		targets.append(area)
 #Controllare il funzionamento di erase e assicurarsi che tolga l'oggetto corretto
@@ -251,6 +254,14 @@ func shoot_projectile(projectile : BaseProjectile, target :Area2D):
 	var direction = target_position - source_position
 	var speed = projectile_speed
 	
+	projectile.Direction = direction
+	projectile.Velocity = speed
+	add_child(projectile)
+	
+#	print("PosizioneTarget: ", target_position)
+#	print("PosizioneFonte: ", source_position)
+#	print("Direzione: ", direction)
+#	print("Velocita: ", speed)
 
 func _update_timer():
 	$ActionTimer.wait_time = 1/attack_speed
@@ -261,7 +272,7 @@ func buff_stat(stat:String, value: float, time: float):
 	pass
 
 func buff_attSp(value: float, time: float):
-	var timer: Timer
+	var timer: Timer = Timer.new()
 	timer.timeout.connect(end_buff_attSp)
 	temp_attack_speed = value
 	timer.start(time)
@@ -270,7 +281,7 @@ func end_buff_attSp():
 	temp_attack_speed = 0
 	
 func buff_damage(value: float, time: float):
-	var timer: Timer
+	var timer: Timer = Timer.new()
 	timer.timeout.connect(end_buff_attSp)
 	temp_damage = value
 	timer.start(time)

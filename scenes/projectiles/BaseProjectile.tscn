@@ -1,8 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpjm8fsmclnf8"]
+[gd_scene load_steps=6 format=3 uid="uid://bpjm8fsmclnf8"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/BaseProjectile.gd" id="1_ymbte"]
+[ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_xo5pq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdg7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vvxk"]
+atlas = ExtResource("2_xo5pq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn32o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vvxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BaseProjectile" type="Area2D"]
 script = ExtResource("1_ymbte")
@@ -10,7 +26,8 @@ script = ExtResource("1_ymbte")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gdg7t")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nn32o")
 
 [node name="EndStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

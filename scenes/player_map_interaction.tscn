@@ -10,7 +10,7 @@
 [node name="MechaController" parent="." instance=ExtResource("2_0veic")]
 map_path = NodePath("../Map")
 
-[node name="ControllerMovement" parent="MechaController" index="1"]
+[node name="ControllerMovement" parent="MechaController" index="0"]
 region = Rect2i(0, 0, 18, 11)
 
 [editable path="Map"]
