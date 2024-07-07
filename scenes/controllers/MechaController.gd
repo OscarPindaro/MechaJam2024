@@ -33,7 +33,9 @@ func _input(event):
 		if event is InputEventMouseButton and event.is_pressed():
 			var mouse_position: Vector2 = get_global_mouse_position()
 			var target_cell: Vector2i = get_coord_in_map(mouse_position)
-			var mecha_cell: Vector2i = get_coord_in_map(curr_mecha.position)
+
+			var mecha_pos = curr_mecha.global_position
+			var mecha_cell: Vector2i = get_coord_in_map(mecha_pos)
 			
 			
 			# # can move if there is no cardboard
@@ -41,11 +43,14 @@ func _input(event):
 			# for mecha in mecha_list:
 			# 	mecha_cells.append(get_coord_in_map(mecha.position))
 			var can_move: bool  = can_mecha_move(target_cell)
+			can_move = true
 
+			print("Can move ", can_move)
 			if can_move:
 				# compute best path
+				print("Mecha Cell: ", mecha_cell, " , pos: ", mecha_pos)
+				print("Target Cell: ", target_cell, " , pos: ", mouse_position)
 				var cell_path: Array[Vector2i] = movement_controller.compute_id_path(mecha_cell, target_cell)
-
 				# convert to local transform? maybe inside the player
 				var position_path: Array[Vector2]= []
 				for cell in cell_path:
@@ -76,7 +81,7 @@ func get_coord_in_map(pos: Vector2) -> Vector2i:
 
 func get_center_tile_pos_from_cord(coord: Vector2i) -> Vector2:
 	var out_pos_local: Vector2  =map_node.tilemap.map_to_local(coord)
-	var out_pos_global: Vector2 = get_parent().to_global(out_pos_local)
+	var out_pos_global: Vector2 = map_node.tilemap.to_global(out_pos_local)
 	return out_pos_global
 	
 

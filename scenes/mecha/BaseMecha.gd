@@ -120,6 +120,7 @@ func on_selection_mouse_exited():
 func on_mouse_click(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			
 			# this code selects and deselects with a click
 			if deselect_with_click:
 				# basically the selection is a toggle
@@ -169,11 +170,12 @@ func move_to(target_position: Vector2):
 		walk_player.play()
 	animations.play("down")
 
-	mov_tween.tween_property(self, "position", target_position, speed).set_trans(mov_transition).set_ease(Tween.EASE_OUT)
+	mov_tween.tween_property(self, "global_position", target_position, speed).set_trans(mov_transition).set_ease(Tween.EASE_OUT)
 	mov_tween.tween_callback(on_mov_tween_end)
 
 
 func move_along_path(target_positions: Array[Vector2]):
+	# le target position sono in global space
 	# tween along e path of positions
 	if mov_tween:
 		mov_tween.kill()
@@ -188,7 +190,7 @@ func move_along_path(target_positions: Array[Vector2]):
 		# compute direction and decide which animation to play
 		var anim_name: String = get_mov_anim_name(curr_position, position)
 		mov_tween.tween_callback(animations.play.bind(anim_name))
-		mov_tween.tween_property(self, "position", position, speed).set_trans(mov_transition).set_ease(Tween.EASE_OUT)
+		mov_tween.tween_property(self, "global_position", position, speed).set_trans(mov_transition).set_ease(Tween.EASE_OUT)
 		mov_tween.tween_callback(on_step)
 		# reset current position
 		curr_position = position
