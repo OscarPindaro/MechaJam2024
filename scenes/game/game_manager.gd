@@ -15,6 +15,8 @@ var spawn_timer : float
 var wave_num : int = 0
 var wave_in_progress : bool = false
 
+var pay_time_travel_wave : int = 0
+
 # Game data
 @export var health : float = 100
 @export var money : int = 3000
@@ -23,13 +25,15 @@ var is_game_over : bool = false
 # Mecha references
 @export var mechas : Array[BaseMecha]
 
-@export var time_travel : Node2D
+@export var time_traveler : Node2D
+@export var time_travel_cost : int = 1000
 
 # Status signals
 signal game_start()
 signal game_over()
 signal wave_start(num)
 signal wave_end(num)
+signal paid_time_travel()
 
 signal health_change(delta, tot)
 signal money_change(delta, tot)
@@ -51,6 +55,7 @@ func _ready():
 	$WaveEndTimer.timeout.connect(_check_wave_end)
 
 	game_start.emit()
+	wave_end.connect(on_wave_end)
 
 func get_money():
 	return money
@@ -86,6 +91,10 @@ func start_wave():
 		wave_start.emit(wave_num)
 		print("Started wave ", wave_num, " with params: ", spawn_value, " ", spawn_timer)
 
+func time_travel():
+	time_traveler.activate()
+	pay_time_travel_wave = wave_num + 2
+
 func _check_wave_end():
 	if $Spawner/Enemies.get_child_count() == 0:
 		wave_in_progress = false
@@ -101,3 +110,11 @@ func _on_spawned_enemy(enemy):
 
 func _on_stop_spawning():
 	$WaveEndTimer.start()
+
+func on_wave_end(num):
+	if num == pay_time_travel_wave:	# If you should pay time traveler, do it
+		lose_money(time_travel_cost)
+		if money < 0:
+			game_over.emit()
+		else:
+			paid_time_travel.emit()

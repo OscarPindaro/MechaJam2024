@@ -23,6 +23,11 @@ func _ready():
 			buttons[i].find_child("Label", true).text = str(game_manager.mechas[i].starting_stats.cost)
 
 		%TimeTravelButton.button_up.connect(time_travel)
+		game_manager.paid_time_travel.connect(restore_time_travel)
+
+		# Connect wave num
+		%WaveLabel.text = "Wave: 0"
+		game_manager.wave_start.connect(func(num): %WaveLabel.text = "Wave: " + str(num))
 
 func make_wave_start():
 	game_manager.start_wave()
@@ -37,5 +42,10 @@ func buy_mecha(index):
 		buttons[index].find_child("Panel").queue_free()
 
 func time_travel():
-	# TODO: pay later
-	game_manager.time_travel.activate()
+	game_manager.time_travel()
+	%TimeTravelButton.disabled = true
+	%TimeTravelButton.find_child("Label").text = "Pay " + str(game_manager.time_travel_cost) + "\nat end of\nwave " + str(game_manager.pay_time_travel_wave)
+
+func restore_time_travel():
+	%TimeTravelButton.disabled = false
+	%TimeTravelButton.find_child("Label").text = "Buy now\nPay\nLater"

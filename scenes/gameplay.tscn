@@ -24,13 +24,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("spawn_point", "goal_point", "mechas", "time_travel") instance=ExtResource("3_j4fl2")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("spawn_point", "goal_point", "mechas", "time_traveler") instance=ExtResource("3_j4fl2")]
 unique_name_in_owner = true
 spawn_point = NodePath("SpawnPoint")
 goal_point = NodePath("GoalPoint")
 money = 300
 mechas = [NodePath("../MechaController/Mechas/Arena"), NodePath("../MechaController/Mechas/Cosmonaut"), NodePath("../MechaController/Mechas/Diplomat"), NodePath("../MechaController/Mechas/RelaxMecha"), NodePath("../MechaController/Mechas/Resurrection"), NodePath("../MechaController/Mechas/ShiftingSand"), NodePath("../MechaController/Mechas/SignalFalureMecha"), NodePath("../MechaController/Mechas/WeirdFiction")]
-time_travel = NodePath("../TimeTraveler")
+time_traveler = NodePath("../TimeTraveler")
 
 [node name="SpawnPoint" type="Marker2D" parent="GameManager"]
 position = Vector2(289, 224)

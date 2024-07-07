@@ -651,6 +651,19 @@ size_flags_horizontal = 4
 text = "Start Wave"
 icon_alignment = 1
 
+[node name="WaveNum" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="WaveLabel" type="Label" parent="ShopPanel/VBoxContainer/WaveNum"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Wave
+"
+
 [node name="Tooltip" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
