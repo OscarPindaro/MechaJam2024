@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_u3l2j"]
 [ext_resource type="Script" path="res://scenes/mecha/Relax/RelaxMecha.gd" id="2_lgs5a"]
 [ext_resource type="Resource" uid="uid://c2bvaf3gwoa8i" path="res://scenes/mecha/Relax/relax_mecha_stats.tres" id="3_yl6cu"]
-[ext_resource type="AudioStream" uid="uid://cldel3ma7wjla" path="res://asset/sfx/mecha_sounds/relax1.wav" id="4_luf2n"]
+[ext_resource type="AudioStream" uid="uid://c77isdof6v1rv" path="res://asset/sfx/mecha_sounds/relax1.wav" id="4_luf2n"]
 [ext_resource type="Texture2D" uid="uid://dcrdg5e50qekc" path="res://asset/mecha/rELAX -Sheet.png" id="4_v685i"]
-[ext_resource type="AudioStream" uid="uid://cmmnmuer5ckk2" path="res://asset/sfx/mecha_sounds/relax2.wav" id="5_epsbv"]
-[ext_resource type="AudioStream" uid="uid://ced0fac7o00fv" path="res://asset/sfx/mecha_sounds/relax6.wav" id="5_hld63"]
-[ext_resource type="AudioStream" uid="uid://dbrwpql16ph1d" path="res://asset/sfx/mecha_sounds/relax3.wav" id="6_a1lj5"]
-[ext_resource type="AudioStream" uid="uid://b3vtkju3kp40c" path="res://asset/sfx/mecha_sounds/relax4.wav" id="7_8ujbc"]
-[ext_resource type="AudioStream" uid="uid://bcyicp322aji7" path="res://asset/sfx/mecha_sounds/relax5.wav" id="8_ub7ui"]
+[ext_resource type="AudioStream" uid="uid://t6ijn0qa4kw" path="res://asset/sfx/mecha_sounds/relax2.wav" id="5_epsbv"]
+[ext_resource type="AudioStream" uid="uid://w44aoqddgect" path="res://asset/sfx/mecha_sounds/relax6.wav" id="5_hld63"]
+[ext_resource type="AudioStream" uid="uid://223xgrb6bnnm" path="res://asset/sfx/mecha_sounds/relax3.wav" id="6_a1lj5"]
+[ext_resource type="AudioStream" uid="uid://daouk3bqqscqn" path="res://asset/sfx/mecha_sounds/relax4.wav" id="7_8ujbc"]
+[ext_resource type="AudioStream" uid="uid://bm1mrn8m1hes3" path="res://asset/sfx/mecha_sounds/relax5.wav" id="8_ub7ui"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wvhk"]
 atlas = ExtResource("4_v685i")
@@ -107,4 +107,5 @@ a = Array[AudioStream]([ExtResource("4_luf2n"), ExtResource("5_epsbv"), ExtResou
 
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_qaw7h")
-animation = &"attack"
+animation = &"idle"
+autoplay = "idle"
