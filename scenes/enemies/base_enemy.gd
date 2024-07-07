@@ -102,7 +102,7 @@ func _physics_process(delta):
 			$AnimatedSprite.flip_v = true
 			$AnimatedSprite.flip_h = false
 
-	elif first_path_finish && $NavigationAgent2D.target_position == goal_position:	# When got to goal attack
+	elif can_move && first_path_finish && $NavigationAgent2D.target_position == goal_position:	# When got to goal attack
 		attack.emit(dmg)
 		first_path_finish = false
 
@@ -147,6 +147,10 @@ func timer_reset_after_push():
 	$Timer.timeout.disconnect(timer_reset_after_push)
 
 func spawn_minions():
+	if is_instance_valid(stats.minion_spawn_sound):
+		$AudioStreamPlayer.stream = stats.minion_spawn_sound
+		$AudioStreamPlayer.play()
+
 	for n in range(stats.minion_number):
 		var i = randi_range(0, stats.minion_types.size() - 1)
 		spawner.spawn_enemy(stats.minion_types[i], position, stats.minion_radius)
@@ -167,10 +171,12 @@ func on_dead(_money_value):
 	$AnimatedSprite.animation = ANIMATION_NAMES[2]
 
 	if is_instance_valid(stats.death_sound):
+		print("dead sound ", stats.death_sound)
 		$AudioStreamPlayer.stream = stats.death_sound
 		$AudioStreamPlayer.play()
-
-	$AnimatedSprite.animation_finished.connect(queue_free)
+		$AudioStreamPlayer.finished.connect(queue_free)
+	else:
+		$AnimatedSprite.animation_finished.connect(queue_free)
 
 func on_charmed():
 	pass
@@ -180,7 +186,9 @@ func on_attack(_value):
 	$AnimatedSprite.animation = ANIMATION_NAMES[3]
 
 	if is_instance_valid(stats.attack_sound):
+		print("attack sound ", stats.death_sound)
 		$AudioStreamPlayer.stream = stats.attack_sound
 		$AudioStreamPlayer.play()
-
-	$AnimatedSprite.animation_finished.connect(queue_free)
+		$AudioStreamPlayer.finished.connect(queue_free)
+	else:
+		$AnimatedSprite.animation_finished.connect(queue_free)

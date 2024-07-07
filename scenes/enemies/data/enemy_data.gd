@@ -48,6 +48,7 @@ var pathfinding_radius : float = 10
 @export var minion_number : int = 5
 @export var minion_deltatime : float = 5
 @export var minion_radius : float = 10
+@export var minion_spawn_sound : AudioStream
 
 func _init(m_hp = 100, m_speed = 10, m_dmg = 10, m_pathfinding_radius = 10):
 	start_hp = m_hp

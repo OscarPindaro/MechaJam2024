@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=11 format=3 uid="uid://bjc1btqbqx7bj"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=13 format=3 uid="uid://bjc1btqbqx7bj"]
 
 [ext_resource type="Texture2D" uid="uid://c30uuwb77k6ok" path="res://asset/enemies/graffetta-Sheet.png" id="1_ri2kt"]
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_uo861"]
+[ext_resource type="AudioStream" uid="uid://cd56nirk1wmh3" path="res://asset/sfx/enemies/coffee_machine_hit.wav" id="2_a7dpj"]
+[ext_resource type="AudioStream" uid="uid://b4lwqaiel6mpm" path="res://asset/sfx/enemies/enemy_death.wav" id="3_qvxmn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtw8o"]
 atlas = ExtResource("1_ri2kt")
@@ -72,6 +74,8 @@ script = ExtResource("1_uo861")
 additional_groups = Array[String]([])
 animated_sprite = SubResource("SpriteFrames_1vknk")
 collision_shape = SubResource("RectangleShape2D_odf78")
+death_sound = ExtResource("3_qvxmn")
+attack_sound = ExtResource("2_a7dpj")
 start_hp = 1.0
 start_speed = 30.0
 start_dmg = 2.5
