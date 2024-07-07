@@ -10,7 +10,6 @@
 [node name="Map" parent="." instance=ExtResource("1_3w3ma")]
 
 [node name="MechaController" parent="." instance=ExtResource("2_0veic")]
-use_map = true
 map_path = NodePath("../Map")
 start_mecha_path = NodePath("Mechas/Cosmonaut")
 

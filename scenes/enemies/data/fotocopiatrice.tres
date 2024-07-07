@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=18 format=3 uid="uid://cuepf3x1hyc1x"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=18 format=3 uid="uid://b14ud6odj0bkr"]
 
-[ext_resource type="Texture2D" uid="uid://1xa0wjwf0j36" path="res://asset/placeholders/sprites/bw_1bit/HEROS/spritesheets/HEROS1bit_Adventurer Attack R.png" id="1_vgin2"]
-[ext_resource type="Texture2D" uid="uid://cc1grakwcqto7" path="res://asset/placeholders/sprites/bw_1bit/HEROS/spritesheets/HEROS1bit_Adventurer Death.png" id="2_yeql7"]
-[ext_resource type="Texture2D" uid="uid://bdu51oqqfybpb" path="res://asset/placeholders/sprites/bw_1bit/HEROS/spritesheets/HEROS1bit_Adventurer Walk R.png" id="3_70ryp"]
-[ext_resource type="Resource" uid="uid://bjc1btqbqx7bj" path="res://scenes/enemies/data/graffetta.tres" id="4_iwqbv"]
+[ext_resource type="Texture2D" uid="uid://cewtksic2iapb" path="res://asset/placeholders/sprites/bw_1bit/HEROS/spritesheets/HEROS1bit_Adventurer Attack R.png" id="1_vgin2"]
+[ext_resource type="Texture2D" uid="uid://bp75e24ledx5j" path="res://asset/placeholders/sprites/bw_1bit/HEROS/spritesheets/HEROS1bit_Adventurer Death.png" id="2_yeql7"]
+[ext_resource type="Texture2D" uid="uid://byoqmwxgex371" path="res://asset/placeholders/sprites/bw_1bit/HEROS/spritesheets/HEROS1bit_Adventurer Walk R.png" id="3_70ryp"]
+[ext_resource type="Resource" uid="uid://tdnf2owkncqk" path="res://scenes/enemies/data/graffetta.tres" id="4_iwqbv"]
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="5_nqfvo"]
-[ext_resource type="Resource" uid="uid://bauupr2lvndqs" path="res://scenes/enemies/data/scotch.tres" id="5_w51qu"]
-[ext_resource type="Resource" uid="uid://didvebwsiklij" path="res://scenes/enemies/data/aereoplanino.tres" id="6_lnotg"]
+[ext_resource type="Resource" uid="uid://bdvawgiavd24e" path="res://scenes/enemies/data/scotch.tres" id="5_w51qu"]
+[ext_resource type="Resource" uid="uid://b8ked53o0ew8n" path="res://scenes/enemies/data/aereoplanino.tres" id="6_lnotg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr2iv"]
 atlas = ExtResource("1_vgin2")

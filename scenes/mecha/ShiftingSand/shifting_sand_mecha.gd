@@ -21,6 +21,7 @@ func do_action():
 func on_vision_area_entered(area: Area2D):	
 	if area.is_in_group(target_group) and !area.is_in_group(flying_group_name):
 		targets.append(area)
+		self.connect_to_enemy_death(area)
 
 
 func on_vision_area_exited(area: Area2D):
