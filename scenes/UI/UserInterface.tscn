@@ -542,22 +542,11 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/margin_top = 44
 
-[node name="Button" type="Button" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Buy now
-PAY LATER"
-icon = ExtResource("2_ekjax")
-alignment = 2
-
 [node name="ShopItem1" type="Button" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel"]
 process_mode = 1
 custom_minimum_size = Vector2(180, 96)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_hhg2b")
 icon_alignment = 1
 script = ExtResource("4_vqi8o")
 

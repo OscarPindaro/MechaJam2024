@@ -73,8 +73,8 @@ func start_wave():
 		wave_num += 1
 
 		if wave_num != 1:	# Update difficulty
-			spawn_value = spawn_value * (1 + spawn_value_percentage_increase)
-			spawn_timer = spawn_timer * (1 - spawn_timer_percentage_reduce)
+			spawn_value = roundi(spawn_value * (1 + spawn_value_percentage_increase))
+			spawn_timer = roundf(spawn_timer * (1 - spawn_timer_percentage_reduce) * 100) / 100
 
 		$Spawner.spawn_wave(wave_num, spawn_value, spawn_timer)
 		wave_start.emit(wave_num)
