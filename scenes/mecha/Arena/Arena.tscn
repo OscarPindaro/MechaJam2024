@@ -1,19 +1,123 @@
-[gd_scene load_steps=5 format=3 uid="uid://10ag61466fsy"]
+[gd_scene load_steps=23 format=3 uid="uid://10ag61466fsy"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_3757r"]
 [ext_resource type="Script" path="res://scenes/mecha/Arena/Arena.gd" id="2_ydf0i"]
-[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_o67xe"]
+[ext_resource type="Resource" uid="uid://cj50u0733f2p2" path="res://scenes/mecha/Arena/arena.tres" id="3_gip7k"]
+[ext_resource type="AudioStream" uid="uid://bu1gfaklxh1t8" path="res://asset/sfx/mecha_sounds/arena_woosh1.wav" id="4_g1o3i"]
+[ext_resource type="Texture2D" uid="uid://cjh8yfokj2u2e" path="res://asset/mecha/Arena Walk -Sheet.png" id="4_qu6ui"]
+[ext_resource type="AudioStream" uid="uid://dotp4s70quwl1" path="res://asset/sfx/mecha_sounds/arena_woosh2.wav" id="5_su3ue"]
+[ext_resource type="AudioStream" uid="uid://ciyjpopr6jmo8" path="res://asset/sfx/mecha_sounds/arena_woosh3.wav" id="6_sidxk"]
+[ext_resource type="AudioStream" uid="uid://cwp13xursev82" path="res://asset/sfx/mecha_sounds/arena_woosh4.wav" id="7_1e8to"]
+[ext_resource type="AudioStream" uid="uid://61jc1iabmopx" path="res://asset/sfx/mecha_sounds/arena_woosh5.wav" id="8_a1pmx"]
+[ext_resource type="AudioStream" uid="uid://d2w8komebu2kv" path="res://asset/sfx/mecha_sounds/arena_woosh6.wav" id="9_kynik"]
 
-[sub_resource type="Resource" id="Resource_63761"]
-script = ExtResource("3_o67xe")
-start_hp = 100.0
-start_hp_regen = 1.0
-start_speed = 0.1
-start_attack_speed = 1.0
-start_projectile_speed = 10.0
-start_damage = 10.0
-start_range = 200.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_w30fg"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(0, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0dg5"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(70, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqidb"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(140, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q3il"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(210, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gglv7"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(280, 192, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frrw3"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(0, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o4tj"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(70, 0, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfxbp"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(0, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku5rt"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(70, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys0i4"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(140, 96, 66, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d47lw"]
+atlas = ExtResource("4_qu6ui")
+region = Rect2(210, 96, 66, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_385tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w30fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0dg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqidb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q3il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gglv7")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frrw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o4tj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfxbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku5rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys0i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d47lw")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [node name="Arena" instance=ExtResource("1_3757r")]
 script = ExtResource("2_ydf0i")
-starting_stats = SubResource("Resource_63761")
+starting_stats = ExtResource("3_gip7k")
+
+[node name="AttackPlayer" parent="Sound" index="1"]
+a = Array[AudioStream]([ExtResource("4_g1o3i"), ExtResource("5_su3ue"), ExtResource("6_sidxk"), ExtResource("7_1e8to"), ExtResource("8_a1pmx"), ExtResource("9_kynik")])
+
+[node name="Animations" parent="." index="7"]
+sprite_frames = SubResource("SpriteFrames_385tg")
+frame_progress = 0.823226

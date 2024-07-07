@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://dxyt58tkkymsr"]
+[gd_scene load_steps=24 format=3 uid="uid://dxyt58tkkymsr"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_hxw77"]
 [ext_resource type="Script" path="res://scenes/mecha/Diplomat/Diplomat.gd" id="2_mkq7g"]
+[ext_resource type="Resource" path="res://scenes/mecha/Diplomat/diplomat.tres" id="3_6dhuf"]
 [ext_resource type="Texture2D" uid="uid://cw8ok1rgn10jn" path="res://asset/mecha/Diplomat Walk DWN-Sheet.png" id="3_rxind"]
 [ext_resource type="AudioStream" uid="uid://buxmipg5hm4l0" path="res://asset/sfx/mecha_sounds/diplomat1.wav" id="4_pm30v"]
 [ext_resource type="AudioStream" uid="uid://rijogr3ax4c7" path="res://asset/sfx/mecha_sounds/diplomat6.wav" id="4_xa4c2"]
@@ -113,7 +114,7 @@ animations = [{
 
 [node name="Diplomat" instance=ExtResource("1_hxw77")]
 script = ExtResource("2_mkq7g")
-starting_stats = null
+starting_stats = ExtResource("3_6dhuf")
 
 [node name="AttackPlayer" parent="Sound" index="1"]
 stream = ExtResource("4_xa4c2")
