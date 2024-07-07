@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnkbrtgvmk6aq"]
+[gd_scene load_steps=15 format=3 uid="uid://dnkbrtgvmk6aq"]
 
 [ext_resource type="PackedScene" uid="uid://dng4a0cw6fvud" path="res://scenes/map/Map.tscn" id="1_2j25n"]
 [ext_resource type="PackedScene" uid="uid://cq1dcakjrtmw1" path="res://scenes/controllers/MechaController.tscn" id="2_liqqj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bg5chagavjv0a" path="res://scenes/mecha/ShiftingSand/ShiftingSandMecha.tscn" id="9_s0ff3"]
 [ext_resource type="PackedScene" uid="uid://b6sdolsmsqcf3" path="res://scenes/mecha/SignalFailure/signal_falure_mecha.tscn" id="10_ryb7h"]
 [ext_resource type="PackedScene" uid="uid://dunwl2hmjglfm" path="res://scenes/mecha/WeirdFiction/WeirdFiction.tscn" id="11_a3cbp"]
+[ext_resource type="AudioStream" uid="uid://bu0jvrwor8hy0" path="res://asset/music/main_music.wav" id="14_pwi5k"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -73,5 +74,11 @@ position = Vector2(1934, 673)
 
 [node name="GameplayUI" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("4_w0jgr")]
 game_manager = NodePath("../../GameManager")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("14_pwi5k")
+autoplay = true
+bus = &"Music"
 
 [editable path="Map"]
