@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MechaStatResource" load_steps=2 format=3 uid="uid://c2bvaf3gwoa8i"]
+
+[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="1_7rkvm"]
+
+[resource]
+script = ExtResource("1_7rkvm")
+start_hp = 100.0
+start_hp_regen = 1.0
+start_speed = 0.2
+start_attack_speed = 1.0
+start_projectile_speed = 10.0
+start_damage = 2.0
+start_range = 6.0
