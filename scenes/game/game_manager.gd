@@ -1,4 +1,5 @@
 extends Node
+class_name GameManager
 
 # Spawn variables
 @export var spawn_point : Marker2D

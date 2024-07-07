@@ -234,7 +234,8 @@ func on_mov_tween_end():
 func on_vision_area_entered(area: Area2D):	
 	if area.is_in_group(target_group):
 		targets.append(area)
-		connect_to_enemy_death(area)
+		if area.is_in_group("enemy"):
+			connect_to_enemy_death(area)
 		
 #Controllare il funzionamento di erase e assicurarsi che tolga l'oggetto corretto
 func on_vision_area_exited(area: Area2D):

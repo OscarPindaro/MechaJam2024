@@ -1,21 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgf4sextkrafr"]
+[gd_scene load_steps=4 format=3 uid="uid://dgf4sextkrafr"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_n7ph4"]
 [ext_resource type="Script" path="res://scenes/mecha/Resurrection/Resurrection.gd" id="2_r440v"]
-[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="3_lng05"]
-
-[sub_resource type="Resource" id="Resource_dbdlt"]
-script = ExtResource("3_lng05")
-start_hp = 100.0
-start_hp_regen = 1.0
-start_speed = 1.0
-start_attack_speed = 1.0
-start_projectile_speed = 10.0
-start_damage = 10.0
-start_range = 50.0
+[ext_resource type="Resource" uid="uid://y6x427b6wtat" path="res://scenes/mecha/Resurrection/resurrection_stats.tres" id="3_683i5"]
 
 [node name="Resurrection" instance=ExtResource("1_n7ph4")]
 script = ExtResource("2_r440v")
 buff_time_scaler = 0.0
-starting_stats = SubResource("Resource_dbdlt")
+starting_stats = ExtResource("3_683i5")
 target_group = "mecha"
