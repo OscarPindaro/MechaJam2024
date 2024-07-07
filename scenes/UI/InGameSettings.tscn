@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7k188egay13g"]
+[gd_scene load_steps=6 format=3 uid="uid://c7k188egay13g"]
 
 [ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="1_gs3yp"]
 [ext_resource type="Script" path="res://scenes/UI/InGameSettings.gd" id="1_plegw"]
+[ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="2_o63dd"]
+[ext_resource type="Texture2D" uid="uid://cbiujxn2rrqo7" path="res://asset/UI/bottone_pressed.png" id="3_5m2r2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2q58b"]
+texture = ExtResource("3_5m2r2")
 
 [node name="IngameMenu" type="Control"]
 process_mode = 3
@@ -16,13 +21,35 @@ script = ExtResource("1_plegw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="IngameMenuPanel" type="PopupMenu" parent="CanvasLayer"]
-unique_name_in_owner = true
-transparent_bg = true
-title = "Menu"
-size = Vector2i(1920, 1080)
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.733333)
 
-[node name="Panel" type="Panel" parent="CanvasLayer/IngameMenuPanel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_o63dd")
+patch_margin_left = 7
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 9
+
+[node name="MenuPanel" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,3 +62,4 @@ offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gs3yp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2q58b")
