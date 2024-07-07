@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=16 format=3 uid="uid://bauupr2lvndqs"]
+
+[ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_ej4nn"]
+[ext_resource type="Texture2D" uid="uid://dnensorsmajpo" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Idle D.png" id="1_twwni"]
+[ext_resource type="Texture2D" uid="uid://bivht1300e1kx" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Death.png" id="2_c61wi"]
+[ext_resource type="Texture2D" uid="uid://b33ntdek7y4p8" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Snake Walk R.png" id="3_8sitf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk7u"]
+atlas = ExtResource("1_twwni")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nvxn"]
+atlas = ExtResource("2_c61wi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on3en"]
+atlas = ExtResource("2_c61wi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0urk7"]
+atlas = ExtResource("2_c61wi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bobml"]
+atlas = ExtResource("2_c61wi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufl3r"]
+atlas = ExtResource("3_8sitf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yregd"]
+atlas = ExtResource("3_8sitf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msnus"]
+atlas = ExtResource("3_8sitf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a84hs"]
+atlas = ExtResource("3_8sitf")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vknk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk7u")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nvxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on3en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0urk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bobml")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufl3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yregd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msnus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a84hs")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odf78"]
+size = Vector2(32, 32)
+
+[resource]
+resource_name = "scotch"
+script = ExtResource("1_ej4nn")
+additional_groups = Array[String]([])
+animated_sprite = SubResource("SpriteFrames_1vknk")
+collision_shape = SubResource("RectangleShape2D_odf78")
+start_hp = 2.0
+start_speed = 100.0
+start_dmg = 0.5
+money_value = 50.0
+pathfinding_radius = 10.0
+spawn_value = 2.0
+spawn_frequency = 1.5
+spawn_condition = 0
+wave_condition_value = 0
+minion_spawn = 0
+minion_types = Array[ExtResource("1_ej4nn")]([])
+minion_number = 0
+minion_deltatime = 0.0
+minion_radius = 10.0
