@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=17 format=3 uid="uid://b3brvafpwh1e8"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=19 format=3 uid="uid://b3brvafpwh1e8"]
 
 [ext_resource type="Texture2D" uid="uid://do1wyegtc54l2" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Sorcerer Attack R.png" id="1_jqfcc"]
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_s582l"]
 [ext_resource type="Texture2D" uid="uid://lssmofo21i61" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Sorcerer Death D.png" id="2_gm88o"]
 [ext_resource type="Texture2D" uid="uid://dgqh7aan33w3e" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_Sorcerer Walk R.png" id="3_1ugrh"]
 [ext_resource type="Resource" uid="uid://bjc1btqbqx7bj" path="res://scenes/enemies/data/graffetta.tres" id="4_bgtrb"]
+[ext_resource type="AudioStream" uid="uid://cd56nirk1wmh3" path="res://asset/sfx/enemies/coffee_machine_hit.wav" id="4_qrafd"]
+[ext_resource type="AudioStream" uid="uid://b4lwqaiel6mpm" path="res://asset/sfx/enemies/enemy_death.wav" id="5_6ueer"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7fj7"]
 atlas = ExtResource("1_jqfcc")
@@ -83,7 +85,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_eir7s")
 }],
 "loop": true,
-"name": &"move",
+"name": &"move_hor",
 "speed": 5.0
 }]
 
@@ -96,17 +98,18 @@ script = ExtResource("1_s582l")
 additional_groups = Array[String]([])
 animated_sprite = SubResource("SpriteFrames_1vknk")
 collision_shape = SubResource("RectangleShape2D_odf78")
-start_hp = 10.0
+death_sound = ExtResource("5_6ueer")
+attack_sound = ExtResource("4_qrafd")
+start_hp = 5.0
 start_speed = 20.0
-start_dmg = 2.0
-money_value = 200.0
-pathfinding_radius = 10.0
+start_dmg = 10.0
+money_value = 100.0
 spawn_value = 5.0
 spawn_frequency = 1.0
 spawn_condition = 2
-wave_condition_value = 7
+wave_condition_value = 3
 minion_spawn = 1
 minion_types = Array[ExtResource("1_s582l")]([ExtResource("4_bgtrb")])
-minion_number = 5
+minion_number = 3
 minion_deltatime = 0.0
 minion_radius = 10.0

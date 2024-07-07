@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://de8grhcgp4ayg"]
+[gd_scene load_steps=9 format=3 uid="uid://de8grhcgp4ayg"]
 
 [ext_resource type="Script" path="res://scenes/enemies/base_enemy.gd" id="2_4g7ky"]
 [ext_resource type="Texture2D" uid="uid://dg8ujpyyoxsqd" path="res://asset/placeholders/sprites/bw_1bit/ENEMIES/spritesheets/ENEMIES1bit_NegaBlob Walk.png" id="2_sydek"]
+[ext_resource type="AudioStream" uid="uid://b4lwqaiel6mpm" path="res://asset/sfx/enemies/enemy_death.wav" id="2_aqocy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kcje"]
 size = Vector2(16, 16)
@@ -25,26 +26,23 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w786j"]
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 border_blend = true
 expand_margin_top = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfwdy"]
 bg_color = Color(0, 0.72549, 0.247059, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 border_blend = true
 expand_margin_top = 1.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbkvl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa53c"]
+bg_color = Color(0.803922, 0.360784, 1, 1)
+expand_margin_top = 1.0
+
 [node name="Enemy" type="Area2D" groups=["enemy"]]
-scale = Vector2(2, 2)
-monitoring = false
 script = ExtResource("2_4g7ky")
 
 [node name="AreaShape" type="CollisionShape2D" parent="."]
@@ -55,31 +53,42 @@ sprite_frames = SubResource("SpriteFrames_uk6pq")
 animation = &"death"
 
 [node name="UI" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -8.0
 offset_top = -8.0
-offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = -1
 
 [node name="HealthBar" type="ProgressBar" parent="UI"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_w786j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dfwdy")
+value = 100.0
+show_percentage = false
+
+[node name="CharmeBar" type="ProgressBar" parent="UI"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 1
+theme_override_styles/background = SubResource("StyleBoxEmpty_hbkvl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sa53c")
 show_percentage = false
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_aqocy")
 bus = &"SFX Nemici"
 
 [node name="Timer" type="Timer" parent="."]
