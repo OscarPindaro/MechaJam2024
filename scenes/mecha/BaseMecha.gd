@@ -153,7 +153,7 @@ func set_hoover_on_mecha(visibility: bool):
 func set_select_mecha( visibility:bool):
 	$VisionArea/VisionSprite.visible=visibility
 
-	selection_sprite.visible = visibility
+	selection_sprite.visible = false
 	selection_sprite.modulate = selected_color
 	selected = visibility
 

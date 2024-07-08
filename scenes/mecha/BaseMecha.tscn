@@ -1,8 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=32 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
-[ext_resource type="Texture2D" uid="uid://cjmcdi68ehqv5" path="res://asset/placeholders/tilesets/colored_topdown_16bit/Characters/char_01.png" id="2_suo2y"]
 [ext_resource type="Texture2D" uid="uid://dxfa6bvxwl2ob" path="res://asset/mecha/background_mecha.png" id="3_ihcym"]
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="4_lyobt"]
 [ext_resource type="Script" path="res://scenes/controllers/ControllerMovement.gd" id="5_akstm"]
@@ -62,10 +61,6 @@ region = Rect2(210, 192, 70, 96)
 atlas = ExtResource("4_lyobt")
 region = Rect2(280, 192, 70, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpk5m"]
-atlas = ExtResource("2_suo2y")
-region = Rect2(0, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qus2u"]
 atlas = ExtResource("4_lyobt")
 region = Rect2(0, 0, 70, 96)
@@ -112,10 +107,7 @@ animations = [{
 "name": &"attack",
 "speed": 12.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tpk5m")
-}],
+"frames": [],
 "loop": true,
 "name": &"default",
 "speed": 12.0
@@ -156,7 +148,6 @@ selected_color = Color(0.537255, 0.901961, 0.529412, 0.501961)
 starting_stats = SubResource("Resource_1hgdl")
 
 [node name="Selection" type="Node2D" parent="."]
-visible = false
 
 [node name="HoverBG" type="Sprite2D" parent="Selection"]
 visible = false
@@ -216,8 +207,8 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_01jph")
 position = Vector2(0.500001, -20.5)
 sprite_frames = SubResource("SpriteFrames_vrelx")
-animation = &"move"
-autoplay = "default"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="ActionTimer" type="Timer" parent="."]
 
