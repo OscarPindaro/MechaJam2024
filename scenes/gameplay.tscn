@@ -139,6 +139,7 @@ position = Vector2(1118, 800)
 game_manager = NodePath("../../GameManager")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("14_pwi5k")
 autoplay = true
