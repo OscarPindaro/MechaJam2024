@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=14 format=3 uid="uid://bauupr2lvndqs"]
 
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_ej4nn"]
-[ext_resource type="Texture2D" uid="uid://o01msdso3quk" path="res://asset/enemies/Duct tape-Sheet.png" id="1_fyxbi"]
+[ext_resource type="Texture2D" path="res://asset/enemies/Duct tape-Sheet.png" id="1_fyxbi"]
 [ext_resource type="AudioStream" uid="uid://cd56nirk1wmh3" path="res://asset/sfx/enemies/coffee_machine_hit.wav" id="4_fmuwn"]
 [ext_resource type="AudioStream" uid="uid://b4lwqaiel6mpm" path="res://asset/sfx/enemies/enemy_death.wav" id="5_yx4iy"]
 

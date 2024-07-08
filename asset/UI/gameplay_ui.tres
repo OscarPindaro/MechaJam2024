@@ -7,12 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bep7duh5mphpk" path="res://asset/UI/bottone_hover.png" id="2_xxtyl"]
 [ext_resource type="Texture2D" uid="uid://cbiujxn2rrqo7" path="res://asset/UI/bottone_pressed.png" id="3_ijkdv"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7eph1"]
-texture = ExtResource("2_6gm1l")
-texture_margin_left = 8.0
-texture_margin_top = 7.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdfp1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjulw"]
 texture = ExtResource("2_xxtyl")
@@ -62,13 +57,13 @@ region_rect = Rect2(2, 0, 28, 32)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
-Button/colors/font_disabled_color = Color(0.603922, 0.603922, 0.603922, 1)
+Button/colors/font_disabled_color = Color(0.886275, 0.886275, 0.886275, 1)
 Button/colors/font_hover_color = Color(0.439216, 0.439216, 0.439216, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_j4pqr")
-Button/styles/disabled = SubResource("StyleBoxTexture_7eph1")
+Button/styles/disabled = SubResource("StyleBoxFlat_qdfp1")
 Button/styles/hover = SubResource("StyleBoxTexture_hjulw")
 Button/styles/normal = SubResource("StyleBoxTexture_em7j1")
 Button/styles/pressed = SubResource("StyleBoxTexture_sfdvc")
