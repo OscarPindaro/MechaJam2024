@@ -44,6 +44,7 @@ func buy_mecha(index):
 	if (game_manager.get_money() >= cost):
 		game_manager.lose_money(cost)
 		game_manager.mechas[index].visible = true
+		game_manager.mechas[index].select_this_mecha()
 		buttons[index].disabled = true
 		buttons[index].find_child("Panel").queue_free()
 
