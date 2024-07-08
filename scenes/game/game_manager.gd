@@ -16,6 +16,7 @@ var wave_num : int = 0
 var wave_in_progress : bool = false
 
 var pay_time_travel_wave : int = 0
+var time_travel_needs_paying : bool = false
 
 # Game data
 @export var health : float = 100
@@ -100,6 +101,7 @@ func start_wave():
 func time_travel():
 	time_traveler.activate()
 	pay_time_travel_wave = wave_num + 2
+	time_travel_needs_paying = true
 
 func _check_wave_end():
 	if $Spawner/Enemies.get_child_count() == 0:
@@ -123,4 +125,5 @@ func on_wave_end(num):
 		if money < 0:
 			game_over.emit()
 		else:
+			time_travel_needs_paying = false
 			paid_time_travel.emit()
