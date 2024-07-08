@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c571d46pgh0o7"]
+
+[ext_resource type="Texture2D" uid="uid://c475u6hbik8vw" path="res://asset/decorations/graph.png" id="1_8uar8"]
+
+[node name="Graph" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_8uar8")

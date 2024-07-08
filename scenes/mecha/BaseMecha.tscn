@@ -103,12 +103,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1f3hg")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 12.0
 }, {
 "frames": [],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -119,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hvpco")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -136,7 +136,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rrp15")
 }],
-"loop": true,
+"loop": false,
 "name": &"move",
 "speed": 12.0
 }]
@@ -203,15 +203,17 @@ debug_color = Color(0.94902, 0, 0.580392, 0.419608)
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 z_index = 1
+y_sort_enabled = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_01jph")
 position = Vector2(0.500001, -20.5)
 sprite_frames = SubResource("SpriteFrames_vrelx")
-animation = &"idle"
+animation = &"move"
 autoplay = "idle"
 
 [node name="ActionTimer" type="Timer" parent="."]
 
 [connection signal="buff_attSp_Signal" from="TargetableArea" to="." method="buff_attSp"]
 [connection signal="buff_damage_Signal" from="TargetableArea" to="." method="buff_damage"]
+[connection signal="animation_finished" from="Animations" to="." method="_on_animations_animation_finished"]
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

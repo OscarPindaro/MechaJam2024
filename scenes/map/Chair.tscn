@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmy1eetaxhptp"]
+
+[ext_resource type="Texture2D" uid="uid://c3asj668ivkbr" path="res://asset/decorations/Sedia.png" id="1_w5tfv"]
+
+[node name="Chair" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_w5tfv")

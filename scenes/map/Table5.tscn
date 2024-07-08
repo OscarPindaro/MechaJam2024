@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfm1kg7mbc4r5"]
+
+[ext_resource type="Texture2D" uid="uid://bn5pmavusale0" path="res://asset/decorations/Table 5png.png" id="1_qegmg"]
+
+[node name="Table1" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_qegmg")

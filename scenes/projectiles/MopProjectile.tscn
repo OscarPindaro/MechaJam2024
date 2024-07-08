@@ -21,6 +21,7 @@ script = ExtResource("2_8pih7")
 end_sound = ExtResource("3_4lum4")
 
 [node name="CollisionShape2D" parent="." index="0"]
+rotation = 1.5708
 scale = Vector2(1.2, 1.64)
 
 [node name="AnimatedSprite2D" parent="." index="1"]

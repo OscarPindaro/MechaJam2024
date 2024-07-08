@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlfivpv4lgs27"
-path="res://.godot/imported/GameCover.png-842e04d8d5bc41ba746204bb623492d4.ctex"
+uid="uid://bthimb57hyb02"
+path="res://.godot/imported/FIRE EXTINGUISHER.png-f98a262f80ac2050ff1f6acd83fd6bcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/GameCover.png"
-dest_files=["res://.godot/imported/GameCover.png-842e04d8d5bc41ba746204bb623492d4.ctex"]
+source_file="res://asset/decorations/FIRE EXTINGUISHER.png"
+dest_files=["res://.godot/imported/FIRE EXTINGUISHER.png-f98a262f80ac2050ff1f6acd83fd6bcc.ctex"]
 
 [params]
 

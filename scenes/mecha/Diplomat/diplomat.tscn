@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wga3v")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -123,5 +123,4 @@ a = Array[AudioStream]([ExtResource("4_pm30v"), ExtResource("5_yxxx8"), ExtResou
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_capnm")
 animation = &"idle"
-autoplay = "idle"
 frame_progress = 0.752788

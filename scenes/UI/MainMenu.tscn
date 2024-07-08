@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo2ikii5tsj44"]
+[gd_scene load_steps=12 format=3 uid="uid://bo2ikii5tsj44"]
 
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="1_1giaq"]
 [ext_resource type="Script" path="res://scenes/UI/MainMenu.gd" id="1_v4bd2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/UI/Start.gd" id="4_gi05l"]
 [ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="5_t4dy1"]
 [ext_resource type="Script" path="res://scenes/UI/Quit.gd" id="8_3so4k"]
+[ext_resource type="Script" path="res://scenes/UI/Credits.gd" id="8_63jhc"]
 [ext_resource type="AudioStream" uid="uid://do5jluinu35xq" path="res://asset/music/menu_music.wav" id="9_d1fyq"]
 [ext_resource type="Script" path="res://scenes/UI/MainMenuAudioPlayer.gd" id="10_qv0ep"]
 
@@ -107,6 +108,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_0jeha")
 text = "Credits"
+script = ExtResource("8_63jhc")
+credits_path = "res://scenes/UI/Credits.tscn"
 
 [node name="Quit" type="Button" parent="Menu/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -124,4 +127,5 @@ script = ExtResource("10_qv0ep")
 
 [connection signal="pressed" from="Menu/VBoxContainer/Start" to="Menu/VBoxContainer/Start" method="_on_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Settings" to="Menu/VBoxContainer/Settings" method="_on_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Credits" to="Menu/VBoxContainer/Credits" method="_on_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Quit" to="Menu/VBoxContainer/Quit" method="_on_pressed"]

@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_byrhs")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -86,5 +86,4 @@ a = Array[AudioStream]([ExtResource("4_8bfo2"), ExtResource("5_t5v7w"), ExtResou
 
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_86han")
-animation = &"idle"
-autoplay = "idle"
+animation = &"attack"
