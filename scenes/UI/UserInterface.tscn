@@ -97,6 +97,7 @@ theme = ExtResource("2_hhg2b")
 shortcut = SubResource("Shortcut_e4kgy")
 icon = ExtResource("2_b0tb2")
 script = ExtResource("6_ndotk")
+scene_to_load_path = "res://scenes/UI/InGameSettings.tscn"
 
 [node name="ShopPanel" type="Panel" parent="."]
 z_as_relative = false
