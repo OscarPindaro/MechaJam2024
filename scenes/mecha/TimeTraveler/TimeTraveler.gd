@@ -13,14 +13,14 @@ func _input(event):
 			activate()
 
 func _ready():
-	$AnimatedSprite2D.visible = false
+	visible = false
 
 
 func activate():
 	start_time_travelling.emit()
 	$EffectPlayer.play()
 	$AnimatedSprite2D.play("default")
-	$AnimatedSprite2D.visible = true
+	visible = true
 	get_tree().paused = true
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	for enemy in enemies:
@@ -30,4 +30,4 @@ func activate():
 
 func _on_effect_player_finished():
 	get_tree().paused = false
-	queue_free()
+	visible = false

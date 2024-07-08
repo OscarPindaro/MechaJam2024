@@ -2,7 +2,13 @@ extends Area2D
 class_name BaseProjectile
 
 # state
-@export var Direction: Vector2
+@export var Direction: Vector2:
+	get:
+		return Direction
+	set(value):
+		Direction = value
+		spec_rotate()
+		
 @export var Velocity: float
 var ending: bool = false
 var source: BaseMecha
@@ -24,6 +30,10 @@ func _ready():
 	ready_spec()
 
 func ready_spec():
+	pass
+	
+
+func spec_rotate():
 	pass
 
 

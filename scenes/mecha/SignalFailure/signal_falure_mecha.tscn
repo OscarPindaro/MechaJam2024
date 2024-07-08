@@ -1,9 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6sdolsmsqcf3"]
+[gd_scene load_steps=24 format=3 uid="uid://b6sdolsmsqcf3"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_l7ip0"]
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="2_5aexl"]
 [ext_resource type="Script" path="res://scenes/mecha/SignalFailure/signal_falure_mecha.gd" id="2_ahlqk"]
 [ext_resource type="Resource" uid="uid://vc7la3gh30mf" path="res://scenes/mecha/SignalFailure/signal_falure_stats.tres" id="3_6dgkx"]
+[ext_resource type="AudioStream" uid="uid://bevd5vj3l8fuq" path="res://asset/sfx/mecha_sounds/signal_failure2.wav" id="5_5mb24"]
+[ext_resource type="AudioStream" uid="uid://h4liv8dbiica" path="res://asset/sfx/mecha_sounds/signal_failure1.wav" id="5_mmj3q"]
+[ext_resource type="AudioStream" uid="uid://7d1xuqgb60hs" path="res://asset/sfx/mecha_sounds/signal_failure3.wav" id="6_ls76x"]
+[ext_resource type="AudioStream" uid="uid://xumg5xwbrjq4" path="res://asset/sfx/mecha_sounds/signal_failure4.wav" id="7_ux3c4"]
+[ext_resource type="AudioStream" uid="uid://cxwbyri7g0nhv" path="res://asset/sfx/mecha_sounds/signal_failure5.wav" id="8_1oh6i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mytmw"]
 atlas = ExtResource("2_5aexl")
@@ -76,7 +81,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8kl1o")
 }],
 "loop": true,
-"name": &"attack_down",
+"name": &"attack",
 "speed": 5.0
 }, {
 "frames": [{
@@ -98,7 +103,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_slc2t")
 }],
 "loop": true,
-"name": &"idle_down",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -115,7 +120,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ocky2")
 }],
 "loop": true,
-"name": &"move_down",
+"name": &"move",
 "speed": 5.0
 }]
 
@@ -125,11 +130,15 @@ perc = 0.5
 selected_color = Color(0.53, 0.9, 0.53, 0.5)
 starting_stats = ExtResource("3_6dgkx")
 
-[node name="Animations" parent="." index="1"]
-position = Vector2(0, -12)
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_frgm6")
-animation = &"default"
-
 [node name="CollisionShape2D" parent="MouseSelectionArea" index="0"]
 position = Vector2(-2, -12)
+
+[node name="AttackPlayer" parent="Sound" index="1"]
+stream = ExtResource("5_mmj3q")
+a = Array[AudioStream]([ExtResource("5_mmj3q"), ExtResource("5_5mb24"), ExtResource("6_ls76x"), ExtResource("7_ux3c4"), ExtResource("8_1oh6i")])
+
+[node name="Animations" parent="." index="7"]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_frgm6")
+animation = &"idle"
+autoplay = "idle"

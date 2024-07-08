@@ -211,4 +211,5 @@ func on_attack(_value):
 func on_area_entered(area:Area2D):
 	if area.is_in_group("enemy"):
 		if area.is_charmed != is_charmed:	# If the charm status is different, hit it
-			area.damage(dmg)
+			if is_instance_valid(area):
+				area.damage(dmg)
