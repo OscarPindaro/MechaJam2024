@@ -87,9 +87,10 @@ size_flags_horizontal = 4
 theme = ExtResource("2_0jeha")
 text = "Start"
 script = ExtResource("4_gi05l")
-main_screen_path = "res://test/game_with_ui.tscn"
+game_path = "res://scenes/gameplay.tscn"
 
 [node name="Settings" type="Button" parent="Menu/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4

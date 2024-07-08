@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="1_gs3yp"]
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="2_o63dd"]
 [ext_resource type="Script" path="res://scenes/UI/Resume.gd" id="3_w4vpf"]
-[ext_resource type="Script" path="res://scenes/UI/Quit.gd" id="6_p1eox"]
+[ext_resource type="Script" path="res://scenes/UI/QuitToMainMenu.gd" id="4_giva8"]
 
 [node name="IngameMenu" type="Control"]
 process_mode = 3
@@ -76,6 +76,7 @@ text = "Resume"
 script = ExtResource("3_w4vpf")
 
 [node name="Options" type="Button" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -95,7 +96,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_gs3yp")
 text = "Quit"
-script = ExtResource("6_p1eox")
+script = ExtResource("4_giva8")
+main_menu_path = "res://scenes/UI/MainMenu.tscn"
 
 [connection signal="pressed" from="CanvasLayer/NinePatchRect/VBoxContainer/Resume" to="CanvasLayer/NinePatchRect/VBoxContainer/Resume" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/NinePatchRect/VBoxContainer/Options" to="CanvasLayer/NinePatchRect/VBoxContainer/Options" method="_on_pressed"]
