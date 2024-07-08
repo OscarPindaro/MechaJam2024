@@ -58,6 +58,10 @@ func _ready():
 
 	game_start.emit()
 	wave_end.connect(on_wave_end)
+	get_tree().paused = false
+
+func get_wave_num():
+	return wave_num
 
 func get_money():
 	return money

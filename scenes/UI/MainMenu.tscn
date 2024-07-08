@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo2ikii5tsj44"]
+[gd_scene load_steps=10 format=3 uid="uid://bo2ikii5tsj44"]
 
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="1_1giaq"]
 [ext_resource type="Script" path="res://scenes/UI/MainMenu.gd" id="1_v4bd2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/UI/Start.gd" id="4_gi05l"]
 [ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="5_t4dy1"]
 [ext_resource type="Script" path="res://scenes/UI/Quit.gd" id="8_3so4k"]
+[ext_resource type="AudioStream" uid="uid://do5jluinu35xq" path="res://asset/music/menu_music.wav" id="9_d1fyq"]
 
 [node name="Control" type="Control"]
 z_as_relative = false
@@ -113,6 +114,11 @@ size_flags_horizontal = 4
 theme = ExtResource("2_0jeha")
 text = "Quit"
 script = ExtResource("8_3so4k")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_d1fyq")
+autoplay = true
 
 [connection signal="pressed" from="Menu/VBoxContainer/Start" to="Menu/VBoxContainer/Start" method="_on_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Settings" to="Menu/VBoxContainer/Settings" method="_on_pressed"]

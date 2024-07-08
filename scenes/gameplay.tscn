@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://busoh2bw143s6"]
+[gd_scene load_steps=17 format=3 uid="uid://busoh2bw143s6"]
 
 [ext_resource type="PackedScene" uid="uid://dng4a0cw6fvud" path="res://scenes/map/Map.tscn" id="1_2j25n"]
 [ext_resource type="PackedScene" uid="uid://cq1dcakjrtmw1" path="res://scenes/controllers/MechaController.tscn" id="2_liqqj"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dunwl2hmjglfm" path="res://scenes/mecha/WeirdFiction/WeirdFiction.tscn" id="11_a3cbp"]
 [ext_resource type="AudioStream" uid="uid://bu0jvrwor8hy0" path="res://asset/music/main_music.wav" id="14_pwi5k"]
 [ext_resource type="PackedScene" uid="uid://dfgx2bem0t6hw" path="res://scenes/mecha/TimeTraveler/TimeTraveler.tscn" id="15_kjew8"]
+[ext_resource type="PackedScene" uid="uid://bapft7s542pmp" path="res://scenes/UI/gameOverScreen.tscn" id="16_2wuwe"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -36,7 +37,7 @@ time_traveler = NodePath("../TimeTraveler")
 position = Vector2(289, 224)
 
 [node name="GoalPoint" type="Marker2D" parent="GameManager"]
-position = Vector2(1934, 673)
+position = Vector2(1897, 670)
 
 [node name="Map" parent="." instance=ExtResource("1_2j25n")]
 position = Vector2(320, 0)
@@ -101,6 +102,10 @@ bus = &"Music"
 visible = false
 z_index = 1
 position = Vector2(993, 464)
+
+[node name="GameOverScreen" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("16_2wuwe")]
+layout_mode = 1
+game_manager = NodePath("../GameManager")
 
 [editable path="Map"]
 [editable path="MechaController"]
