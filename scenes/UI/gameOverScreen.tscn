@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://bapft7s542pmp"]
+
+[ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="1_5fkbk"]
+[ext_resource type="Script" path="res://scenes/UI/gameOverScreen.gd" id="1_7lhoo"]
+[ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="2_ooxnn"]
+[ext_resource type="Script" path="res://scenes/UI/Start.gd" id="4_lpqhj"]
+[ext_resource type="Script" path="res://scenes/UI/QuitToMainMenu.gd" id="5_hhn6f"]
+
+[node name="GameOverScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7lhoo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.431373)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -308.0
+offset_right = 500.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5fkbk")
+region_rect = Rect2(29, 17.5, 39, 56)
+
+[node name="GameOverText" type="Label" parent="CanvasLayer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -233.0
+offset_right = 208.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ooxnn")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+
+[node name="WaveSurvivalText" type="Label" parent="CanvasLayer/NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.5
+offset_top = -108.0
+offset_right = 322.5
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ooxnn")
+theme_override_font_sizes/font_size = 40
+text = "You've survived X waves, congratulations!"
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -8.0
+offset_right = 100.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ooxnn")
+theme_override_font_sizes/font_size = 40
+text = "Retry"
+script = ExtResource("4_lpqhj")
+game_path = "res://scenes/gameplay.tscn"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 142.0
+offset_right = 100.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ooxnn")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+script = ExtResource("5_hhn6f")
+main_menu_path = "res://scenes/UI/MainMenu.tscn"
+
+[connection signal="pressed" from="CanvasLayer/NinePatchRect/RetryButton" to="CanvasLayer/NinePatchRect/RetryButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/NinePatchRect/QuitButton" to="CanvasLayer/NinePatchRect/QuitButton" method="_on_pressed"]

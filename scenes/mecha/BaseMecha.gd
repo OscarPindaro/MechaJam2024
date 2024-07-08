@@ -295,6 +295,7 @@ func buff_stat(stat:String, value: float, time: float):
 
 func buff_attSp(value: float, time: float):
 	var timer: Timer = Timer.new()
+	add_child(timer)
 	timer.timeout.connect(end_buff_attSp)
 	temp_attack_speed = value
 	timer.start(time)
@@ -304,6 +305,7 @@ func end_buff_attSp():
 	
 func buff_damage(value: float, time: float):
 	var timer: Timer = Timer.new()
+	add_child(timer)
 	timer.timeout.connect(end_buff_attSp)
 	temp_damage = value
 	timer.start(time)
