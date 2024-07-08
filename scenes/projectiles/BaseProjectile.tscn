@@ -29,6 +29,7 @@ animations = [{
 [sub_resource type="AudioStream" id="AudioStream_jcrm3"]
 
 [node name="BaseProjectile" type="Area2D"]
+z_index = 1
 script = ExtResource("1_ymbte")
 shoot_sound = SubResource("AudioStream_vk7kf")
 end_sound = SubResource("AudioStream_kl3pj")

@@ -179,6 +179,7 @@ func move_to(target_position: Vector2):
 
 
 func move_along_path(target_positions: Array[Vector2]):
+	#visible = true
 	# le target position sono in global space
 	# tween along e path of positions
 	if mov_tween:

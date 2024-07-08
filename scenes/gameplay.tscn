@@ -331,35 +331,35 @@ region = Rect2i(0, 0, 30, 17)
 
 [node name="Arena" parent="MechaController/Mechas" index="0" instance=ExtResource("4_d38lp")]
 visible = false
-position = Vector2(738, 667)
+position = Vector2(1544, 456)
 
 [node name="Cosmonaut" parent="MechaController/Mechas" index="1" instance=ExtResource("5_4qpfa")]
 visible = false
-position = Vector2(862, 669)
+position = Vector2(1240, 703)
 
 [node name="Diplomat" parent="MechaController/Mechas" index="2" instance=ExtResource("6_7xwr1")]
 visible = false
-position = Vector2(994, 667)
+position = Vector2(985, 1015)
 
 [node name="RelaxMecha" parent="MechaController/Mechas" index="3" instance=ExtResource("7_tech5")]
 visible = false
-position = Vector2(1122, 672)
+position = Vector2(748, 615)
 
 [node name="Resurrection" parent="MechaController/Mechas" index="4" instance=ExtResource("8_bd77g")]
 visible = false
-position = Vector2(733, 799)
+position = Vector2(544, 1001)
 
 [node name="ShiftingSand" parent="MechaController/Mechas" index="5" instance=ExtResource("9_s0ff3")]
 visible = false
-position = Vector2(860, 798)
+position = Vector2(1820, 143)
 
 [node name="SignalFalureMecha" parent="MechaController/Mechas" index="6" instance=ExtResource("10_ryb7h")]
 visible = false
-position = Vector2(988, 795)
+position = Vector2(1819, 841)
 
 [node name="WeirdFiction" parent="MechaController/Mechas" index="7" instance=ExtResource("11_a3cbp")]
 visible = false
-position = Vector2(1118, 800)
+position = Vector2(655, 81)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
