@@ -6,11 +6,11 @@
 script = ExtResource("1_epsnj")
 start_hp = 100.0
 start_hp_regen = 1.0
-start_speed = 1.0
-start_attack_speed = 1.0
+start_speed = 0.7
+start_attack_speed = 0.3
 start_projectile_speed = 10.0
-start_damage = 10.0
-start_range = 10.0
-cost = 100
+start_damage = 2.0
+start_range = 15.0
+cost = 400
 tooltipName = "Weird Ghost"
 tooltipDescription = "The power of the curtain on its head allows this ghost to summon staplers out of the ground that attack three enemies at once!"

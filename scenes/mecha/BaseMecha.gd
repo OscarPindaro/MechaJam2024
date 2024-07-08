@@ -123,27 +123,26 @@ func on_selection_mouse_exited():
 func on_mouse_click(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			
-			# this code selects and deselects with a click
-			if deselect_with_click:
-				# basically the selection is a toggle
-				var was_selected: bool = selected
-				set_select_mecha(!selected)
-				# if it was not selected
-				if was_selected == false:
-					mecha_selected.emit(self)
-				# if now is not selected, activate hoovering
-				if selected == false:
-					set_hoover_on_mecha(true)
-			# this only selects, deselection will be handled by other objects
-			else:
-				if selected == false:
-					set_select_mecha(true)
-					mecha_selected.emit(self)
-			print("fine input becha")	
+			select_this_mecha()
 
-		
-
+func select_this_mecha():
+	# this code selects and deselects with a click
+	if deselect_with_click:
+		# basically the selection is a toggle
+		var was_selected: bool = selected
+		set_select_mecha(!selected)
+		# if it was not selected
+		if was_selected == false:
+			mecha_selected.emit(self)
+		# if now is not selected, activate hoovering
+		if selected == false:
+			set_hoover_on_mecha(true)
+	# this only selects, deselection will be handled by other objects
+	else:
+		if selected == false:
+			set_select_mecha(true)
+			mecha_selected.emit(self)
+	print("fine input becha")	
 
 func set_hoover_on_mecha(visibility: bool):
 	if not selected:

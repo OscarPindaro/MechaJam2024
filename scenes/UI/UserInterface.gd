@@ -23,6 +23,8 @@ func _ready():
 			buttons[i].pressed_unpaused.connect(buy_mecha.bind(i))
 			buttons[i].mechaData = game_manager.mechas[i].starting_stats
 			buttons[i].find_child("Label", true).text = str(game_manager.mechas[i].starting_stats.cost)
+			game_manager.money_change.connect(buttons[i]._on_money_change)
+			buttons[i]._on_money_change(0, game_manager.get_money())
 
 		%TimeTravelButton.disabled = true
 		game_manager.wave_start.connect(func(_num) : %TimeTravelButton.disabled = game_manager.time_travel_needs_paying)
@@ -43,9 +45,13 @@ func buy_mecha(index):
 	var cost = game_manager.mechas[index].starting_stats.cost
 	if (game_manager.get_money() >= cost):
 		game_manager.lose_money(cost)
-		game_manager.mechas[index].visible = true
+		
+		buttons[index].bought = true
 		buttons[index].disabled = true
 		buttons[index].find_child("Panel").queue_free()
+
+		game_manager.mechas[index].visible = true
+		game_manager.mechas[index].select_this_mecha()
 
 func time_travel():
 	game_manager.time_travel()

@@ -6,11 +6,11 @@
 script = ExtResource("1_eecpw")
 start_hp = 100.0
 start_hp_regen = 1.0
-start_speed = 1.0
-start_attack_speed = 1.0
+start_speed = 0.6
+start_attack_speed = 2.0
 start_projectile_speed = 10.0
-start_damage = 10.0
+start_damage = 0.5
 start_range = 10.0
-cost = 100
+cost = 800
 tooltipName = "Diplomat"
 tooltipDescription = "Try to convert the enemies to be on your side with a little bit of sweet talk from this mech!"

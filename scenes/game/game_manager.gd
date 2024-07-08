@@ -56,6 +56,8 @@ func _ready():
 	$WaveEndTimer.timeout.connect(_check_wave_end)
 
 	time_travel_cost = time_traveler.starting_stats.cost
+	time_traveler.start_time_travelling.connect(func() : %AudioStreamPlayer.stream_paused = true)
+	time_traveler.end_time_travelling.connect(func() : %AudioStreamPlayer.stream_paused = false)
 
 	game_start.emit()
 	wave_end.connect(on_wave_end)
@@ -102,6 +104,8 @@ func time_travel():
 	time_traveler.activate()
 	pay_time_travel_wave = wave_num + 2
 	time_travel_needs_paying = true
+
+	
 
 func _check_wave_end():
 	if $Spawner/Enemies.get_child_count() == 0:

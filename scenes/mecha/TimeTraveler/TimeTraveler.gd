@@ -19,6 +19,7 @@ func _ready():
 
 func activate():
 	start_time_travelling.emit()
+	
 	$EffectPlayer.play()
 	$AnimatedSprite2D.play("default")
 	visible = true
@@ -26,9 +27,9 @@ func activate():
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	for enemy in enemies:
 		enemy.damage(enemy.hp)
-	end_time_travelling.emit()
 
 
 func _on_effect_player_finished():
 	get_tree().paused = false
 	visible = false
+	end_time_travelling.emit()
