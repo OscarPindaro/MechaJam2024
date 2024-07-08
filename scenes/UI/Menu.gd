@@ -11,6 +11,7 @@ func _ready():
 	menu_scene = load(scene_to_load_path).instantiate()
 
 func _on_pressed():
+	%PauseSymbol.visible = false
 	var is_menu_screen_loaded = menu_scene.get_meta("is_menu_screen_loaded")
 	var tree = get_tree()
 
@@ -18,11 +19,13 @@ func _on_pressed():
 		tree.paused = true
 		tree.get_root().add_child(menu_scene)
 		menu_scene.set_meta("is_menu_screen_loaded",true)
+		%Play_pause.disabled = true
 
 	else:
 		tree.paused = false
 		tree.get_root().remove_child(menu_scene)
 		menu_scene.set_meta("is_menu_screen_loaded",false)
+		%Play_pause.disabled = false
 
 
 	# FUNZIONA MA SOSTITUISCE LA SCENA COMPETAMENTE

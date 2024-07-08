@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://y75tqsouhvsj"]
+[gd_scene load_steps=28 format=3 uid="uid://y75tqsouhvsj"]
 
 [ext_resource type="Script" path="res://scenes/UI/UserInterface.gd" id="1_a1vov"]
 [ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
@@ -20,6 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://cd3djusycxggx" path="res://asset/UI/Shift sand .png" id="15_5s17k"]
 [ext_resource type="Texture2D" uid="uid://u8sv4xgputix" path="res://asset/UI/SignalFail.png" id="16_3ymhm"]
 [ext_resource type="Texture2D" uid="uid://d233oc1bi77qs" path="res://asset/UI/WEIR FIC .png" id="17_2j5vh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_em7j1"]
+texture = ExtResource("8_6bcaq")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_fn3lp"]
 device = -1
@@ -81,6 +88,7 @@ texture = ExtResource("2_7f32f")
 expand_mode = 4
 
 [node name="Menu_buttons" type="GridContainer" parent="."]
+z_index = 1
 z_as_relative = false
 layout_mode = 1
 anchors_preset = 1
@@ -93,10 +101,13 @@ columns = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Play_pause" type="Button" parent="Menu_buttons"]
+unique_name_in_owner = true
 process_mode = 3
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_hhg2b")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_em7j1")
 shortcut = SubResource("Shortcut_nypv8")
 icon = ExtResource("2_7f32f")
 script = ExtResource("4_mkq0e")
@@ -111,6 +122,8 @@ script = ExtResource("6_ndotk")
 scene_to_load_path = "res://scenes/UI/InGameSettings.tscn"
 
 [node name="ShopPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+z_index = 1
 z_as_relative = false
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 1
@@ -120,7 +133,6 @@ grow_vertical = 2
 theme = ExtResource("2_hhg2b")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel"]
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -693,7 +705,7 @@ text = "Wave:"
 [node name="Tooltip" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
-z_as_relative = false
+z_index = 1
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -771,3 +783,4 @@ text = "Prezzo
 [connection signal="mouse_entered" from="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton" to="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton" to="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton" to="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton" method="_on_pressed"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/StartWaveButton" to="ShopPanel/VBoxContainer/StartWaveButton" method="_on_pressed"]
