@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnkbrtgvmk6aq"]
+[gd_scene load_steps=16 format=3 uid="uid://busoh2bw143s6"]
 
 [ext_resource type="PackedScene" uid="uid://dng4a0cw6fvud" path="res://scenes/map/Map.tscn" id="1_2j25n"]
 [ext_resource type="PackedScene" uid="uid://cq1dcakjrtmw1" path="res://scenes/controllers/MechaController.tscn" id="2_liqqj"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://10ag61466fsy" path="res://scenes/mecha/Arena/Arena.tscn" id="4_d38lp"]
 [ext_resource type="PackedScene" uid="uid://y75tqsouhvsj" path="res://scenes/UI/UserInterface.tscn" id="4_w0jgr"]
 [ext_resource type="PackedScene" uid="uid://baj2x00vcgrts" path="res://scenes/mecha/Cosmonaut/Cosmonaut.tscn" id="5_4qpfa"]
-[ext_resource type="PackedScene" uid="uid://dneqtal8kmbsa" path="res://scenes/map/coffe_machine.tscn" id="5_u64jq"]
+[ext_resource type="PackedScene" path="res://scenes/map/coffe_machine.tscn" id="5_u64jq"]
 [ext_resource type="PackedScene" uid="uid://dxyt58tkkymsr" path="res://scenes/mecha/Diplomat/diplomat.tscn" id="6_7xwr1"]
 [ext_resource type="PackedScene" uid="uid://djpex4rk62am3" path="res://scenes/mecha/Relax/relax_mecha.tscn" id="7_tech5"]
 [ext_resource type="PackedScene" uid="uid://dgf4sextkrafr" path="res://scenes/mecha/Resurrection/Resurrection.tscn" id="8_bd77g"]
