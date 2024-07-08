@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://y75tqsouhvsj"]
+[gd_scene load_steps=19 format=3 uid="uid://y75tqsouhvsj"]
 
 [ext_resource type="Script" path="res://scenes/UI/UserInterface.gd" id="1_a1vov"]
 [ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bvff4ai6tni36" path="res://asset/placeholders/sprites/fantasy_items/MV Icons PACK 2 - ALL.png" id="7_57ifu"]
 [ext_resource type="Script" path="res://scenes/UI/ProgressBar.gd" id="7_aem6l"]
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="8_6bcaq"]
+[ext_resource type="Script" path="res://scenes/UI/StartWaveButton.gd" id="11_v3bxa"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_fn3lp"]
 device = -1
@@ -36,6 +37,7 @@ texture = ExtResource("8_6bcaq")
 
 [node name="GameplayUI" type="Control"]
 process_mode = 3
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +52,7 @@ script = ExtResource("1_a1vov")
 [node name="PauseSymbol" type="CenterContainer" parent="."]
 unique_name_in_owner = true
 visible = false
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -67,6 +70,7 @@ texture = ExtResource("2_7f32f")
 expand_mode = 4
 
 [node name="Menu_buttons" type="GridContainer" parent="."]
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -95,6 +99,7 @@ icon = ExtResource("2_b0tb2")
 script = ExtResource("6_ndotk")
 
 [node name="ShopPanel" type="Panel" parent="."]
+z_as_relative = false
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 1
 anchors_preset = 9
@@ -656,10 +661,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Wave"
 icon_alignment = 1
+script = ExtResource("11_v3bxa")
 
 [node name="Tooltip" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
+z_as_relative = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8

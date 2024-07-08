@@ -1,6 +1,7 @@
 extends Control
 
 var countdown = 0
+@export var game_manager: GameManager
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
