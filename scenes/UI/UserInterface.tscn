@@ -631,6 +631,7 @@ process_mode = 1
 custom_minimum_size = Vector2(180, 96)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
 icon_alignment = 1
 script = ExtResource("4_vqi8o")
 
@@ -649,32 +650,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ekjax")
 
-[node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton"]
-custom_minimum_size = Vector2(30, 32)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.433333
-anchor_top = 0.0520833
-anchor_right = 0.933333
-anchor_bottom = 0.947917
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton/Panel"]
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 17.0
+offset_left = 0.999939
+offset_top = -40.0
+offset_right = 64.9999
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 20
 text = "Buy now
 Pay
 Later"
