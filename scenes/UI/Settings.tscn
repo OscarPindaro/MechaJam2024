@@ -1,0 +1,205 @@
+[gd_scene load_steps=4 format=3 uid="uid://b35wtpgqj5o0b"]
+
+[ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="1_3mjwu"]
+[ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="2_ryc6m"]
+[ext_resource type="Script" path="res://scenes/UI/HSlider.gd" id="3_4ocgs"]
+
+[node name="Settings" type="Control"]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_3mjwu")
+metadata/is_menu_screen_loaded = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 460.0
+offset_top = 40.0
+offset_right = 460.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.733333)
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_ryc6m")
+patch_margin_left = 7
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 9
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("1_3mjwu")
+theme_override_font_sizes/font_size = 100
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_3mjwu")
+
+[node name="Audio" type="TabBar" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer"]
+layout_mode = 2
+theme = ExtResource("1_3mjwu")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VolumeSlider" type="HBoxContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider/LabelMargin"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 20
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider/SliderMargin"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+script = ExtResource("3_4ocgs")
+metadata/volume_controller = 0
+
+[node name="VolumeSlider2" type="HBoxContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider2/LabelMargin"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Effects Volume"
+horizontal_alignment = 1
+
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 20
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider2/SliderMargin"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+script = ExtResource("3_4ocgs")
+metadata/volume_controller = 2
+
+[node name="VolumeSlider3" type="HBoxContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider3"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider3/LabelMargin"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 20
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider3/SliderMargin"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+script = ExtResource("3_4ocgs")
+metadata/volume_controller = 1
+
+[node name="Test" type="TabBar" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_3mjwu")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Test"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="value_changed" from="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider/SliderMargin/HSlider" to="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider/SliderMargin/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider2/SliderMargin/HSlider" to="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider2/SliderMargin/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider3/SliderMargin/HSlider" to="CanvasLayer/NinePatchRect/VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/VolumeSlider3/SliderMargin/HSlider" method="_on_value_changed"]

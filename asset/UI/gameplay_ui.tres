@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://8r1asy6d080g"]
+[gd_resource type="Theme" load_steps=26 format=3 uid="uid://8r1asy6d080g"]
 
 [ext_resource type="FontFile" uid="uid://bihusngdyauan" path="res://asset/UI/Windows Regular.ttf" id="1_j4pqr"]
 [ext_resource type="Texture2D" uid="uid://to8qwfhje7ox" path="res://asset/UI/progress_bar.png" id="1_oyefk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4tux5n7rntfe" path="res://asset/UI/progress_bar_fill.png" id="2_iiwyr"]
 [ext_resource type="Texture2D" uid="uid://bep7duh5mphpk" path="res://asset/UI/bottone_hover.png" id="2_xxtyl"]
 [ext_resource type="Texture2D" uid="uid://cbiujxn2rrqo7" path="res://asset/UI/bottone_pressed.png" id="3_ijkdv"]
+[ext_resource type="Texture2D" uid="uid://q6jihmm8tm7g" path="res://asset/UI/slider.png" id="5_iqpml"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdfp1"]
 
@@ -55,6 +56,73 @@ texture = ExtResource("2_iiwyr")
 axis_stretch_horizontal = 1
 region_rect = Rect2(2, 0, 28, 32)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xu64i"]
+texture = ExtResource("2_xxtyl")
+texture_margin_left = 12.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jcqu"]
+texture = ExtResource("3_ijkdv")
+texture_margin_left = 13.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3nsr4"]
+texture = ExtResource("2_xxtyl")
+texture_margin_left = 13.0
+texture_margin_top = 12.0
+texture_margin_right = 13.0
+texture_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmynt"]
+texture = ExtResource("3_ijkdv")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1tcg"]
+texture = ExtResource("2_6gm1l")
+texture_margin_left = 6.0
+texture_margin_top = 7.0
+texture_margin_right = 6.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iywv6"]
+texture = ExtResource("2_6gm1l")
+texture_margin_left = 8.07331
+texture_margin_top = 11.0
+texture_margin_right = 9.31536
+texture_margin_bottom = 9.93638
+region_rect = Rect2(-1, 2, 92, 127)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4usj"]
+texture = ExtResource("2_xxtyl")
+texture_margin_left = 8.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 9.0
+region_rect = Rect2(0, 0, 90, 129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4vfm"]
+texture = ExtResource("3_ijkdv")
+texture_margin_left = 18.0
+texture_margin_top = 16.0
+texture_margin_right = 22.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(0, 0, 93, 120)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pxg5y"]
+texture = ExtResource("2_6gm1l")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(0, 0, 90, 128)
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.886275, 0.886275, 0.886275, 1)
@@ -67,6 +135,9 @@ Button/styles/disabled = SubResource("StyleBoxFlat_qdfp1")
 Button/styles/hover = SubResource("StyleBoxTexture_hjulw")
 Button/styles/normal = SubResource("StyleBoxTexture_em7j1")
 Button/styles/pressed = SubResource("StyleBoxTexture_sfdvc")
+HSlider/icons/grabber = ExtResource("5_iqpml")
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource("5_iqpml")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 24
@@ -76,3 +147,20 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_fycgq")
 PopupPanel/styles/panel = SubResource("StyleBoxTexture_5dt3x")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_jec8w")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_j46if")
+TabBar/styles/button_highlight = SubResource("StyleBoxTexture_xu64i")
+TabBar/styles/button_pressed = SubResource("StyleBoxTexture_7jcqu")
+TabBar/styles/tab_hovered = SubResource("StyleBoxTexture_3nsr4")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_pmynt")
+TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_l1tcg")
+TabContainer/colors/drop_mark_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_outline_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
+TabContainer/constants/side_margin = 0
+TabContainer/fonts/font = ExtResource("1_j4pqr")
+TabContainer/icons/decrement = null
+TabContainer/styles/panel = SubResource("StyleBoxTexture_iywv6")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_g4usj")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_b4vfm")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_pxg5y")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7k188egay13g"]
+[gd_scene load_steps=6 format=3 uid="uid://c7k188egay13g"]
 
 [ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="1_gs3yp"]
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="2_o63dd"]
 [ext_resource type="Script" path="res://scenes/UI/Resume.gd" id="3_w4vpf"]
+[ext_resource type="Script" path="res://scenes/UI/Menu.gd" id="4_kamfn"]
 [ext_resource type="Script" path="res://scenes/UI/Quit.gd" id="6_p1eox"]
 
 [node name="IngameMenu" type="Control"]
@@ -81,6 +82,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_gs3yp")
 text = "Settings"
+script = ExtResource("4_kamfn")
+scene_to_load_path = "res://scenes/UI/Settings.tscn"
 
 [node name="Credits" type="Button" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
