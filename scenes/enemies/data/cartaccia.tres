@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=17 format=3 uid="uid://b3brvafpwh1e8"]
 
-[ext_resource type="Texture2D" uid="uid://cie0as4kuicbx" path="res://asset/enemies/PAPER-Sheet.png" id="1_8u1t8"]
+[ext_resource type="Texture2D" path="res://asset/enemies/PAPER-Sheet.png" id="1_8u1t8"]
 [ext_resource type="Script" path="res://scenes/enemies/data/enemy_data.gd" id="1_s582l"]
 [ext_resource type="Resource" uid="uid://bjc1btqbqx7bj" path="res://scenes/enemies/data/graffetta.tres" id="4_bgtrb"]
 [ext_resource type="AudioStream" uid="uid://cd56nirk1wmh3" path="res://asset/sfx/enemies/coffee_machine_hit.wav" id="4_qrafd"]

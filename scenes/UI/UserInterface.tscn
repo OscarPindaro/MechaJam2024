@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://y75tqsouhvsj"]
+[gd_scene load_steps=27 format=3 uid="uid://y75tqsouhvsj"]
 
 [ext_resource type="Script" path="res://scenes/UI/UserInterface.gd" id="1_a1vov"]
 [ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
 [ext_resource type="Texture2D" uid="uid://b5rkjwrjqynub" path="res://asset/UI/meun_gear.png" id="2_b0tb2"]
+[ext_resource type="Texture2D" uid="uid://ddtav8vrfemdh" path="res://asset/UI/Cosmonaut2.png" id="2_ekjax"]
 [ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="2_hhg2b"]
 [ext_resource type="Script" path="res://scenes/UI/Play_pause.gd" id="4_mkq0e"]
 [ext_resource type="Script" path="res://scenes/UI/Button.gd" id="4_vqi8o"]
@@ -10,15 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://bvff4ai6tni36" path="res://asset/placeholders/sprites/fantasy_items/MV Icons PACK 2 - ALL.png" id="7_57ifu"]
 [ext_resource type="Script" path="res://scenes/UI/ProgressBar.gd" id="7_aem6l"]
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="8_6bcaq"]
-[ext_resource type="Texture2D" uid="uid://bc6mcbs2e6r2m" path="res://asset/UI/Arena.png" id="10_8s8qp"]
-[ext_resource type="Texture2D" uid="uid://derjekg58523h" path="res://asset/UI/Cosmonaut .png" id="11_1pyn7"]
-[ext_resource type="Texture2D" uid="uid://bev66ubkgtmwa" path="res://asset/UI/Diplomat .png" id="12_u5ahc"]
-[ext_resource type="Texture2D" uid="uid://dlvk17akumla4" path="res://asset/UI/rELAX .png" id="13_iae4r"]
-[ext_resource type="Texture2D" uid="uid://dftq42w66m1kk" path="res://asset/UI/Resurrection .png" id="14_mcf47"]
-[ext_resource type="Texture2D" uid="uid://cd3djusycxggx" path="res://asset/UI/Shift sand .png" id="15_tvvgp"]
-[ext_resource type="Texture2D" uid="uid://u8sv4xgputix" path="res://asset/UI/SignalFail.png" id="16_a0wy2"]
-[ext_resource type="Texture2D" uid="uid://d233oc1bi77qs" path="res://asset/UI/WEIR FIC .png" id="17_8pvoi"]
-[ext_resource type="Texture2D" uid="uid://g88lfpqw64y" path="res://asset/UI/TIME TRAVEL .png" id="18_mi2ng"]
+[ext_resource type="Texture2D" path="res://asset/UI/Arena.png" id="10_oc6a6"]
+[ext_resource type="Texture2D" path="res://asset/UI/Cosmonaut .png" id="11_nnhtg"]
+[ext_resource type="Script" path="res://scenes/UI/StartWaveButton.gd" id="11_v3bxa"]
+[ext_resource type="Texture2D" path="res://asset/UI/Diplomat .png" id="12_cpft1"]
+[ext_resource type="Texture2D" path="res://asset/UI/rELAX .png" id="13_4llqn"]
+[ext_resource type="Texture2D" path="res://asset/UI/Resurrection .png" id="14_rkbxv"]
+[ext_resource type="Texture2D" path="res://asset/UI/Shift sand .png" id="15_5s17k"]
+[ext_resource type="Texture2D" path="res://asset/UI/SignalFail.png" id="16_3ymhm"]
+[ext_resource type="Texture2D" path="res://asset/UI/WEIR FIC .png" id="17_2j5vh"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_fn3lp"]
 device = -1
@@ -44,6 +45,7 @@ texture = ExtResource("8_6bcaq")
 
 [node name="GameplayUI" type="Control"]
 process_mode = 3
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +57,31 @@ size_flags_vertical = 4
 mouse_filter = 1
 script = ExtResource("1_a1vov")
 
+[node name="PauseSymbol" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseSymbol"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+color = Color(0, 0, 0, 0.262745)
+
+[node name="TextureRect" type="TextureRect" parent="PauseSymbol"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_7f32f")
+expand_mode = 4
+
 [node name="Menu_buttons" type="GridContainer" parent="."]
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -82,13 +108,14 @@ theme = ExtResource("2_hhg2b")
 shortcut = SubResource("Shortcut_e4kgy")
 icon = ExtResource("2_b0tb2")
 script = ExtResource("6_ndotk")
+scene_to_load_path = "res://scenes/UI/InGameSettings.tscn"
 
 [node name="ShopPanel" type="Panel" parent="."]
+z_as_relative = false
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 320.0
 grow_vertical = 2
 theme = ExtResource("2_hhg2b")
 
@@ -180,7 +207,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_8s8qp")
+texture = ExtResource("10_oc6a6")
 expand_mode = 5
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem2"]
@@ -234,7 +261,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_1pyn7")
+texture = ExtResource("11_nnhtg")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem3"]
 custom_minimum_size = Vector2(30, 32)
@@ -287,7 +314,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_u5ahc")
+texture = ExtResource("12_cpft1")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem4"]
 custom_minimum_size = Vector2(30, 32)
@@ -340,7 +367,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("13_iae4r")
+texture = ExtResource("13_4llqn")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem5"]
 custom_minimum_size = Vector2(30, 32)
@@ -393,7 +420,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_mcf47")
+texture = ExtResource("14_rkbxv")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem6"]
 custom_minimum_size = Vector2(30, 32)
@@ -446,7 +473,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_tvvgp")
+texture = ExtResource("15_5s17k")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem7"]
 custom_minimum_size = Vector2(30, 32)
@@ -499,7 +526,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_a0wy2")
+texture = ExtResource("16_3ymhm")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem8"]
 custom_minimum_size = Vector2(30, 32)
@@ -552,7 +579,7 @@ offset_right = 32.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("17_8pvoi")
+texture = ExtResource("17_2j5vh")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem9"]
 custom_minimum_size = Vector2(30, 32)
@@ -608,7 +635,7 @@ offset_right = -17.0
 offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_mi2ng")
+texture = ExtResource("2_ekjax")
 
 [node name="Panel" type="Panel" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel/TimeTravelButton"]
 custom_minimum_size = Vector2(30, 32)
@@ -649,23 +676,24 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Wave"
 icon_alignment = 1
+script = ExtResource("11_v3bxa")
 
-[node name="WaveNum" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+[node name="Wave" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="WaveLabel" type="Label" parent="ShopPanel/VBoxContainer/WaveNum"]
+[node name="WaveLabel" type="Label" parent="ShopPanel/VBoxContainer/Wave"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-text = "Wave
-"
+text = "Wave:"
 
 [node name="Tooltip" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
+z_as_relative = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -713,30 +741,6 @@ text = "Descrizione"
 layout_mode = 2
 text = "Prezzo
 "
-
-[node name="PauseSymbol" type="CenterContainer" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -540.0
-offset_bottom = 540.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="PauseSymbol"]
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 2
-color = Color(0, 0, 0, 0.360784)
-
-[node name="TextureRect" type="TextureRect" parent="PauseSymbol"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("2_7f32f")
-expand_mode = 4
 
 [connection signal="pressed" from="Menu_buttons/Play_pause" to="Menu_buttons/Play_pause" method="_on_pressed"]
 [connection signal="pressed" from="Menu_buttons/Menu" to="Menu_buttons/Menu" method="_on_pressed"]

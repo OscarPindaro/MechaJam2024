@@ -10,8 +10,6 @@ func _on_mouse_entered():
 	else:
 		%Tooltip.global_position.y = self.global_position.y - (%Tooltip.size.y - self.size.y)
 	
-	print(%Tooltip.global_position.x)
-	print(%Tooltip.global_position.y + %Tooltip.size.y)
 	%Tooltip.visible = true
 	
 func _on_mouse_exited():

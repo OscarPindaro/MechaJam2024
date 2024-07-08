@@ -1,6 +1,7 @@
 extends Control
 
-@export var game_manager : GameManager
+var countdown = 0
+@export var game_manager: GameManager
 var buttons : Array[Node]
 
 func _ready():
