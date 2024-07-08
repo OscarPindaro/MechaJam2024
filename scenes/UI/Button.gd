@@ -2,6 +2,8 @@ extends Button
 #@onready var PopupShopVar = $"/root/PopupShop/PopupShopCanvas"
 
 var mechaData : MechaStatResource
+var bought : bool = false
+
 signal pressed_unpaused()
 
 func _on_mouse_entered():
@@ -23,3 +25,6 @@ func _on_mouse_exited():
 func _on_pressed():
 	if !get_tree().paused:
 		pressed_unpaused.emit()
+
+func _on_money_change(_delta, tot):
+	disabled = mechaData.cost > tot || bought

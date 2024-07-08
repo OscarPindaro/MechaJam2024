@@ -6,11 +6,11 @@
 script = ExtResource("1_7hw1l")
 start_hp = 100.0
 start_hp_regen = 1.0
-start_speed = 1.0
-start_attack_speed = 1.0
+start_speed = 0.4
+start_attack_speed = 0.5
 start_projectile_speed = 1.0
 start_damage = 1.0
 start_range = 10.0
-cost = 100
+cost = 400
 tooltipName = "Wave Shifter"
 tooltipDescription = "This mech is perhaps the only one with a real weapon, a fire estigusher: use it to push enemies down the path!"
