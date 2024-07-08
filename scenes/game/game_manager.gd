@@ -54,6 +54,8 @@ func _ready():
 	# Connect to end timer signal
 	$WaveEndTimer.timeout.connect(_check_wave_end)
 
+	time_travel_cost = time_traveler.starting_stats.cost
+
 	game_start.emit()
 	wave_end.connect(on_wave_end)
 

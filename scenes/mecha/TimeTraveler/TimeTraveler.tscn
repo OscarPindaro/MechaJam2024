@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfgx2bem0t6hw"]
+[gd_scene load_steps=11 format=3 uid="uid://dfgx2bem0t6hw"]
 
 [ext_resource type="Script" path="res://scenes/mecha/TimeTraveler/TimeTraveler.gd" id="1_d4ssn"]
 [ext_resource type="AudioStream" uid="uid://b5hqimgasmcqs" path="res://asset/sfx/mecha_sounds/time_travel.wav" id="1_ry63o"]
+[ext_resource type="Resource" uid="uid://7jap66kfl0rf" path="res://scenes/mecha/TimeTraveler/timeTraveler.tres" id="2_ok1dq"]
 [ext_resource type="Texture2D" uid="uid://co16cgo3y331q" path="res://asset/mecha/TIME TRAVEL Sheet.png" id="2_sr03p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bh427"]
@@ -50,6 +51,7 @@ animations = [{
 [node name="TimeTraveler" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_d4ssn")
+starting_stats = ExtResource("2_ok1dq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

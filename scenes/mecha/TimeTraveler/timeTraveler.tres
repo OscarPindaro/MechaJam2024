@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MechaStatResource" load_steps=2 format=3 uid="uid://7jap66kfl0rf"]
+
+[ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="1_3fhgw"]
+
+[resource]
+script = ExtResource("1_3fhgw")
+start_hp = 100.0
+start_hp_regen = 1.0
+start_speed = 1.0
+start_attack_speed = 1.0
+start_projectile_speed = 10.0
+start_damage = 10.0
+start_range = 10.0
+cost = 1000
+tooltipName = "Time Traveler"
+tooltipDescription = "Destroy all enemies on screen, but beware: the time traveller will ask its payment in the future!"

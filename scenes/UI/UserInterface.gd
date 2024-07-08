@@ -21,14 +21,15 @@ func _ready():
 		buttons = %MechaShop.get_children()
 		for i in range(game_manager.mechas.size()):
 			buttons[i].pressed_unpaused.connect(buy_mecha.bind(i))
+			buttons[i].mechaData = game_manager.mechas[i].starting_stats
 			buttons[i].find_child("Label", true).text = str(game_manager.mechas[i].starting_stats.cost)
 
 		%TimeTravelButton.disabled = true
 		game_manager.wave_start.connect(func(_num) : %TimeTravelButton.disabled = false)
 		game_manager.wave_end.connect(func(_num): %TimeTravelButton.disabled = true)
-	
 		%TimeTravelButton.pressed_unpaused.connect(time_travel)
 		game_manager.paid_time_travel.connect(restore_time_travel)
+		%TimeTravelButton.mechaData = game_manager.time_traveler.starting_stats
 
 		# Connect wave num
 		%WaveLabel.text = "Wave: 0"
