@@ -11,3 +11,6 @@ start_attack_speed = 1.0
 start_projectile_speed = 10.0
 start_damage = 10.0
 start_range = 10.0
+cost = 100
+tooltipName = "Resurrectionist"
+tooltipDescription = "Rather than attacking enemies, this support mech can buff nearby mechs with little treats."

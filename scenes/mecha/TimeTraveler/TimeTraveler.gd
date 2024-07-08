@@ -4,6 +4,7 @@ signal start_time_travelling()
 signal end_time_travelling()
 
 @export var test: bool = false
+@export var starting_stats : MechaStatResource
 # Called when the node enters the scene tree for the first time.
 
 

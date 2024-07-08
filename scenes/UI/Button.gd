@@ -1,6 +1,9 @@
 extends Button
 #@onready var PopupShopVar = $"/root/PopupShop/PopupShopCanvas"
 
+var mechaData : MechaStatResource
+signal pressed_unpaused()
+
 func _on_mouse_entered():
 	#PopupShop.show_popup(Rect2i(Vector2i(global_position), Vector2i(size)),null)
 	%Tooltip.global_position.x = self.global_position.x + self.size.x + 20
@@ -11,10 +14,12 @@ func _on_mouse_entered():
 		%Tooltip.global_position.y = self.global_position.y - (%Tooltip.size.y - self.size.y)
 	
 	%Tooltip.visible = true
+	%Tooltip.populate(mechaData.tooltipName, mechaData.tooltipDescription, mechaData.cost)
 	
 func _on_mouse_exited():
 	#PopupShop.hide_popup()
 	%Tooltip.visible = false
 
 func _on_pressed():
-	print('pressed')
+	if !get_tree().paused:
+		pressed_unpaused.emit()
