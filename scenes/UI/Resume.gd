@@ -9,10 +9,10 @@ extends Button
 
 func _on_pressed():
 	var tree = get_tree()
-	tree.paused = false
+	#tree.paused = false
 	
 	# Changes an attribute of the "IngameMenu" Control 
 	#(Parent control of the InGameSettings.tscn scene) and removes it from the current tree
-	$"../../../..".set_meta("is_menu_screen_loaded",false)
+	#$"../../../..".set_meta("is_menu_screen_loaded",false)
 	tree.get_root().remove_child($"../../../..")
 

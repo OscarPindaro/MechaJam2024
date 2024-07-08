@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fbj20cidojfe"
-path="res://.godot/imported/Floor Tilemap_1.png-4d439a8f92787c04490bd670bb030b57.ctex"
+uid="uid://dwckm2rh2dsk0"
+path="res://.godot/imported/Paper 1.png-d4babe4bc28583b385c8410d712e5043.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Floor Tilemap_1.png"
-dest_files=["res://.godot/imported/Floor Tilemap_1.png-4d439a8f92787c04490bd670bb030b57.ctex"]
+source_file="res://asset/decorations/Paper 1.png"
+dest_files=["res://.godot/imported/Paper 1.png-d4babe4bc28583b385c8410d712e5043.ctex"]
 
 [params]
 

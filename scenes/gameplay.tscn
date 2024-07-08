@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://busoh2bw143s6"]
+[gd_scene load_steps=37 format=3 uid="uid://busoh2bw143s6"]
 
 [ext_resource type="PackedScene" uid="uid://dng4a0cw6fvud" path="res://scenes/map/Map.tscn" id="1_2j25n"]
 [ext_resource type="PackedScene" uid="uid://cq1dcakjrtmw1" path="res://scenes/controllers/MechaController.tscn" id="2_liqqj"]
@@ -10,14 +10,27 @@
 [ext_resource type="Script" path="res://scenes/enemies/EnemySpawnerAnimation.gd" id="5_lp8u3"]
 [ext_resource type="PackedScene" uid="uid://dneqtal8kmbsa" path="res://scenes/map/coffe_machine.tscn" id="5_u64jq"]
 [ext_resource type="PackedScene" uid="uid://dxyt58tkkymsr" path="res://scenes/mecha/Diplomat/diplomat.tscn" id="6_7xwr1"]
+[ext_resource type="PackedScene" uid="uid://dxe8gvepjl3yj" path="res://scenes/map/Tree.tscn" id="6_ml8yu"]
+[ext_resource type="PackedScene" uid="uid://cl0yqswmj3ogx" path="res://scenes/map/FireExtinguisher.tscn" id="7_7mpj6"]
 [ext_resource type="PackedScene" uid="uid://djpex4rk62am3" path="res://scenes/mecha/Relax/relax_mecha.tscn" id="7_tech5"]
 [ext_resource type="PackedScene" uid="uid://dgf4sextkrafr" path="res://scenes/mecha/Resurrection/Resurrection.tscn" id="8_bd77g"]
+[ext_resource type="PackedScene" uid="uid://cmy1eetaxhptp" path="res://scenes/map/Chair.tscn" id="8_rbrdi"]
+[ext_resource type="PackedScene" uid="uid://c571d46pgh0o7" path="res://scenes/map/Graph.tscn" id="9_d4ote"]
 [ext_resource type="PackedScene" uid="uid://bg5chagavjv0a" path="res://scenes/mecha/ShiftingSand/ShiftingSandMecha.tscn" id="9_s0ff3"]
+[ext_resource type="PackedScene" uid="uid://bjxev5ij3lr3" path="res://scenes/map/Paper1.tscn" id="10_bih8r"]
 [ext_resource type="PackedScene" uid="uid://b6sdolsmsqcf3" path="res://scenes/mecha/SignalFailure/signal_falure_mecha.tscn" id="10_ryb7h"]
 [ext_resource type="PackedScene" uid="uid://dunwl2hmjglfm" path="res://scenes/mecha/WeirdFiction/WeirdFiction.tscn" id="11_a3cbp"]
+[ext_resource type="PackedScene" uid="uid://b83jg8nb1jbph" path="res://scenes/map/Paper2.tscn" id="11_h3rmo"]
+[ext_resource type="PackedScene" uid="uid://ccv76uumevdmb" path="res://scenes/map/Table1.tscn" id="12_eq5vc"]
+[ext_resource type="PackedScene" uid="uid://cxflch30mvx2r" path="res://scenes/map/Table2.tscn" id="13_jo3xp"]
 [ext_resource type="AudioStream" uid="uid://bu0jvrwor8hy0" path="res://asset/music/main_music.wav" id="14_pwi5k"]
+[ext_resource type="PackedScene" uid="uid://0030mck8pq6j" path="res://scenes/map/Table3.tscn" id="14_y5xmt"]
 [ext_resource type="PackedScene" uid="uid://dfgx2bem0t6hw" path="res://scenes/mecha/TimeTraveler/TimeTraveler.tscn" id="15_kjew8"]
+[ext_resource type="PackedScene" uid="uid://blvwbkm7t5wo2" path="res://scenes/map/Table4.tscn" id="15_kvgsq"]
 [ext_resource type="PackedScene" uid="uid://bapft7s542pmp" path="res://scenes/UI/gameOverScreen.tscn" id="16_2wuwe"]
+[ext_resource type="PackedScene" uid="uid://bfm1kg7mbc4r5" path="res://scenes/map/Table5.tscn" id="16_frf83"]
+[ext_resource type="PackedScene" uid="uid://dv8ds1qalh3bm" path="res://scenes/map/Table6.tscn" id="17_y1ks8"]
+[ext_resource type="PackedScene" uid="uid://c52yps0tle2yd" path="res://scenes/map/Table7.tscn" id="18_fvn4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7a1b3"]
 atlas = ExtResource("4_0xqs8")
@@ -94,6 +107,221 @@ position = Vector2(38, 194)
 sprite_frames = SubResource("SpriteFrames_1kr1p")
 script = ExtResource("5_lp8u3")
 game_manager = NodePath("../../GameManager")
+
+[node name="Tree" parent="Map" instance=ExtResource("6_ml8yu")]
+position = Vector2(1568, 1010)
+
+[node name="FireExtinguisher" parent="Map" instance=ExtResource("7_7mpj6")]
+position = Vector2(999, 1062)
+
+[node name="Chair" parent="Map" instance=ExtResource("8_rbrdi")]
+position = Vector2(1220, 443)
+
+[node name="Chair2" parent="Map" instance=ExtResource("8_rbrdi")]
+position = Vector2(665, 1012)
+
+[node name="Graph" parent="Map" instance=ExtResource("9_d4ote")]
+position = Vector2(319, 317)
+
+[node name="Graph2" parent="Map" instance=ExtResource("9_d4ote")]
+position = Vector2(1021, 417)
+
+[node name="Graph3" parent="Map" instance=ExtResource("9_d4ote")]
+position = Vector2(1399, 935)
+scale = Vector2(-1, 1)
+
+[node name="Graph4" parent="Map" instance=ExtResource("9_d4ote")]
+position = Vector2(1333, 61)
+
+[node name="Paper1" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(653, 651)
+
+[node name="Paper3" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1027, 716)
+
+[node name="Paper4" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(661, 671)
+
+[node name="Paper2" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(670, 662)
+
+[node name="Paper8" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(373, 306)
+
+[node name="Paper9" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(381, 326)
+
+[node name="Paper10" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(390, 317)
+
+[node name="Paper19" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(461, 74)
+
+[node name="Paper20" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(469, 94)
+
+[node name="Paper21" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(478, 85)
+
+[node name="Paper22" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(723, 177)
+
+[node name="Paper23" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(731, 197)
+
+[node name="Paper24" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(740, 188)
+
+[node name="Paper25" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(56, 752)
+
+[node name="Paper26" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(64, 772)
+
+[node name="Paper27" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(73, 763)
+
+[node name="Paper11" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1108, 442)
+
+[node name="Paper12" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1116, 462)
+
+[node name="Paper13" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(1125, 453)
+
+[node name="Paper14" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1492, 993)
+
+[node name="Paper15" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1500, 1013)
+
+[node name="Paper16" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(1509, 1004)
+
+[node name="Paper28" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(708, 972)
+
+[node name="Paper29" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(716, 992)
+
+[node name="Paper30" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(725, 983)
+
+[node name="Paper31" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1172, 960)
+scale = Vector2(-1, 1)
+
+[node name="Paper32" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1180, 980)
+scale = Vector2(-1, 1)
+
+[node name="Paper33" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(1166, 971)
+scale = Vector2(-1, 1)
+
+[node name="Paper34" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1358, 985)
+scale = Vector2(-1, 1)
+
+[node name="Paper35" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1366, 1005)
+scale = Vector2(-1, 1)
+
+[node name="Paper36" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(1352, 996)
+scale = Vector2(-1, 1)
+
+[node name="Paper37" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1566, 272)
+scale = Vector2(-1, 1)
+
+[node name="Paper38" parent="Map" instance=ExtResource("10_bih8r")]
+position = Vector2(1574, 292)
+scale = Vector2(-1, 1)
+
+[node name="Paper39" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(1560, 283)
+scale = Vector2(-1, 1)
+
+[node name="Paper5" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(670, 662)
+
+[node name="Paper6" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(328, 724)
+
+[node name="Paper7" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(354, 713)
+
+[node name="Table1" parent="Map" instance=ExtResource("12_eq5vc")]
+position = Vector2(576, 638)
+
+[node name="Table13" parent="Map" instance=ExtResource("12_eq5vc")]
+position = Vector2(568, 954)
+
+[node name="Table2" parent="Map" instance=ExtResource("13_jo3xp")]
+position = Vector2(1217, 383)
+
+[node name="Table3" parent="Map" instance=ExtResource("14_y5xmt")]
+position = Vector2(928, 668)
+
+[node name="Table8" parent="Map" instance=ExtResource("14_y5xmt")]
+position = Vector2(229, 962)
+
+[node name="Table9" parent="Map" instance=ExtResource("14_y5xmt")]
+position = Vector2(1502, 796)
+
+[node name="Table4" parent="Map" instance=ExtResource("15_kvgsq")]
+position = Vector2(344, 34)
+
+[node name="Table11" parent="Map" instance=ExtResource("15_kvgsq")]
+position = Vector2(1502, 98)
+
+[node name="Table5" parent="Map" instance=ExtResource("16_frf83")]
+position = Vector2(1000, 996)
+
+[node name="Table6" parent="Map" instance=ExtResource("17_y1ks8")]
+position = Vector2(796, 107)
+
+[node name="Table12" parent="Map" instance=ExtResource("17_y1ks8")]
+position = Vector2(722, 80)
+scale = Vector2(-1, 1)
+
+[node name="Table7" parent="Map" instance=ExtResource("18_fvn4i")]
+position = Vector2(351, 627)
+
+[node name="Paper17" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(882, 1090)
+scale = Vector2(-1, 1)
+
+[node name="Paper18" parent="Map" instance=ExtResource("11_h3rmo")]
+position = Vector2(908, 1079)
+scale = Vector2(-1, 1)
+
+[node name="Table10" parent="Map" instance=ExtResource("18_fvn4i")]
+position = Vector2(905, 993)
+scale = Vector2(-1, 1)
+
+[node name="FireExtinguisher2" parent="Map" instance=ExtResource("7_7mpj6")]
+position = Vector2(1214, 365)
+
+[node name="FireExtinguisher3" parent="Map" instance=ExtResource("7_7mpj6")]
+position = Vector2(1555, 158)
+
+[node name="Tree2" parent="Map" instance=ExtResource("6_ml8yu")]
+position = Vector2(868, 308)
+
+[node name="Tree3" parent="Map" instance=ExtResource("6_ml8yu")]
+position = Vector2(1054, 62)
+
+[node name="Tree5" parent="Map" instance=ExtResource("6_ml8yu")]
+position = Vector2(1312, 752)
+
+[node name="Tree6" parent="Map" instance=ExtResource("6_ml8yu")]
+position = Vector2(42, 710)
+
+[node name="Tree4" parent="Map" instance=ExtResource("6_ml8yu")]
+position = Vector2(612, 492)
 
 [node name="MechaController" parent="." instance=ExtResource("2_liqqj")]
 map_path = NodePath("../Map")

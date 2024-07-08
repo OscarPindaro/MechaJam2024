@@ -259,6 +259,7 @@ func _on_action_timer_timeout():
 	$ActionTimer.start()
 	if can_shoot and targets.size() != 0:
 		$Sound/AttackPlayer.play_random()
+		$Animations.animation = "attack"
 		do_action()
 
 
@@ -315,3 +316,8 @@ func end_buff_damage():
 	
 func dummy(value):
 	return true
+
+
+func _on_animations_animation_finished():
+	$Animations.animation = "idle"
+	$Animations.play()
