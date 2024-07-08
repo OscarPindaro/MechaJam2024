@@ -585,7 +585,6 @@ horizontal_alignment = 1
 
 [node name="Mecha-TimeTravel" type="MarginContainer" parent="ShopPanel/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 44
 
 [node name="TimeTravelButton" type="Button" parent="ShopPanel/VBoxContainer/Mecha-TimeTravel"]
 unique_name_in_owner = true
