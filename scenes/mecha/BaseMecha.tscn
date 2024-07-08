@@ -25,6 +25,8 @@ start_projectile_speed = 10.0
 start_damage = 10.0
 start_range = 10.0
 cost = 100
+tooltipName = ""
+tooltipDescription = ""
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asdtb"]
 radius = 33.0
@@ -154,6 +156,7 @@ selected_color = Color(0.537255, 0.901961, 0.529412, 0.501961)
 starting_stats = SubResource("Resource_1hgdl")
 
 [node name="Selection" type="Node2D" parent="."]
+visible = false
 
 [node name="HoverBG" type="Sprite2D" parent="Selection"]
 visible = false
@@ -208,6 +211,7 @@ shape = SubResource("CircleShape2D_wkbjs")
 debug_color = Color(0.94902, 0, 0.580392, 0.419608)
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 material = SubResource("ShaderMaterial_01jph")
 position = Vector2(0.500001, -20.5)
