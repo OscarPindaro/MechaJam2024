@@ -26,7 +26,7 @@ func _ready():
 		curr_mecha = get_node(start_mecha_path)
 		assert(curr_mecha in mechas_list, "Starting mecha should be in the mecha list	")
 
-func _input(event):
+func _unhandled_input(event):
 	if use_map and curr_mecha != null:
 		# await curr_mecha.input_capture_ended
 		# await get_tree().create_timer(0.2).timeout
