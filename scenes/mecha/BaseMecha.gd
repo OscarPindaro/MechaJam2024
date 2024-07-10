@@ -49,7 +49,7 @@ var range: float:
 		range = value
 		$VisionArea/CollisionShape2D.scale = Vector2(range, range)
 		$VisionArea/VisionSprite.scale *= range
-		
+var lvlCost: int
 var parent
 
 # func state
@@ -91,6 +91,7 @@ func _ready():
 	damage = starting_stats.start_damage
 
 	range = starting_stats.start_range
+	lvlCost = starting_stats.lvlCost
 	print("Speed: ", speed)
 	temp_speed = 0
 	temp_attack_speed = 0
@@ -315,8 +316,13 @@ func end_buff_damage():
 	temp_damage = 0
 	
 	
-func dummy(value):
-	return true
+func level_up():
+	lvlCost = lvlCost * 1.5
+	add_level_stats()
+	return
+	
+func add_level_stats():
+	pass
 
 
 func _on_animations_animation_finished():
