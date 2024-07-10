@@ -10,5 +10,6 @@ class_name MechaStatResource
 @export var start_range: float = 10
 
 @export var cost : int = 100
+@export var lvlCost : int = 50
 @export var tooltipName : String
 @export var tooltipDescription : String
