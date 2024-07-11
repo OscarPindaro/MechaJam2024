@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dvvfcxhaee3cs" path="res://asset/UI/bottone.png" id="1_knkp2"]
 [ext_resource type="Theme" uid="uid://8r1asy6d080g" path="res://asset/UI/gameplay_ui.tres" id="2_egdrf"]
-[ext_resource type="Script" path="res://scenes/UI/Resume.gd" id="3_pg11h"]
+[ext_resource type="Script" path="res://scenes/UI/QuitCredits.gd" id="3_byhiw"]
 
 [node name="IngameMenu" type="Control"]
 process_mode = 3
@@ -92,12 +92,12 @@ Voices:
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
+[node name="QuitCredits" type="Button" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_egdrf")
 text = "Quit"
-script = ExtResource("3_pg11h")
+script = ExtResource("3_byhiw")
 
-[connection signal="pressed" from="CanvasLayer/NinePatchRect/VBoxContainer/Quit" to="CanvasLayer/NinePatchRect/VBoxContainer/Quit" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/NinePatchRect/VBoxContainer/QuitCredits" to="CanvasLayer/NinePatchRect/VBoxContainer/QuitCredits" method="_on_pressed"]

@@ -45,6 +45,7 @@ func _process(delta):
 
 
 func _on_area_entered(area):
+	print(source)
 	if area.is_in_group(target_group) and not source.is_ancestor_of(area):
 		if not ending:
 			hit_target(area)

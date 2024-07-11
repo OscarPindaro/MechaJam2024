@@ -9,4 +9,9 @@ func hit_target(area: Area2D):
 		return
 	enemy.damage(effect_value)
 	Velocity = 0
-	end_projectile()	
+	end_projectile()
+	$Timer.start()
+
+
+func _on_timer_timeout():
+	visible = false

@@ -81,7 +81,7 @@ unique_name_in_owner = true
 spawn_point = NodePath("SpawnPoint")
 goal_point = NodePath("GoalPoint")
 start_spawn_timer = 2.5
-money = 200
+money = 800
 mechas = [NodePath("../MechaController/Mechas/Arena"), NodePath("../MechaController/Mechas/Cosmonaut"), NodePath("../MechaController/Mechas/Diplomat"), NodePath("../MechaController/Mechas/RelaxMecha"), NodePath("../MechaController/Mechas/Resurrection"), NodePath("../MechaController/Mechas/ShiftingSand"), NodePath("../MechaController/Mechas/SignalFalureMecha"), NodePath("../MechaController/Mechas/WeirdFiction")]
 time_traveler = NodePath("../TimeTraveler")
 
@@ -356,6 +356,7 @@ position = Vector2(1820, 143)
 [node name="SignalFalureMecha" parent="MechaController/Mechas" index="6" instance=ExtResource("10_ryb7h")]
 visible = false
 position = Vector2(1819, 841)
+perc = 0.3
 
 [node name="WeirdFiction" parent="MechaController/Mechas" index="7" instance=ExtResource("11_a3cbp")]
 visible = false

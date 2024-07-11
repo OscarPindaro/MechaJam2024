@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2k4kxeq7nyim"]
+
+[ext_resource type="Texture2D" uid="uid://cih3i1rcxx3i5" path="res://asset/UI/lvlUpArrow.png" id="1_j71r3"]
+
+[node name="LvlUpArrow" type="TextureRect"]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_j71r3")
