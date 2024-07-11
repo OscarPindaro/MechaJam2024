@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://y75tqsouhvsj"]
+[gd_scene load_steps=31 format=3 uid="uid://y75tqsouhvsj"]
 
 [ext_resource type="Script" path="res://scenes/UI/UserInterface.gd" id="1_a1vov"]
 [ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://derjekg58523h" path="res://asset/UI/Cosmonaut .png" id="11_nnhtg"]
 [ext_resource type="Script" path="res://scenes/UI/StartWaveButton.gd" id="11_v3bxa"]
 [ext_resource type="Texture2D" uid="uid://bev66ubkgtmwa" path="res://asset/UI/Diplomat .png" id="12_cpft1"]
+[ext_resource type="PackedScene" uid="uid://c2k4kxeq7nyim" path="res://scenes/UI/LvlUpArrow.tscn" id="12_uphot"]
 [ext_resource type="Texture2D" uid="uid://dlvk17akumla4" path="res://asset/UI/rELAX .png" id="13_4llqn"]
 [ext_resource type="Texture2D" uid="uid://dftq42w66m1kk" path="res://asset/UI/Resurrection .png" id="14_rkbxv"]
 [ext_resource type="Texture2D" uid="uid://cd3djusycxggx" path="res://asset/UI/Shift sand .png" id="15_5s17k"]
@@ -254,6 +255,12 @@ grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
 
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem2" instance=ExtResource("12_uphot")]
+layout_mode = 2
+offset_left = 154.0
+offset_right = 244.0
+offset_bottom = 128.0
+
 [node name="ShopItem3" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
 process_mode = 1
@@ -287,6 +294,8 @@ anchor_left = 0.211111
 anchor_top = 0.882813
 anchor_right = 0.788889
 anchor_bottom = 1.13281
+offset_top = -0.000366211
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -307,6 +316,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
+
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem3" instance=ExtResource("12_uphot")]
+layout_mode = 2
+offset_left = -154.0
+offset_top = 160.0
+offset_right = -64.0
+offset_bottom = 288.0
 
 [node name="ShopItem4" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -340,6 +356,8 @@ anchor_left = 0.211111
 anchor_top = 0.882813
 anchor_right = 0.788889
 anchor_bottom = 1.13281
+offset_top = -0.000366211
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -360,6 +378,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
+
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem4" instance=ExtResource("12_uphot")]
+layout_mode = 0
 
 [node name="ShopItem5" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -393,6 +414,8 @@ anchor_left = 0.211111
 anchor_top = 0.882813
 anchor_right = 0.788889
 anchor_bottom = 1.13281
+offset_top = -0.000366211
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -413,6 +436,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
+
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem5" instance=ExtResource("12_uphot")]
+layout_mode = 0
 
 [node name="ShopItem6" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -446,6 +472,8 @@ anchor_left = 0.211111
 anchor_top = 0.882813
 anchor_right = 0.788889
 anchor_bottom = 1.13281
+offset_top = -0.000366211
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -466,6 +494,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
+
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem6" instance=ExtResource("12_uphot")]
+layout_mode = 0
 
 [node name="ShopItem7" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -499,6 +530,8 @@ anchor_left = 0.211111
 anchor_top = 0.882813
 anchor_right = 0.788889
 anchor_bottom = 1.13281
+offset_top = -0.000366211
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -519,6 +552,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
+
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem7" instance=ExtResource("12_uphot")]
+layout_mode = 0
 
 [node name="ShopItem8" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -552,6 +588,8 @@ anchor_left = 0.211111
 anchor_top = 0.882813
 anchor_right = 0.788889
 anchor_bottom = 1.13281
+offset_top = -0.000366211
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -572,6 +610,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
+
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem8" instance=ExtResource("12_uphot")]
+layout_mode = 0
 
 [node name="ShopItem9" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -605,6 +646,8 @@ anchor_left = 0.211111
 anchor_top = 0.882813
 anchor_right = 0.788889
 anchor_bottom = 1.13281
+offset_top = -0.000366211
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -625,6 +668,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
+
+[node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem9" instance=ExtResource("12_uphot")]
+layout_mode = 0
 
 [node name="Mecha-TimeTravel" type="MarginContainer" parent="ShopPanel/VBoxContainer"]
 layout_mode = 2

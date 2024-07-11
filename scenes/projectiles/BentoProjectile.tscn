@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bpjm8fsmclnf8" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_t1tpc"]
 [ext_resource type="Script" path="res://scenes/projectiles/BentoProjectile.gd" id="2_8g58b"]
 [ext_resource type="Texture2D" uid="uid://cbffvfjxc4uje" path="res://asset/projectiles/Food bag-Sheet.png" id="3_0irp7"]
-[ext_resource type="AudioStream" uid="uid://di67gli77gcv3" path="res://asset/sfx/mecha_sounds/cosmonaut_food_hit3.wav" id="3_2m83o"]
+[ext_resource type="AudioStream" uid="uid://xidq16eq2thw" path="res://asset/sfx/mecha_sounds/cosmonaut_food_hit3.wav" id="3_2m83o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rkvs"]
 atlas = ExtResource("3_0irp7")
@@ -63,3 +63,8 @@ end_sound = ExtResource("3_2m83o")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3qlp6")
 autoplay = "default"
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 0.2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

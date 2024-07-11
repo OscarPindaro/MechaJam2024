@@ -135,4 +135,3 @@ a = Array[AudioStream]([ExtResource("5_oamye"), ExtResource("5_lak6e"), ExtResou
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_tesh8")
 animation = &"idle"
-autoplay = "idle"

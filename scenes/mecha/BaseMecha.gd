@@ -22,6 +22,7 @@ var mov_tween: Tween
 
 
 # mecha state
+var cost: int
 var hp: float
 var hp_regen: float
 var speed: float # measure in seconds
@@ -62,6 +63,7 @@ var temp_attack_speed: float:
 		_update_timer()
 var temp_damage: float
 var temp_range: float
+var bought
 
 
 # mecha targets
@@ -83,6 +85,7 @@ func _ready():
 	parent = get_parent()
 	$VisionArea.area_entered.connect(on_vision_area_entered)
 	$VisionArea.area_exited.connect(on_vision_area_exited)
+	cost = starting_stats.cost
 	hp = starting_stats.start_hp
 	hp_regen = starting_stats.start_hp_regen
 	speed = starting_stats.start_speed
@@ -301,8 +304,10 @@ func buff_attSp(value: float, time: float):
 	timer.timeout.connect(end_buff_attSp)
 	temp_attack_speed = value
 	timer.start(time)
+	start_buff_animation(Color(0,0,1))
 
-func end_buff_attSp():	
+func end_buff_attSp():
+	end_buff_animation()
 	temp_attack_speed = 0
 	
 func buff_damage(value: float, time: float):
@@ -311,13 +316,25 @@ func buff_damage(value: float, time: float):
 	timer.timeout.connect(end_buff_attSp)
 	temp_damage = value
 	timer.start(time)
+	start_buff_animation(Color(1,0,0))
 
-func end_buff_damage():	
+func end_buff_damage():
+	end_buff_animation()
 	temp_damage = 0
 	
+func start_buff_animation(color : Color):
+	$BuffParticles.modulate = color
+	$BuffParticles.play()
+	$BuffParticles.visible = true
+
+func end_buff_animation():
+	$BuffParticles.visible = false
+	$BuffParticles.stop()
+
 	
 func level_up():
 	lvlCost = lvlCost * 1.5
+	cost = lvlCost
 	add_level_stats()
 	return
 	
@@ -328,3 +345,13 @@ func add_level_stats():
 func _on_animations_animation_finished():
 	$Animations.animation = "idle"
 	$Animations.play()
+	
+func buy():
+	if !bought:
+		visible = true
+		bought = true
+		cost = lvlCost
+		select_this_mecha()
+	else:
+		level_up()
+	

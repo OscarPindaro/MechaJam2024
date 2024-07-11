@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5yhxcir64sf5"
-path="res://.godot/imported/cofffe.png-c11648666727ca19749275a454f1aaa2.ctex"
+uid="uid://bg5u6ovshcxqs"
+path="res://.godot/imported/GenericBuff.png-bcd2ba7c664b9abe109b9d697bcc6d4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/projectiles/cofffe.png"
-dest_files=["res://.godot/imported/cofffe.png-c11648666727ca19749275a454f1aaa2.ctex"]
+source_file="res://asset/particles/GenericBuff.png"
+dest_files=["res://.godot/imported/GenericBuff.png-bcd2ba7c664b9abe109b9d697bcc6d4c.ctex"]
 
 [params]
 

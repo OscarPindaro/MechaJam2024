@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=37 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b07c0ojs632au" path="res://asset/sfx/mecha_sounds/step3.wav" id="7_8ptk3"]
 [ext_resource type="AudioStream" uid="uid://10afg5cjjmvl" path="res://asset/sfx/mecha_sounds/step4.wav" id="8_y3uys"]
 [ext_resource type="Texture2D" uid="uid://ck5vnwbaa47fv" path="res://asset/mecha/cerchio.svg" id="9_xv6aq"]
+[ext_resource type="Texture2D" uid="uid://bg5u6ovshcxqs" path="res://asset/particles/GenericBuff.png" id="14_cs68j"]
 
 [sub_resource type="Resource" id="Resource_1hgdl"]
 script = ExtResource("2_j8l85")
@@ -142,6 +143,35 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tpiy"]
+atlas = ExtResource("14_cs68j")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5xj3"]
+atlas = ExtResource("14_cs68j")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyjop"]
+atlas = ExtResource("14_cs68j")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckwmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tpiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5xj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyjop")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="BaseMecha" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_0gymd")
@@ -213,6 +243,11 @@ animation = &"move"
 autoplay = "idle"
 
 [node name="ActionTimer" type="Timer" parent="."]
+
+[node name="BuffParticles" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_ckwmk")
 
 [connection signal="buff_attSp_Signal" from="TargetableArea" to="." method="buff_attSp"]
 [connection signal="buff_damage_Signal" from="TargetableArea" to="." method="buff_damage"]

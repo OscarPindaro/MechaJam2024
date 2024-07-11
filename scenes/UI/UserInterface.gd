@@ -42,16 +42,19 @@ func make_wave_start():
 	%StartWaveButton.disabled = true
 
 func buy_mecha(index):
-	var cost = game_manager.mechas[index].starting_stats.cost
+	var button = buttons[index]
+	var mecha = game_manager.mechas[index]
+	var cost = mecha.cost
 	if (game_manager.get_money() >= cost):
 		game_manager.lose_money(cost)
-		
-		buttons[index].bought = true
-		buttons[index].disabled = true
-		buttons[index].find_child("Panel").queue_free()
-
-		game_manager.mechas[index].visible = true
-		game_manager.mechas[index].select_this_mecha()
+		mecha.buy()
+		cost = mecha.cost
+		button.find_child("Label", true).text = str(cost)
+		button.find_child("LvlUpArrow", true).visible = true
+		button.mechaData.cost = cost
+#		buttons[index].bought = true
+#		buttons[index].disabled = true
+#		buttons[index].find_child("Panel").queue_free()
 
 func time_travel():
 	game_manager.time_travel()

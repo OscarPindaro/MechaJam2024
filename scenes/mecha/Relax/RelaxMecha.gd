@@ -21,3 +21,8 @@ func on_vision_area_entered(area: Area2D):
 func on_vision_area_exited(area: Area2D):
 	if area.is_in_group(target_group) and area in targets:
 		targets.erase(area)
+
+
+func add_level_stats():
+	attack_speed = attack_speed * 1.3
+	speed = speed * 1.3
