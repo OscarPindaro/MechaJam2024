@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bpj52fbvbvsto" path="res://scenes/projectiles/BaseBuffProjectile.tscn" id="1_bd6up"]
 [ext_resource type="Script" path="res://scenes/projectiles/CoffeeProjectile.gd" id="2_v8otp"]
-[ext_resource type="AudioStream" uid="uid://cp87ighyjeedy" path="res://asset/sfx/mecha_sounds/resurrection_sipping_drink.wav" id="3_ow4f4"]
+[ext_resource type="AudioStream" uid="uid://dmuu6x0qht1t4" path="res://asset/sfx/mecha_sounds/resurrection_sipping_drink.wav" id="3_ow4f4"]
 [ext_resource type="Texture2D" uid="uid://cnov4520en4l3" path="res://asset/projectiles/cofffe.png" id="4_ve26n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v18p7"]

@@ -9,6 +9,8 @@ func do_action():
 		var enemy: BaseEnemy = targets.pick_random()
 		# pick a random enemy
 		enemy.damage(self.damage)
+		$FootParticle.position = to_local(enemy.position)
+		$FootParticle.emitting = true
 
 
 # overriding because it should ignore enemies that fly

@@ -309,6 +309,7 @@ func buff_attSp(value: float, time: float):
 func end_buff_attSp():
 	end_buff_animation()
 	temp_attack_speed = 0
+	$BuffParticles.emitting = false
 	
 func buff_damage(value: float, time: float):
 	var timer: Timer = Timer.new()
@@ -323,13 +324,13 @@ func end_buff_damage():
 	temp_damage = 0
 	
 func start_buff_animation(color : Color):
-	$BuffParticles.modulate = color
-	$BuffParticles.play()
-	$BuffParticles.visible = true
+	# $BuffParticles.modulate = color
+	# $BuffParticles.play()
+	# $BuffParticles.visible = true
+	$BuffParticles.emitting = true
 
 func end_buff_animation():
-	$BuffParticles.visible = false
-	$BuffParticles.stop()
+	pass
 
 	
 func level_up():
