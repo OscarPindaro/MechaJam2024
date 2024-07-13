@@ -48,8 +48,9 @@ var range: float:
 		return range
 	set(value):
 		range = value
-		$VisionArea/CollisionShape2D.scale = Vector2(range, range)
-		$VisionArea/VisionSprite.scale *= range
+		# $VisionArea/CollisionShape2D.scale = Vector2(range, range)
+		$VisionArea.scale = Vector2(range, range)
+		# $VisionArea/VisionSprite.scale *= range
 var lvlCost: int
 var parent
 
@@ -309,6 +310,7 @@ func buff_attSp(value: float, time: float):
 func end_buff_attSp():
 	end_buff_animation()
 	temp_attack_speed = 0
+	$BuffParticles.emitting = false
 	
 func buff_damage(value: float, time: float):
 	var timer: Timer = Timer.new()
@@ -316,6 +318,7 @@ func buff_damage(value: float, time: float):
 	timer.timeout.connect(end_buff_attSp)
 	temp_damage = value
 	timer.start(time)
+	print("Timer",time)
 	start_buff_animation(Color(1,0,0))
 
 func end_buff_damage():
@@ -323,13 +326,13 @@ func end_buff_damage():
 	temp_damage = 0
 	
 func start_buff_animation(color : Color):
-	$BuffParticles.modulate = color
-	$BuffParticles.play()
-	$BuffParticles.visible = true
+	# $BuffParticles.modulate = color
+	# $BuffParticles.play()
+	# $BuffParticles.visible = true
+	$BuffParticles.emitting = true
 
 func end_buff_animation():
-	$BuffParticles.visible = false
-	$BuffParticles.stop()
+	pass
 
 	
 func level_up():

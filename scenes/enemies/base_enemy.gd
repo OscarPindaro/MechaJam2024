@@ -3,7 +3,7 @@ class_name BaseEnemy
 
 const ANIMATION_NAMES : Array[String] = ["move_hor", "move_vert", "death", "attack"]
 
-var stats : EnemyData
+@export var stats : EnemyData
 var spawner : Node
 
 # Stats
@@ -125,6 +125,8 @@ func apply_charme(value):
 	charme += value
 	hit_charme.emit(value)
 	if charme >= hp:
+		# activate charm particles
+		$CharmParticles.emitting = true
 		charmed.emit()
 
 func set_goal(target):

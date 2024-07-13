@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b101tedcqcq5v"]
+[gd_scene load_steps=35 format=3 uid="uid://b101tedcqcq5v"]
 
 [ext_resource type="Script" path="res://scenes/mecha/BaseMecha.gd" id="1_0gymd"]
 [ext_resource type="Script" path="res://scenes/mecha/mecha_stats.gd" id="2_j8l85"]
@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b07c0ojs632au" path="res://asset/sfx/mecha_sounds/step3.wav" id="7_8ptk3"]
 [ext_resource type="AudioStream" uid="uid://10afg5cjjmvl" path="res://asset/sfx/mecha_sounds/step4.wav" id="8_y3uys"]
 [ext_resource type="Texture2D" uid="uid://ck5vnwbaa47fv" path="res://asset/mecha/cerchio.svg" id="9_xv6aq"]
-[ext_resource type="Texture2D" uid="uid://bg5u6ovshcxqs" path="res://asset/particles/GenericBuff.png" id="14_cs68j"]
+[ext_resource type="Texture2D" uid="uid://dkrbaki7dntay" path="res://asset/mecha/Stelliina.png" id="14_lpwfd"]
 
 [sub_resource type="Resource" id="Resource_1hgdl"]
 script = ExtResource("2_j8l85")
@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 12.0
+"speed": 1.0
 }, {
 "frames": [],
 "loop": false,
@@ -143,34 +143,15 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tpiy"]
-atlas = ExtResource("14_cs68j")
-region = Rect2(0, 0, 64, 96)
+[sub_resource type="Curve" id="Curve_tgojd"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -34.5908), 0.0, 0.0, 0, 0, Vector2(1, 16.6548), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5xj3"]
-atlas = ExtResource("14_cs68j")
-region = Rect2(64, 0, 64, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wyjop"]
-atlas = ExtResource("14_cs68j")
-region = Rect2(0, 96, 64, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ckwmk"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0tpiy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5xj3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wyjop")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Curve" id="Curve_63rqu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.494465, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="BaseMecha" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -222,10 +203,10 @@ shape = SubResource("CircleShape2D_tfmtx")
 [node name="VisionArea" type="Area2D" parent="."]
 
 [node name="VisionSprite" type="Sprite2D" parent="VisionArea"]
-visible = false
 modulate = Color(0.419608, 0.188235, 1, 0.541176)
 texture_filter = 2
-scale = Vector2(0.322266, 0.322266)
+position = Vector2(3.57628e-07, 0)
+scale = Vector2(0.208333, 0.208333)
 texture = ExtResource("9_xv6aq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
@@ -244,10 +225,30 @@ autoplay = "idle"
 
 [node name="ActionTimer" type="Timer" parent="."]
 
-[node name="BuffParticles" type="AnimatedSprite2D" parent="."]
+[node name="BuffParticles" type="CPUParticles2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 texture_filter = 1
-position = Vector2(0, -20)
-sprite_frames = SubResource("SpriteFrames_ckwmk")
+emitting = false
+amount = 4
+explosiveness = 0.5
+randomness = 1.0
+local_coords = true
+texture = ExtResource("14_lpwfd")
+emission_shape = 3
+emission_rect_extents = Vector2(25, 30)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+angular_velocity_min = -5.0
+angular_velocity_max = 5.0
+angular_velocity_curve = SubResource("Curve_tgojd")
+linear_accel_min = 62.16
+linear_accel_max = 62.16
+scale_amount_curve = SubResource("Curve_63rqu")
+color = Color(0.968627, 1, 0, 1)
 
 [connection signal="buff_attSp_Signal" from="TargetableArea" to="." method="buff_attSp"]
 [connection signal="buff_damage_Signal" from="TargetableArea" to="." method="buff_damage"]

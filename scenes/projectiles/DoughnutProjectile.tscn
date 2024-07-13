@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bpj52fbvbvsto" path="res://scenes/projectiles/BaseBuffProjectile.tscn" id="1_aio2t"]
 [ext_resource type="Script" path="res://scenes/projectiles/DoughnutProjectile.gd" id="2_l02jh"]
-[ext_resource type="AudioStream" uid="uid://dtxegkn5q86d1" path="res://asset/sfx/mecha_sounds/resurrection_swallow2.wav" id="3_if1ss"]
+[ext_resource type="AudioStream" uid="uid://81k2d5wre7kg" path="res://asset/sfx/mecha_sounds/resurrection_swallow2.wav" id="3_if1ss"]
 [ext_resource type="Texture2D" uid="uid://v8bccojq5wle" path="res://asset/projectiles/Donut Animation.png" id="4_s6oi4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cdqd0"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://de8grhcgp4ayg"]
+[gd_scene load_steps=10 format=3 uid="uid://de8grhcgp4ayg"]
 
 [ext_resource type="Script" path="res://scenes/enemies/base_enemy.gd" id="2_4g7ky"]
 [ext_resource type="AudioStream" uid="uid://b4lwqaiel6mpm" path="res://asset/sfx/enemies/enemy_death.wav" id="2_aqocy"]
+[ext_resource type="PackedScene" uid="uid://dnsr80lvf8e3c" path="res://scenes/particles/charm_particles.tscn" id="3_4te4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kcje"]
 size = Vector2(16, 16)
@@ -92,3 +93,6 @@ bus = &"SFX Nemici"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CharmParticles" parent="." instance=ExtResource("3_4te4g")]
+emitting = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://djpex4rk62am3"]
+[gd_scene load_steps=23 format=3 uid="uid://djpex4rk62am3"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_u3l2j"]
 [ext_resource type="Script" path="res://scenes/mecha/Relax/RelaxMecha.gd" id="2_lgs5a"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://223xgrb6bnnm" path="res://asset/sfx/mecha_sounds/relax3.wav" id="6_a1lj5"]
 [ext_resource type="AudioStream" uid="uid://daouk3bqqscqn" path="res://asset/sfx/mecha_sounds/relax4.wav" id="7_8ujbc"]
 [ext_resource type="AudioStream" uid="uid://bm1mrn8m1hes3" path="res://asset/sfx/mecha_sounds/relax5.wav" id="8_ub7ui"]
+[ext_resource type="Texture2D" uid="uid://cvwec1htakr3w" path="res://asset/particles/foot.png" id="11_js12u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wvhk"]
 atlas = ExtResource("4_v685i")
@@ -97,6 +98,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_pqq6i"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="RelaxMecha" instance=ExtResource("1_u3l2j")]
 script = ExtResource("2_lgs5a")
 selected_color = Color(0.53, 0.9, 0.53, 0.5)
@@ -108,3 +112,19 @@ a = Array[AudioStream]([ExtResource("4_luf2n"), ExtResource("5_epsbv"), ExtResou
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_qaw7h")
 animation = &"idle"
+
+[node name="FootParticle" type="CPUParticles2D" parent="." index="10"]
+texture_filter = 1
+emitting = false
+amount = 4
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.3
+texture = ExtResource("11_js12u")
+direction = Vector2(0, 1)
+gravity = Vector2(0, 0)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_pqq6i")

@@ -7,6 +7,7 @@ class_name SignalFailureMecha
 var enemies_affected: Array[BaseEnemy] = []
 
 func do_action():
+	$ElectricEffect.emitting = true
 	for enemy in targets:
 		var enemy_casted = enemy as BaseEnemy
 		enemy_casted.change_speed(0)
@@ -33,3 +34,12 @@ func add_level_stats():
 			damage = 0.1
 		damage = damage * 1.1
 		attack_speed = attack_speed * 1.1
+
+func ready_spec():
+	$VisionArea.area_exited.connect(on_vision_area_exited_particles)
+
+
+func on_vision_area_exited_particles(_area: Area2D):
+	if len(targets) == 0:
+		$ElectricEffect.emitting = false
+

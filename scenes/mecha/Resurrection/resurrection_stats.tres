@@ -12,5 +12,6 @@ start_projectile_speed = 5.0
 start_damage = 1.0
 start_range = 15.0
 cost = 700
+lvlCost = 50
 tooltipName = "Resurrectionist"
 tooltipDescription = "Rather than attacking enemies, this support mech can buff nearby mechs with little treats."

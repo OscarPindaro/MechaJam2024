@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck5vnwbaa47fv"
-path="res://.godot/imported/cerchio.svg-d4f4888b0d74be7b0b0e3681067c3851.ctex"
+uid="uid://dkrbaki7dntay"
+path="res://.godot/imported/Stelliina.png-d6dd1312f0b3a86a3d66c63884f81e00.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/mecha/cerchio.svg"
-dest_files=["res://.godot/imported/cerchio.svg-d4f4888b0d74be7b0b0e3681067c3851.ctex"]
+source_file="res://asset/mecha/Stelliina.png"
+dest_files=["res://.godot/imported/Stelliina.png-d6dd1312f0b3a86a3d66c63884f81e00.ctex"]
 
 [params]
 
@@ -22,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,8 +30,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=256
+process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true
