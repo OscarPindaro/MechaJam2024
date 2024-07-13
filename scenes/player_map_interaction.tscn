@@ -24,11 +24,6 @@ region = Rect2i(0, 0, 18, 11)
 
 [node name="Cosmonaut" parent="MechaController/Mechas" index="0" instance=ExtResource("3_cjorv")]
 position = Vector2(99, 158)
-test = null
-mov_transition = null
-hoover_color = null
-deselect_with_click = null
-target_group = null
 
 [node name="SignalFalureMecha" parent="MechaController/Mechas" index="1" instance=ExtResource("6_6bp7d")]
 position = Vector2(287, 280)
