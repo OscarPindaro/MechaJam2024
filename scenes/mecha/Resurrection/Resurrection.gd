@@ -21,3 +21,5 @@ func do_action():
 	
 	shoot_projectile(projectile, targets[trg_num])
 
+func add_level_stats():
+	damage = damage * 1.2
