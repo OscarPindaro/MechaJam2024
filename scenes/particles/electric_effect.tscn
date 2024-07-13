@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmn7ycvegpg0r"]
+
+[ext_resource type="Texture2D" uid="uid://bj1h3rf4nqrei" path="res://asset/particles/spark.png" id="1_0maw5"]
+
+[sub_resource type="Curve" id="Curve_0pwq6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.95572, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="ElectricEffect" type="CPUParticles2D"]
+texture_filter = 1
+amount = 30
+lifetime = 2.0
+explosiveness = 1.0
+texture = ExtResource("1_0maw5")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+radial_accel_min = 50.0
+radial_accel_max = 50.0
+scale_amount_curve = SubResource("Curve_0pwq6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b6sdolsmsqcf3"]
+[gd_scene load_steps=25 format=3 uid="uid://b6sdolsmsqcf3"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_l7ip0"]
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="2_5aexl"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://7d1xuqgb60hs" path="res://asset/sfx/mecha_sounds/signal_failure3.wav" id="6_ls76x"]
 [ext_resource type="AudioStream" uid="uid://xumg5xwbrjq4" path="res://asset/sfx/mecha_sounds/signal_failure4.wav" id="7_ux3c4"]
 [ext_resource type="AudioStream" uid="uid://cxwbyri7g0nhv" path="res://asset/sfx/mecha_sounds/signal_failure5.wav" id="8_1oh6i"]
+[ext_resource type="PackedScene" uid="uid://dmn7ycvegpg0r" path="res://scenes/particles/electric_effect.tscn" id="10_vue6k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mytmw"]
 atlas = ExtResource("2_5aexl")
@@ -141,3 +142,6 @@ a = Array[AudioStream]([ExtResource("5_mmj3q"), ExtResource("5_5mb24"), ExtResou
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_frgm6")
 animation = &"attack"
+
+[node name="ElectricEffect" parent="." index="10" instance=ExtResource("10_vue6k")]
+emitting = false
