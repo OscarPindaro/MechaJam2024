@@ -141,6 +141,3 @@ a = Array[AudioStream]([ExtResource("5_mmj3q"), ExtResource("5_5mb24"), ExtResou
 position = Vector2(2, -12)
 sprite_frames = SubResource("SpriteFrames_frgm6")
 animation = &"attack"
-
-[node name="BuffParticles" parent="." index="9"]
-frame_progress = 0.305122

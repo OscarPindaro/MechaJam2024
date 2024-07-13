@@ -14,6 +14,13 @@ func do_action():
 		var enemy_casted = enemy as BaseEnemy
 		enemy_casted.push_to_start(speed_multiplier, charm_duration)
 		enemies_affected.append(enemy)
+	# mean position of enemies
+	var mean_pos: Vector2 = Vector2.ZERO
+	for enemy in targets:
+		mean_pos = mean_pos + $SandParticles.to_local(enemy.global_position)
+	mean_pos = mean_pos / len(targets)
+	$SandParticles.emitting = true
+	$SandParticles.direction = mean_pos.normalized()
 
 
 

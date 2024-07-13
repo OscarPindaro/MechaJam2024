@@ -48,8 +48,9 @@ var range: float:
 		return range
 	set(value):
 		range = value
-		$VisionArea/CollisionShape2D.scale = Vector2(range, range)
-		$VisionArea/VisionSprite.scale *= range
+		# $VisionArea/CollisionShape2D.scale = Vector2(range, range)
+		$VisionArea.scale = Vector2(range, range)
+		# $VisionArea/VisionSprite.scale *= range
 var lvlCost: int
 var parent
 
@@ -317,6 +318,7 @@ func buff_damage(value: float, time: float):
 	timer.timeout.connect(end_buff_attSp)
 	temp_damage = value
 	timer.start(time)
+	print("Timer",time)
 	start_buff_animation(Color(1,0,0))
 
 func end_buff_damage():

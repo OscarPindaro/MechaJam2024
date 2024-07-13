@@ -204,12 +204,12 @@ shape = SubResource("CircleShape2D_tfmtx")
 
 [node name="VisionSprite" type="Sprite2D" parent="VisionArea"]
 modulate = Color(0.419608, 0.188235, 1, 0.541176)
-texture_filter = 5
-scale = Vector2(0.322266, 0.322266)
+texture_filter = 2
+position = Vector2(3.57628e-07, 0)
+scale = Vector2(0.208333, 0.208333)
 texture = ExtResource("9_xv6aq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
-visible = false
 shape = SubResource("CircleShape2D_wkbjs")
 debug_color = Color(0.94902, 0, 0.580392, 0.419608)
 

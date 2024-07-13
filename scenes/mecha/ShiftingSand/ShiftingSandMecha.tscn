@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bg5chagavjv0a"]
+[gd_scene load_steps=21 format=3 uid="uid://bg5chagavjv0a"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_jne46"]
 [ext_resource type="Script" path="res://scenes/mecha/ShiftingSand/shifting_sand_mecha.gd" id="2_1q7i8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cemhjj2avpuk" path="res://asset/mecha/Shift sand Sheet.png" id="4_bvrx3"]
 [ext_resource type="AudioStream" uid="uid://cfe6uj7e0ip3v" path="res://asset/sfx/mecha_sounds/shifting_sands3.wav" id="5_lqt35"]
 [ext_resource type="AudioStream" uid="uid://cosk2ikfmgipi" path="res://asset/sfx/mecha_sounds/shifting_sands.wav" id="6_lmmcc"]
+[ext_resource type="Texture2D" uid="uid://wj1avwpev5gy" path="res://asset/mecha/Sabbiaculo.png" id="8_5a8t6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n8tr"]
 atlas = ExtResource("4_bvrx3")
@@ -101,6 +102,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_ksbit"]
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="ShiftingSand" instance=ExtResource("1_jne46")]
 script = ExtResource("2_1q7i8")
 speed_multiplier = 0.5
@@ -114,3 +120,21 @@ a = Array[AudioStream]([ExtResource("4_44ax4"), ExtResource("5_lqt35"), ExtResou
 [node name="Animations" parent="." index="7"]
 sprite_frames = SubResource("SpriteFrames_gvrpf")
 animation = &"attack"
+frame = 3
+frame_progress = 1.0
+
+[node name="SandParticles" type="CPUParticles2D" parent="." index="10"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(20, 5)
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("8_5a8t6")
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 70.0
+scale_amount_curve = SubResource("Curve_ksbit")
+color = Color(1, 1, 1, 0.545098)
