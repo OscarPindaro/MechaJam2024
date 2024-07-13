@@ -124,7 +124,7 @@ animations = [{
 
 [node name="Resurrection" instance=ExtResource("1_n7ph4")]
 script = ExtResource("2_r440v")
-buff_time_scaler = 0.0
+buff_time_scaler = 1.0
 starting_stats = ExtResource("3_683i5")
 target_group = "mecha"
 
