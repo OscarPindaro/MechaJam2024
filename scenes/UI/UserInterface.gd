@@ -49,13 +49,13 @@ func buy_mecha(index):
 	var mecha = game_manager.mechas[index]
 	var cost = mecha.cost
 	if (game_manager.get_money() >= cost):
+		buttons[index].bought = true
 		game_manager.lose_money(cost)
 		mecha.buy()
 		cost = mecha.cost
 		button.find_child("Label", true).text = str(cost)
 		button.find_child("LvlUpArrow", true).visible = true
 		button.mechaData.cost = cost
-#		buttons[index].bought = true
 #		buttons[index].disabled = true
 #		buttons[index].find_child("Panel").queue_free()
 
