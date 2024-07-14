@@ -256,10 +256,18 @@ text = "100"
 horizontal_alignment = 1
 
 [node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem2" instance=ExtResource("12_uphot")]
-layout_mode = 2
-offset_left = 154.0
-offset_right = 244.0
-offset_bottom = 128.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -64.0
+offset_right = 45.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ShopItem3" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -318,11 +326,18 @@ text = "100"
 horizontal_alignment = 1
 
 [node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem3" instance=ExtResource("12_uphot")]
-layout_mode = 2
-offset_left = -154.0
-offset_top = 160.0
-offset_right = -64.0
-offset_bottom = 288.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -64.0
+offset_right = 45.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ShopItem4" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
