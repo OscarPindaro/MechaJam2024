@@ -857,6 +857,7 @@ offset_top = 50.0
 offset_right = 300.0
 offset_bottom = 200.0
 grow_horizontal = 2
+mouse_filter = 2
 theme = ExtResource("2_hhg2b")
 theme_override_styles/panel = SubResource("StyleBoxTexture_kq08u")
 

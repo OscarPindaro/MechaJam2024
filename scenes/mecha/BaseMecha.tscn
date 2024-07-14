@@ -28,6 +28,7 @@ cost = 100
 lvlCost = 50
 tooltipName = ""
 tooltipDescription = ""
+tooltipLvlUp = ""
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asdtb"]
 radius = 33.0

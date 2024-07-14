@@ -4,10 +4,11 @@ class_name Map
 @onready var tilemap: TileMap = $TileMap
 
 const CARDBOARD_LAYER = 1
+const NON_WALKABLE_LAYER = 2
 
 const CORRECT_TILE_ID = 2
 const WRONG_TILE_ID = 3
-const SELECTION_LAYER = 2
+const SELECTION_LAYER = 3
 
 var old_selection_cell 	= null
 
@@ -18,6 +19,13 @@ func is_cell_cardboard(cell: Vector2i) -> bool:
 		return false
 	else:
 		return true
+
+func is_cell_walkable(cell: Vector2i) -> bool:
+	var id: int = tilemap.get_cell_source_id(NON_WALKABLE_LAYER, cell)
+	if id == -1:	# Not found, so its walkable
+		return true
+	else:
+		return false
 
 func draw_selection(cell: Vector2i, is_valid: bool):
 	# cancel old selection
