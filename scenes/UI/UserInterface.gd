@@ -37,6 +37,9 @@ func _ready():
 		%WaveLabel.text = "Wave: 0"
 		game_manager.wave_start.connect(func(num): %WaveLabel.text = "Wave: " + str(num))
 
+		# Connect wave end panel
+		game_manager.wave_end.connect(%EndWaveLayer.fade_in_out)
+
 func make_wave_start():
 	game_manager.start_wave()
 	%StartWaveButton.disabled = true
