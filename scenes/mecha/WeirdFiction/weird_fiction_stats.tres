@@ -12,5 +12,7 @@ start_projectile_speed = 10.0
 start_damage = 2.0
 start_range = 15.0
 cost = 400
+lvlCost = 50
 tooltipName = "Weird Ghost"
 tooltipDescription = "The power of the curtain on its head allows this ghost to summon staplers out of the ground that attack three enemies at once!"
+tooltipLvlUp = "Summons+"

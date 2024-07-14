@@ -15,3 +15,4 @@ cost = 100
 lvlCost = 50
 tooltipName = "Relaxed Goblin"
 tooltipDescription = "Thanks to its wheels, this mech is extremely fast but can only kick nearby enemies. Can't damage flying enemies."
+tooltipLvlUp = "Att. speed+, Speed+"

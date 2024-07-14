@@ -13,3 +13,4 @@ class_name MechaStatResource
 @export var lvlCost : int = 50
 @export var tooltipName : String
 @export var tooltipDescription : String
+@export var tooltipLvlUp : String

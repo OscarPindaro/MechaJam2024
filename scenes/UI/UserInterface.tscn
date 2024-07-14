@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://y75tqsouhvsj"]
+[gd_scene load_steps=35 format=3 uid="uid://y75tqsouhvsj"]
 
 [ext_resource type="Script" path="res://scenes/UI/UserInterface.gd" id="1_a1vov"]
 [ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
@@ -50,8 +50,10 @@ events = [SubResource("InputEventKey_rcvux")]
 atlas = ExtResource("7_57ifu")
 region = Rect2(256, 161, 33, 31)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ta5e4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rwa5"]
 texture = ExtResource("8_6bcaq")
+texture_margin_top = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2ada"]
 bg_color = Color(0.654902, 0.654902, 0.654902, 1)
@@ -76,6 +78,9 @@ tracks/0/keys = {
 _data = {
 "fade_in_fade_out": SubResource("Animation_hjc5u")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kq08u"]
+texture = ExtResource("8_6bcaq")
 
 [node name="GameplayUI" type="Control"]
 process_mode = 3
@@ -778,45 +783,25 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Wave:"
 
-[node name="Tooltip" type="Panel" parent="."]
+[node name="Tooltip" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 z_index = 1
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -125.0
-offset_right = 100.0
-offset_bottom = 125.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 860.0
+offset_top = 365.5
+offset_right = 1060.0
+offset_bottom = 480.5
 theme = ExtResource("2_hhg2b")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ta5e4")
+theme_override_styles/panel = SubResource("StyleBoxTexture_0rwa5")
 script = ExtResource("21_y2hv2")
 
 [node name="CenterContainer" type="CenterContainer" parent="Tooltip"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tooltip/CenterContainer"]
-custom_minimum_size = Vector2(180, 235)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 
 [node name="TooltipNameLabel" type="Label" parent="Tooltip/CenterContainer/VBoxContainer"]
@@ -833,17 +818,23 @@ autowrap_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Descrizione"
+text = "Descrizione "
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 
-[node name="TooltipPriceLabel" type="Label" parent="Tooltip/CenterContainer/VBoxContainer"]
+[node name="LvlUpSeparator" type="HSeparator" parent="Tooltip/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-text = "Prezzo
-"
+theme = ExtResource("2_hhg2b")
+
+[node name="TooltipLvlUpLabel" type="Label" parent="Tooltip/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Level Up:"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="EndWaveLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -867,6 +858,7 @@ offset_right = 300.0
 offset_bottom = 200.0
 grow_horizontal = 2
 theme = ExtResource("2_hhg2b")
+theme_override_styles/panel = SubResource("StyleBoxTexture_kq08u")
 
 [node name="EndWaveLabel" type="Label" parent="EndWaveLayer/EndWavePanel"]
 unique_name_in_owner = true
