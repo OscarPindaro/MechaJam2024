@@ -12,5 +12,6 @@ start_projectile_speed = 10.0
 start_damage = 0.5
 start_range = 9.0
 cost = 100
+lvlCost = 50
 tooltipName = "Relaxed Goblin"
-tooltipDescription = "Thanks to its wheels, this mech is extremely fast but can only kick nearby enemies."
+tooltipDescription = "Thanks to its wheels, this mech is extremely fast but can only kick nearby enemies. Can't damage flying enemies."

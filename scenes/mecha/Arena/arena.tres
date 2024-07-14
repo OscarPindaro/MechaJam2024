@@ -12,5 +12,6 @@ start_projectile_speed = 10.0
 start_damage = 1.0
 start_range = 15.0
 cost = 150
-tooltipName = "Arena Figther"
+lvlCost = 50
+tooltipName = "Arena Fighter"
 tooltipDescription = "Pierce enemies with this mech's spear: if you line him up just right you may hit a lot of them!"

@@ -12,5 +12,6 @@ start_projectile_speed = 1.0
 start_damage = 1.0
 start_range = 10.0
 cost = 400
+lvlCost = 50
 tooltipName = "Wave Shifter"
-tooltipDescription = "This mech is perhaps the only one with a real weapon, a fire estigusher: use it to push enemies down the path!"
+tooltipDescription = "This mech is perhaps the only one with a real weapon, a fire estigusher: use it to push enemies down the path! Can't affect flying enemies."
