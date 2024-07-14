@@ -20,6 +20,7 @@ func _on_pressed():
 		tree.get_root().add_child(menu_scene)
 		menu_scene.set_meta("is_menu_screen_loaded",true)
 		%Play_pause.disabled = true
+		tree.get_root().child_exiting_tree.connect(enable_play_pause)
 
 	else:
 		tree.paused = false
@@ -31,4 +32,6 @@ func _on_pressed():
 	# FUNZIONA MA SOSTITUISCE LA SCENA COMPETAMENTE
 	#tree.change_scene_to_file("res://scenes/UI/InGameSettings.tscn")
 
-#
+func enable_play_pause(node):
+	if node == menu_scene:
+		%Play_pause.disabled = false
