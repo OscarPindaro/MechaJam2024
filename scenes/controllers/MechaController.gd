@@ -49,6 +49,7 @@ func _unhandled_input(event):
 				print("Mecha Cell: ", mecha_cell, " , pos: ", mecha_pos)
 				print("Target Cell: ", target_cell, " , pos: ", mouse_position)
 				var cell_path: Array[Vector2i] = movement_controller.compute_id_path(mecha_cell, target_cell)
+				print(cell_path)
 				# convert to local transform? maybe inside the player
 				var position_path: Array[Vector2]= []
 				for cell in cell_path:
@@ -64,7 +65,7 @@ func can_mecha_move(cell: Vector2i):
 	var can_move = true
 	for mecha_cell in mecha_cells:
 		can_move = can_move and mecha_cell != cell
-	can_move = can_move and ! map_node.is_cell_cardboard(cell)
+	can_move = can_move and ! map_node.is_cell_cardboard(cell) and map_node.is_cell_walkable(cell)
 	return can_move
 
 func on_mecha_selection(mecha: BaseMecha):
@@ -94,11 +95,13 @@ func _process(_delta):
 		var mouse_position: Vector2 = get_global_mouse_position()
 		var mouse_cell: Vector2i = get_coord_in_map(mouse_position)
 
-
-		var is_carboard: bool = map_node.is_cell_cardboard(mouse_cell)
-		if is_carboard:
+		var is_invalid: bool = map_node.is_cell_cardboard(mouse_cell) || !map_node.is_cell_walkable(mouse_cell)
+		if is_invalid:
 			map_node.draw_selection(mouse_cell, false)
 		# else draw green
 		else:
 			map_node.draw_selection(mouse_cell, true)
 
+
+func is_cell_walkable(cell: Vector2i):
+	return map_node.is_cell_walkable(cell)

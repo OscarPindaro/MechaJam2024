@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6sdolsmsqcf3"]
+[gd_scene load_steps=27 format=3 uid="uid://b6sdolsmsqcf3"]
 
 [ext_resource type="PackedScene" uid="uid://b101tedcqcq5v" path="res://scenes/mecha/BaseMecha.tscn" id="1_l7ip0"]
 [ext_resource type="Texture2D" uid="uid://b6hq78bkpmn86" path="res://asset/mecha/Fail Sigh -Sheet.png" id="2_5aexl"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://xumg5xwbrjq4" path="res://asset/sfx/mecha_sounds/signal_failure4.wav" id="7_ux3c4"]
 [ext_resource type="AudioStream" uid="uid://cxwbyri7g0nhv" path="res://asset/sfx/mecha_sounds/signal_failure5.wav" id="8_1oh6i"]
 [ext_resource type="PackedScene" uid="uid://dmn7ycvegpg0r" path="res://scenes/particles/electric_effect.tscn" id="10_vue6k"]
+[ext_resource type="Texture2D" uid="uid://dyng8ucfkrd1k" path="res://asset/particles/Electro wave-Sheet 2t.png" id="11_mysjb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mytmw"]
 atlas = ExtResource("2_5aexl")
@@ -125,6 +126,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jcvrk"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [node name="SignalFalureMecha" instance=ExtResource("1_l7ip0")]
 position = Vector2(1, 0)
 script = ExtResource("2_ahlqk")
@@ -145,9 +152,18 @@ sprite_frames = SubResource("SpriteFrames_frgm6")
 animation = &"attack"
 
 [node name="ElectricEffect" parent="." index="10" instance=ExtResource("10_vue6k")]
+material = SubResource("CanvasItemMaterial_jcvrk")
 emitting = false
+amount = 1
+speed_scale = 2.0
 explosiveness = 0.0
-randomness = 0.27
 local_coords = true
-scale_amount_min = 0.5
+texture = ExtResource("11_mysjb")
+initial_velocity_min = 0.0
+initial_velocity_max = 0.0
+angular_velocity_min = 0.0
+angular_velocity_max = 0.0
+angle_min = -100.0
+angle_max = 100.0
+scale_amount_min = 2.0
 scale_amount_max = 2.0

@@ -16,15 +16,20 @@ func _on_mouse_entered():
 		%Tooltip.global_position.y = self.global_position.y - (%Tooltip.size.y - self.size.y)
 	
 	%Tooltip.visible = true
-	%Tooltip.populate(mechaData.tooltipName, mechaData.tooltipDescription, mechaData.cost)
+	%Tooltip.populate(mechaData.tooltipName, mechaData.tooltipDescription, mechaData.tooltipLvlUp, bought)
 	
 func _on_mouse_exited():
 	#PopupShop.hide_popup()
 	%Tooltip.visible = false
+	%LvlUpSeparator.visible = false
+	%TooltipLvlUpLabel.visible = false
 
 func _on_pressed():
 	if !get_tree().paused:
 		pressed_unpaused.emit()
 
 func _on_money_change(_delta, tot):
-	disabled = mechaData.cost > tot #|| bought
+	if bought:
+		disabled = mechaData.lvlCost > tot
+	else:
+		disabled = mechaData.cost > tot

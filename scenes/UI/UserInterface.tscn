@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://y75tqsouhvsj"]
+[gd_scene load_steps=35 format=3 uid="uid://y75tqsouhvsj"]
 
 [ext_resource type="Script" path="res://scenes/UI/UserInterface.gd" id="1_a1vov"]
 [ext_resource type="Texture2D" uid="uid://bnf6gxjevx6cq" path="res://asset/UI/play_pause_icon.png" id="2_7f32f"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d233oc1bi77qs" path="res://asset/UI/WEIR FIC .png" id="17_2j5vh"]
 [ext_resource type="Texture2D" uid="uid://g88lfpqw64y" path="res://asset/UI/TIME TRAVEL .png" id="19_15a33"]
 [ext_resource type="Script" path="res://scenes/UI/Tooltip.gd" id="21_y2hv2"]
+[ext_resource type="Script" path="res://scenes/UI/EndWavePanel.gd" id="23_0ifwt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_em7j1"]
 texture = ExtResource("8_6bcaq")
@@ -49,11 +50,37 @@ events = [SubResource("InputEventKey_rcvux")]
 atlas = ExtResource("7_57ifu")
 region = Rect2(256, 161, 33, 31)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ta5e4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rwa5"]
 texture = ExtResource("8_6bcaq")
+texture_margin_top = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2ada"]
 bg_color = Color(0.654902, 0.654902, 0.654902, 1)
+
+[sub_resource type="Animation" id="Animation_hjc5u"]
+resource_name = "fade_in_fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jvuu4"]
+_data = {
+"fade_in_fade_out": SubResource("Animation_hjc5u")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kq08u"]
+texture = ExtResource("8_6bcaq")
 
 [node name="GameplayUI" type="Control"]
 process_mode = 3
@@ -256,10 +283,18 @@ text = "100"
 horizontal_alignment = 1
 
 [node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem2" instance=ExtResource("12_uphot")]
-layout_mode = 2
-offset_left = 154.0
-offset_right = 244.0
-offset_bottom = 128.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -64.0
+offset_right = 45.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ShopItem3" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -318,11 +353,18 @@ text = "100"
 horizontal_alignment = 1
 
 [node name="LvlUpArrow" parent="ShopPanel/VBoxContainer/MechaShop/ShopItem3" instance=ExtResource("12_uphot")]
-layout_mode = 2
-offset_left = -154.0
-offset_top = 160.0
-offset_right = -64.0
-offset_bottom = 288.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -64.0
+offset_right = 45.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ShopItem4" type="Button" parent="ShopPanel/VBoxContainer/MechaShop"]
 unique_name_in_owner = true
@@ -741,45 +783,25 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Wave:"
 
-[node name="Tooltip" type="Panel" parent="."]
+[node name="Tooltip" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 z_index = 1
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -125.0
-offset_right = 100.0
-offset_bottom = 125.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 860.0
+offset_top = 365.5
+offset_right = 1060.0
+offset_bottom = 480.5
 theme = ExtResource("2_hhg2b")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ta5e4")
+theme_override_styles/panel = SubResource("StyleBoxTexture_0rwa5")
 script = ExtResource("21_y2hv2")
 
 [node name="CenterContainer" type="CenterContainer" parent="Tooltip"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tooltip/CenterContainer"]
-custom_minimum_size = Vector2(180, 235)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 
 [node name="TooltipNameLabel" type="Label" parent="Tooltip/CenterContainer/VBoxContainer"]
@@ -796,17 +818,61 @@ autowrap_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Descrizione"
+text = "Descrizione "
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 
-[node name="TooltipPriceLabel" type="Label" parent="Tooltip/CenterContainer/VBoxContainer"]
+[node name="LvlUpSeparator" type="HSeparator" parent="Tooltip/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-text = "Prezzo
-"
+theme = ExtResource("2_hhg2b")
+
+[node name="TooltipLvlUpLabel" type="Label" parent="Tooltip/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Level Up:"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="EndWaveLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("23_0ifwt")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="EndWaveLayer"]
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EndWaveLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_jvuu4")
+}
+
+[node name="EndWavePanel" type="Panel" parent="EndWaveLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 50.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+mouse_filter = 2
+theme = ExtResource("2_hhg2b")
+theme_override_styles/panel = SubResource("StyleBoxTexture_kq08u")
+
+[node name="EndWaveLabel" type="Label" parent="EndWaveLayer/EndWavePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Wave XXX completed!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Menu_buttons/Play_pause" to="Menu_buttons/Play_pause" method="_on_pressed"]
 [connection signal="pressed" from="Menu_buttons/Menu" to="Menu_buttons/Menu" method="_on_pressed"]

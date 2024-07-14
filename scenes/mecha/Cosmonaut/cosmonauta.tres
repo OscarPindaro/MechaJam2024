@@ -12,5 +12,7 @@ start_projectile_speed = 5.0
 start_damage = 1.0
 start_range = 20.0
 cost = 150
+lvlCost = 50
 tooltipName = "Cosmonaut"
 tooltipDescription = "With a microwave on its head, this mech is ready to throw hot food at all enemies!"
+tooltipLvlUp = "Damage+, Att. speed+, Range+, Speed+"
