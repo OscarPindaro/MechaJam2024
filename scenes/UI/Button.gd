@@ -29,4 +29,7 @@ func _on_pressed():
 		pressed_unpaused.emit()
 
 func _on_money_change(_delta, tot):
-	disabled = (!bought && mechaData.cost > tot) || (bought && mechaData.lvlCost > tot)
+	if bought:
+		disabled = mechaData.lvlCost > tot
+	else:
+		disabled = mechaData.cost > tot
