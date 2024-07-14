@@ -52,6 +52,7 @@ var range: float:
 		$VisionArea.scale = Vector2(range, range)
 		# $VisionArea/VisionSprite.scale *= range
 var lvlCost: int
+var lvlUp : LvlUpBehaviour
 var parent
 
 # func state
@@ -96,6 +97,7 @@ func _ready():
 
 	range = starting_stats.start_range
 	lvlCost = starting_stats.lvlCost
+	lvlUp = starting_stats.lvlUp
 	print("Speed: ", speed)
 	temp_speed = 0
 	temp_attack_speed = 0
@@ -342,7 +344,19 @@ func level_up():
 	return
 	
 func add_level_stats():
-	pass
+	# Add stats
+	speed -= lvlUp.speed_up
+	attack_speed += lvlUp.att_speed_up
+	projectile_speed += lvlUp.proj_speed_up
+	damage += lvlUp.dmg_up
+	range += lvlUp.range_up
+
+	# Update lvlUp stats
+	lvlUp.speed_up *= lvlUp.per_lvl_multiplier
+	lvlUp.att_speed_up *= lvlUp.per_lvl_multiplier
+	lvlUp.proj_speed_up *= lvlUp.per_lvl_multiplier
+	lvlUp.dmg_up *= lvlUp.per_lvl_multiplier
+	lvlUp.range_up *= lvlUp.per_lvl_multiplier
 
 
 func _on_animations_animation_finished():
