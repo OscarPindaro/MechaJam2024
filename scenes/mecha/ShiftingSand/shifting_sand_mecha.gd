@@ -37,3 +37,6 @@ func on_vision_area_exited(area: Area2D):
 
 func add_level_stats():
 	charm_duration *= 1.1
+	if damage == 0:
+			damage = 0.1
+	damage = damage * 1.1
