@@ -15,4 +15,4 @@ cost = 600
 lvlCost = 50
 tooltipName = "Signal Jammer"
 tooltipDescription = "A computer wiz, this mecha uses the router on its head to send emp signals that can stop nearby enemies!"
-tooltipLvlUp = "Range+, Damage+, Att. speed+"
+tooltipLvlUp = "Effect Duration+, Damage+, Att. speed+"
