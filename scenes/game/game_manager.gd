@@ -2,7 +2,7 @@ extends Node
 class_name GameManager
 
 # Spawn variables
-@export var spawn_point : Marker2D
+@export var spawn_points : Array[Marker2D]
 @export var goal_point : Marker2D
 
 # Wave data
@@ -41,7 +41,7 @@ signal money_change(delta, tot)
 
 func _ready():
 	# Set spawner variables
-	$Spawner.spawn_point = spawn_point
+	$Spawner.spawn_points = spawn_points
 	$Spawner.goal_point = goal_point
 
 	spawn_value = start_spawn_value

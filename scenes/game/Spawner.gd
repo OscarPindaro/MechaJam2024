@@ -4,7 +4,7 @@ extends Node
 @export var enemy_types : Array[EnemyData]
 @export var spawn_radius : float
 
-var spawn_point : Marker2D
+var spawn_points : Array[Marker2D]
 var goal_point : Marker2D
 
 var wave_num = 0
@@ -61,7 +61,9 @@ func spawn_random_enemy():
 		if can_spawn(enemy) && spawned_enemy_value + enemy.spawn_value <= tot_enemy_value:
 			current += enemy.spawn_frequency
 			if current >= random:
-				spawn_enemy(enemy, spawn_point.position, spawn_radius)
+				# Select random spawn point
+				var s_index = randi_range(0, spawn_points.size() - 1)
+				spawn_enemy(enemy, spawn_points[s_index].position, spawn_radius)
 				return
 	
 	# Exited because no more valid enemies or total value depleated
