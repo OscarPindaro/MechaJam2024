@@ -341,7 +341,6 @@ position = Vector2(1214, 365)
 position = Vector2(1555, 158)
 
 [node name="Tree2" parent="Map" instance=ExtResource("6_ml8yu")]
-z_index = 2
 position = Vector2(868, 308)
 
 [node name="Tree3" parent="Map" instance=ExtResource("6_ml8yu")]

@@ -79,8 +79,13 @@ _data = {
 "fade_in_fade_out": SubResource("Animation_hjc5u")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kq08u"]
-texture = ExtResource("8_6bcaq")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kfgf"]
+bg_color = Color(0.764706, 0.764706, 0.764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 
 [node name="GameplayUI" type="Control"]
 process_mode = 3
@@ -859,7 +864,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 mouse_filter = 2
 theme = ExtResource("2_hhg2b")
-theme_override_styles/panel = SubResource("StyleBoxTexture_kq08u")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8kfgf")
 
 [node name="EndWaveLabel" type="Label" parent="EndWaveLayer/EndWavePanel"]
 unique_name_in_owner = true
